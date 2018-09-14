@@ -1,0 +1,179 @@
+<form class="pl-2 pr-2" [formGroup]="form" (ngSubmit)="onSubmit(form)">
+  <br>
+  <div class="pb-3">
+    <h5>Basic Information >></h5>
+  </div>
+  
+  <div class="form-group row">
+    <label for="inputFullame" class="col-sm-2 col-form-label">Full Name</label>
+    <div class="col-sm-10">
+      <input formControlName="fullname" type="text" class="form-control" id="" placeholder="Full Name">
+    </div>
+  </div>
+
+  <div   class="form-group row">
+    <label for="inputFullame" class="col-sm-2 col-form-label">First Name</label>
+    <div class="col-sm-4">
+      <input formControlName="firstname" type="text" class="form-control" id="" placeholder="First Name">
+    </div>
+    <label for="inputFullame" class="col-sm-2 col-form-label">Last Name</label>
+    <div class="col-sm-4">
+      <input formControlName="lastname" type="text" class="form-control" id="" placeholder="Last Name">
+    </div>
+  </div>
+
+  <div [formGroup]="form" class="form-group row">
+    <label for="inputFullame" class="col-sm-2 col-form-label">Birthday</label>
+    <div class="col-sm-4">
+      <select id="inputState" class="form-control">
+        <option selected>Year</option>
+        <option>1994</option>
+        <option>1995</option>
+        <option>1996</option>
+      </select>
+    </div>
+    <div class="col-sm-2">
+      <select id="inputState" class="form-control">
+        <option selected>Month</option>
+        <option>01</option>
+        <option>02</option>
+        <option>03</option>
+        <option>04</option>
+      </select>
+    </div>
+    <div class="col-sm-2">
+      <select id="inputState" class="form-control">
+        <option selected>Day</option>
+        <option>01</option>
+        <option>02</option>
+        <option>03</option>
+        <option>04</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputFullame" class="col-sm-2 col-form-label">Contact</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="" placeholder="Mobile Number">
+    </div>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="" placeholder="Land-line Number">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputFullame" class="col-sm-2 col-form-label">Address</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="" placeholder="No">
+      <input type="text" class="form-control mt-1" id="" placeholder="First Street">
+      <input type="text" class="form-control mt-1" id="" placeholder="Second Street">
+      <div class="row mt-1">
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="" placeholder="City">
+        </div>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="" placeholder="District">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputFullame" class="col-sm-2 col-form-label">Batch</label>
+    <div class="col-sm-5">
+      <select id="inputState" class="form-control">
+        <option selected>Choose year</option>
+        <option>2018</option>
+        <option>2019</option>
+        <option>2020</option>
+      </select>
+    </div>
+    <div class="col-sm-5">
+      <select id="inputState" class="form-control">
+        <option selected>Choose Class</option>
+        <option>A/L</option>
+        <option>O/L</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputFullame" class="col-sm-2 col-form-label">Subject(s)</label>
+    <div class="col-sm-4">
+      <select id="inputState" class="form-control">
+        <option selected>Choose subject</option>
+        <option>Maths</option>
+        <option>Physics</option>
+        <option>Chemistry</option>
+      </select>          
+      <select id="inputState" class="form-control mt-1">
+        <option selected>Choose subject</option>
+        <option>Maths</option>
+        <option>Physics</option>
+        <option>Chemistry</option>
+      </select>
+      <div class="row">
+        <div class="pl-3"></div>
+        <button type="button" class="btn btn-primary col-sm-2"><strong>+</strong></button>          
+        <button type="button" class="btn btn-danger col-sm-2"><strong>-</strong></button>          
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <div class="pb-3">
+    <h5>Parent Information >></h5>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputFullame" class="col-sm-2 col-form-label">Father</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="" placeholder="Father Name">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputFullame" class="col-sm-2 col-form-label">Contact</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="" placeholder="Contact Number">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputFullame" class="col-sm-2 col-form-label">Mother</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="" placeholder="Mother Name">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputFullame" class="col-sm-2 col-form-label">Contact</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="" placeholder="Contact Number">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputFullame" class="col-sm-2 col-form-label">Guardian</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="" placeholder="Gardian Name (Optonal)">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputFullame" class="col-sm-2 col-form-label">Contact</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="" placeholder="Contact Number (Optonal)">
+    </div>
+  </div>
+
+  <hr>
+  <button type="submit" class="btn btn-primary col-sm-4 float-right text-capitalize">submit</button>
+</form>

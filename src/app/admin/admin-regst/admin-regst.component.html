@@ -1,0 +1,39 @@
+<div class="mycol rounded">
+  <div class="bd-col p-3 bck-col">
+    <h3 class="pl-3">Registration</h3>
+  </div>
+  
+  <mdb-navbar SideClass="navbar navbar-expand-sm navbar-dark mdb-color darken-3">
+    <links>
+      <ul class="navbar-nav">
+        <li class="nav-item" [class.active]="viewMode === 'student'">
+          <a (click)="viewMode = 'student'" class="nav-link waves-light" mdbWavesEffect>Student Form</a>
+        </li>
+        <li class="nav-item" [class.active]="viewMode === 'teacher'">
+          <a (click)="viewMode = 'teacher'" class="nav-link waves-light" mdbWavesEffect>Teacher Form</a>
+        </li>
+        <li class="nav-item" [class.active]="viewMode === 'paper'">
+          <a (click)="viewMode = 'paper'" class="nav-link waves-light" mdbWavesEffect>Paper Marker Form</a>
+        </li>
+        <li class="nav-item" [class.active]="viewMode === 'card'">
+          <a (click)="viewMode = 'card'" class="nav-link waves-light" mdbWavesEffect>Card Marker Form</a>
+        </li>
+      </ul>
+    </links>
+  </mdb-navbar>
+
+  <div [ngSwitch]="viewMode">
+    <div class="animated fadeIn" *ngSwitchCase="'student'">
+      <app-ad-reg-student></app-ad-reg-student>
+    </div>
+    <div class="animated fadeIn" *ngSwitchCase="'teacher'">
+      <app-ad-reg-teacher></app-ad-reg-teacher>
+    </div>
+    <div class="animated fadeIn" *ngSwitchCase="'paper'">
+      <app-ad-reg-paper-mkr></app-ad-reg-paper-mkr>
+    </div>
+    <div class="animated fadeIn" *ngSwitchCase="'card'">
+      <app-ad-reg-card-mkr></app-ad-reg-card-mkr>
+    </div>
+  </div>
+</div>
