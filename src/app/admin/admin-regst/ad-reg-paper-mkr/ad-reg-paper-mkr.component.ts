@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+
 
 @Component({
   selector: 'app-ad-reg-paper-mkr',
@@ -7,9 +9,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdRegPaperMkrComponent implements OnInit {
 
-  constructor() { }
+  form;
+
+  constructor(
+    private fb: FormBuilder
+  ) { 
+    this.form = fb.group({
+      fullname: [''],
+      firstname: [''],
+      lastname: [''],
+      birthday: [{
+        year: [''],
+        month: [''],
+        date: ['']
+      }],
+      contact : [{
+        mobile: [''],
+        landLine: [''],
+      }],
+      address: [{
+        no: [''],
+        firstStreet: [''],
+        secondStreet: [''],
+        city: [''],
+        district: ['']
+      }],
+      classInfo: [{
+        subject: [''],
+        batch: [{
+          year: [''],
+          class: ['']
+        }]
+      }]
+    })
+  }
 
   ngOnInit() {
+  }
+
+  onSubmit(form){
+    console.log(form.value);
   }
 
 }

@@ -17,6 +17,10 @@ import { AdRegTeacherComponent } from './admin/admin-regst/ad-reg-teacher/ad-reg
 import { AdminDashbordComponent } from './admin/admin-dashbord/admin-dashbord.component';
 import { AdRegPaperMkrComponent } from './admin/admin-regst/ad-reg-paper-mkr/ad-reg-paper-mkr.component';
 import { AdRegCardMkrComponent } from './admin/admin-regst/ad-reg-card-mkr/ad-reg-card-mkr.component';
+import { AdminUserListComponent } from './admin/admin-user-list/admin-user-list.component';
+import { AuthService } from './services/auth.service';
+import { HttpModule } from '@angular/http';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +35,8 @@ import { AdRegCardMkrComponent } from './admin/admin-regst/ad-reg-card-mkr/ad-re
     AdRegTeacherComponent,
     AdminDashbordComponent,
     AdRegPaperMkrComponent,
-    AdRegCardMkrComponent
+    AdRegCardMkrComponent,
+    AdminUserListComponent,
   ],
   imports: [
     FormsModule,
@@ -41,9 +46,12 @@ import { AdRegCardMkrComponent } from './admin/admin-regst/ad-reg-card-mkr/ad-re
     RouterModule.forRoot(
       appRoutes
     ),
+    HttpModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

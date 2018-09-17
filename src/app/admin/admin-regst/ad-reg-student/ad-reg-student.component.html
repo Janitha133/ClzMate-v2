@@ -1,24 +1,24 @@
 <form class="pl-2 pr-2" [formGroup]="form" (ngSubmit)="onSubmit(form)">
   <br>
   <div class="pb-3">
-    <h5>Basic Information >></h5>
+      <h5><strong>Basic Information >></strong></h5>
   </div>
   
   <div class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">Full Name</label>
     <div class="col-sm-10">
-      <input formControlName="fullname" type="text" class="form-control" id="" placeholder="Full Name">
+      <input type="text" class="form-control" id="" placeholder="Full Name">
     </div>
   </div>
 
   <div   class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">First Name</label>
     <div class="col-sm-4">
-      <input formControlName="firstname" type="text" class="form-control" id="" placeholder="First Name">
+      <input type="text" class="form-control" id="" placeholder="First Name">
     </div>
     <label for="inputFullame" class="col-sm-2 col-form-label">Last Name</label>
     <div class="col-sm-4">
-      <input formControlName="lastname" type="text" class="form-control" id="" placeholder="Last Name">
+      <input type="text" class="form-control" id="" placeholder="Last Name">
     </div>
   </div>
 
@@ -119,17 +119,17 @@
         <option>Physics</option>
         <option>Chemistry</option>
       </select>
-      <div class="row">
+      <!-- <div class="row">
         <div class="pl-3"></div>
         <button type="button" class="btn btn-primary col-sm-2"><strong>+</strong></button>          
         <button type="button" class="btn btn-danger col-sm-2"><strong>-</strong></button>          
-      </div>
+      </div> -->
     </div>
   </div>
 
   <hr>
   <div class="pb-3">
-    <h5>Parent Information >></h5>
+    <h5><strong>Parent Information >></strong></h5>
   </div>
 
   <div class="form-group row">
@@ -175,5 +175,5 @@
   </div>
 
   <hr>
-  <button type="submit" class="btn btn-primary col-sm-4 float-right text-capitalize">submit</button>
+  <button mdbBtn type="submit" color="indigo" class="waves-light col-sm-3 float-right" mdbWavesEffect>Submit</button>
 </form>
