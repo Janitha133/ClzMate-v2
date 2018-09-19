@@ -20,6 +20,9 @@ import { AdRegCardMkrComponent } from './admin/admin-regst/ad-reg-card-mkr/ad-re
 import { AdminUserListComponent } from './admin/admin-user-list/admin-user-list.component';
 import { AuthService } from './services/auth.service';
 import { HttpModule } from '@angular/http';
+import { AdminAttendComponent } from './admin/admin-attend/admin-attend.component';
+import { AdminClassFeesComponent } from './admin/admin-class-fees/admin-class-fees.component';
+import { AdminClassSchedComponent } from './admin/admin-class-sched/admin-class-sched.component';
 
 
 @NgModule({
@@ -37,6 +40,9 @@ import { HttpModule } from '@angular/http';
     AdRegPaperMkrComponent,
     AdRegCardMkrComponent,
     AdminUserListComponent,
+    AdminAttendComponent,
+    AdminClassFeesComponent,
+    AdminClassSchedComponent,
   ],
   imports: [
     FormsModule,

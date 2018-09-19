@@ -12,4 +12,5 @@ export class AdminSidebarComponent implements OnInit {
   ngOnInit() {
   }
 
+  viewModeSide = 'dashboard';
 }

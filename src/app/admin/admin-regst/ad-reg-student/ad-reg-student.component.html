@@ -1,5 +1,5 @@
-<form class="pl-2 pr-2" [formGroup]="form" (ngSubmit)="onSubmit(form)">
-  <br>
+<form class="pl-2 pr-2" [formGroup]="form1" (ngSubmit)="onSubmit(form1)">
+  <hr>
   <div class="pb-3">
       <h5><strong>Basic Information >></strong></h5>
   </div>
@@ -7,114 +7,194 @@
   <div class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">Full Name</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="" placeholder="Full Name">
+      <input formControlName="fullname" type="text" class="form-control" id="" placeholder="Full Name">
+      <div class="alert alert-danger" *ngIf="fullname.touched && fullname.invalid">
+        <small>Please enter full name</small>
+      </div>    
     </div>
   </div>
 
-  <div   class="form-group row">
+  <div class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">First Name</label>
     <div class="col-sm-4">
-      <input type="text" class="form-control" id="" placeholder="First Name">
+      <input formControlName="firstname" type="text" class="form-control" id="" placeholder="First Name">    
+      <div class="alert alert-danger" *ngIf="firstname.touched && firstname.invalid">
+        <small>Please enter first name</small>
+      </div>    
     </div>
+
     <label for="inputFullame" class="col-sm-2 col-form-label">Last Name</label>
     <div class="col-sm-4">
-      <input type="text" class="form-control" id="" placeholder="Last Name">
+      <input formControlName="lastname" type="text" class="form-control" id="" placeholder="Last Name">
+      <div class="alert alert-danger" *ngIf="lastname.touched && lastname.invalid">
+        <small>Please enter last name</small>
+      </div>  
     </div>
   </div>
 
-  <div [formGroup]="form" class="form-group row">
-    <label for="inputFullame" class="col-sm-2 col-form-label">Birthday</label>
+  <div formGroupName="birthday" class="form-group row">
+    <label for="birthday" class="col-sm-2 col-form-label">Birthday</label>
     <div class="col-sm-4">
-      <select id="inputState" class="form-control">
-        <option selected>Year</option>
+      <select formControlName="year" id="inputState" class="form-control">
+        <option value="">Year</option>
         <option>1994</option>
         <option>1995</option>
         <option>1996</option>
       </select>
+      <div class="alert alert-danger" *ngIf="year.touched && year.invalid">
+        <small>Please select year</small>
+      </div>
     </div>
     <div class="col-sm-2">
-      <select id="inputState" class="form-control">
-        <option selected>Month</option>
+      <select formControlName="month" id="inputState" class="form-control">
+        <option value="">Month</option>
         <option>01</option>
         <option>02</option>
         <option>03</option>
         <option>04</option>
       </select>
+      <div class="alert alert-danger" *ngIf="month.touched && month.invalid">
+        <small>Please select month</small>
+      </div>  
     </div>
     <div class="col-sm-2">
-      <select id="inputState" class="form-control">
-        <option selected>Day</option>
+      <select formControlName="day" id="inputState" class="form-control">
+        <option value="">Day</option>
         <option>01</option>
         <option>02</option>
         <option>03</option>
         <option>04</option>
       </select>
+      <div class="alert alert-danger" *ngIf="day.touched && day.invalid">
+        <small>Please select day</small>
+      </div>    
     </div>
   </div>
 
   <div class="form-group row">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-    </div>
-  </div>
-  <div class="form-group row">
-    <label for="inputFullame" class="col-sm-2 col-form-label">Contact</label>
-    <div class="col-sm-5">
-      <input type="text" class="form-control" id="" placeholder="Mobile Number">
-    </div>
-    <div class="col-sm-5">
-      <input type="text" class="form-control" id="" placeholder="Land-line Number">
+      <input formControlName="email" type="email" class="form-control" id="inputEmail3" placeholder="Email">
+      <div *ngIf="email.touched && email.invalid">
+        <div class="alert alert-danger" *ngIf="email.errors.email">
+          <small>Invalid email</small>
+        </div>
+        <div class="alert alert-danger" *ngIf="email.errors.required">
+          <small>Please enter email</small>
+        </div>
+      </div>    
     </div>
   </div>
 
-  <div class="form-group row">
+  <div formGroupName="contact" class="form-group row">
+    <label for="inputFullame" class="col-sm-2 col-form-label">Contact</label>
+    <div class="col-sm-5">
+      <input formControlName="mobile" type="text" class="form-control" id="" placeholder="Mobile Number">
+      <div *ngIf="mobile.touched && mobile.invalid">
+        <div class="alert alert-danger" *ngIf="mobile.errors.required">
+          <small>Enter mobile mumber</small>
+        </div>
+        <div class="alert alert-danger" *ngIf="mobile.errors.minlenght">
+          <small>Should be 10 numbers</small>
+        </div>
+      </div> 
+    </div>
+    <div class="col-sm-5">
+      <input formControlName="landLine" type="text" class="form-control" id="" placeholder="Land-line Number">
+    </div>
+  </div>
+
+  <div formGroupName="address" class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">Address</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="" placeholder="No">
-      <input type="text" class="form-control mt-1" id="" placeholder="First Street">
-      <input type="text" class="form-control mt-1" id="" placeholder="Second Street">
+      <input formControlName="line1" type="text" class="form-control mt-1" id="" placeholder="Address Line 1">
+      <div class="alert alert-danger" *ngIf="line1.touched && line1.invalid">
+        <small>Fill address line 1</small>
+      </div> 
+      <input formControlName="line2" type="text" class="form-control mt-1" id="" placeholder="Address Line 2">
+      <div class="alert alert-danger" *ngIf="line2.touched && line2.invalid">
+        <small>Fill address line 2</small>
+      </div> 
       <div class="row mt-1">
         <div class="col-sm-6">
-          <input type="text" class="form-control" id="" placeholder="City">
+          <input formControlName="city" type="text" class="form-control" id="" placeholder="City">
+          <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
+            <small>Fill city</small>
+          </div> 
         </div>
         <div class="col-sm-6">
-          <input type="text" class="form-control" id="" placeholder="District">
+          <select formControlName="district" id="inputState" class="form-control">
+            <option value="">Distric</option>
+            <option>Anuradhapura</option>
+            <option>Colombo</option>
+            <option>Gampaha</option>
+            <option>Rathnapura</option>
+          </select>
+          <div class="alert alert-danger" *ngIf="district.touched && district.invalid">
+            <small>Select district</small>
+          </div>         
         </div>
       </div>
     </div>
   </div>
 
-  <div class="form-group row">
+  <hr>
+  <div class="pb-3">
+      <h5><strong>Class Information >></strong></h5>
+  </div>
+
+  <div formGroupName="batch" class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">Batch</label>
     <div class="col-sm-5">
-      <select id="inputState" class="form-control">
-        <option selected>Choose year</option>
+      <select formControlName="byear" id="inputState" class="form-control">
+        <option value="">Choose year</option>
         <option>2018</option>
         <option>2019</option>
         <option>2020</option>
       </select>
+      <div class="alert alert-danger" *ngIf="byear.touched && byear.invalid">
+        <small>Select year</small>
+      </div>
     </div>
     <div class="col-sm-5">
-      <select id="inputState" class="form-control">
-        <option selected>Choose Class</option>
+      <select formControlName="bclass" id="inputState" class="form-control">
+        <option value="">Choose Class</option>
         <option>A/L</option>
         <option>O/L</option>
       </select>
+      <div class="alert alert-danger" *ngIf="bclass.touched && bclass.invalid">
+        <small>Select class</small>
+      </div>
     </div>
   </div>
 
-  <div class="form-group row">
+  <div formGroupName="subject" class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">Subject(s)</label>
     <div class="col-sm-4">
-      <select id="inputState" class="form-control">
-        <option selected>Choose subject</option>
+      <select formControlName="sub1" id="inputState" class="form-control">
+        <option value="">Choose subject 1</option>
         <option>Maths</option>
         <option>Physics</option>
         <option>Chemistry</option>
-      </select>          
-      <select id="inputState" class="form-control mt-1">
-        <option selected>Choose subject</option>
+      </select> 
+
+      <select formControlName="sub2" id="inputState" class="form-control mt-1">
+        <option value="">Choose subject 2</option>
+        <option>Maths</option>
+        <option>Physics</option>
+        <option>Chemistry</option>
+      </select>
+    </div>
+    <div class="col-sm-4">        
+      <select formControlName="sub3" id="inputState" class="form-control">
+        <option value="">Choose subject 3</option>
+        <option>Maths</option>
+        <option>Physics</option>
+        <option>Chemistry</option>
+      </select>
+
+      <select formControlName="sub4" id="inputState" class="form-control mt-1">
+        <option value="">Choose subject 4</option>
         <option>Maths</option>
         <option>Physics</option>
         <option>Chemistry</option>
@@ -135,42 +215,54 @@
   <div class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">Father</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="" placeholder="Father Name">
+      <input formControlName="fatherName" type="text" class="form-control" id="" placeholder="Father Name">
+      <div class="alert alert-danger" *ngIf="fatherName.touched && fatherName.invalid">
+        <small>Enter father name</small>
+      </div>    
     </div>
   </div>
 
   <div class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">Contact</label>
     <div class="col-sm-5">
-      <input type="text" class="form-control" id="" placeholder="Contact Number">
+      <input formControlName="faContact" type="text" class="form-control" id="" placeholder="Contact Number">
+      <div class="alert alert-danger" *ngIf="faContact.touched && faContact.invalid">
+        <small>Enter father contact number</small>
+      </div>  
     </div>
   </div>
 
   <div class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">Mother</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="" placeholder="Mother Name">
+      <input formControlName="motherName" type="text" class="form-control" id="" placeholder="Mother Name">
+      <div class="alert alert-danger" *ngIf="motherName.touched && motherName.invalid">
+        <small>Enter mother name</small>
+      </div>  
     </div>
   </div>
 
   <div class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">Contact</label>
     <div class="col-sm-5">
-      <input type="text" class="form-control" id="" placeholder="Contact Number">
+      <input formControlName="moContact" type="text" class="form-control" id="" placeholder="Contact Number">
+      <div class="alert alert-danger" *ngIf="moContact.touched && moContact.invalid">
+        <small>Enter mother contact number</small>
+      </div>      
     </div>
   </div>
 
   <div class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">Guardian</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="" placeholder="Gardian Name (Optonal)">
+      <input formControlName="garName" type="text" class="form-control" id="" placeholder="Gardian Name (Optonal)">
     </div>
   </div>
 
   <div class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">Contact</label>
     <div class="col-sm-5">
-      <input type="text" class="form-control" id="" placeholder="Contact Number (Optonal)">
+      <input formControlName="GarContact" type="text" class="form-control" id="" placeholder="Contact Number (Optonal)">
     </div>
   </div>
 
