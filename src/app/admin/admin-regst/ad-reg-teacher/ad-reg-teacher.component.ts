@@ -16,31 +16,20 @@ export class AdRegTeacherComponent implements OnInit {
     private fb2: FormBuilder
   ) { 
     this.form2 = this.fb2.group({
-      fullname: ['',  Validators.required],
-      firstname: ['', Validators.required],
-      lastname: ['', Validators.required],
-      birthday: fb2.group({
-        year: ['', Validators.required],
-        month: ['', Validators.required],
-        day: ['', Validators.required]
-      }),
+      fullName: ['',  Validators.required],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required], 
+      birthday: ['', Validators.required],
       email: ['', [
         Validators.email,
         Validators.required
       ]],
-      contact: fb2.group({
-        mobile: ['', [
-          Validators.minLength(10),
-          Validators.required
-        ]],
-        landLine: [''],
-      }),
-      address: fb2.group({
-        line1: ['', Validators.required],
-        line2: ['', Validators.required],
-        city: ['', Validators.required],
-        district: ['', Validators.required]
-      }),
+      mobileNumber: ['',Validators.required],
+      landNumber: [''],
+      firstLine: ['', Validators.required],
+      secondLine: ['', Validators.required],
+      city: ['', Validators.required],
+      district: ['', Validators.required],
       teaSub: ['', Validators.required],
       teaBatchs: fb2.group({
         teaBatch1: fb2.group({
@@ -62,53 +51,25 @@ export class AdRegTeacherComponent implements OnInit {
     console.log(form2.value);
   }
 
-  get email(){
-    return this.form2.get('email');
-  }
+  get email(){return this.form2.get('email');}
 
-  get fullname(){
-    return this.form2.get('fullname');
-  }
+  get fullName(){return this.form2.get('fullName');}
 
-  get firstname(){
-    return this.form2.get('firstname');
-  }
+  get firstName(){return this.form2.get('firstName');}
 
-  get lastname(){
-    return this.form2.get('lastname');
-  }
+  get lastName(){return this.form2.get('lastName');}
 
-  get year(){
-    return this.form2.get('birthday.year');
-  }
+  get birthday(){return this.form2.get('birthday');}
 
-  get month(){
-    return this.form2.get('birthday.month');
-  }
+  get mobileNumber(){return this.form2.get('mobileNumber');}
 
-  get day(){
-    return this.form2.get('birthday.day');
-  }
+  get firstLine(){return this.form2.get('firstLine');}
 
-  get mobile(){
-    return this.form2.get('contact.mobile');
-  }
+  get secondLine(){return this.form2.get('secondLine');}
 
-  get line1(){
-    return this.form2.get('address.line1');
-  }
+  get city(){return this.form2.get('city');}
 
-  get line2(){
-    return this.form2.get('address.line2');
-  }
-
-  get city(){
-    return this.form2.get('address.city');
-  }
-
-  get district(){
-    return this.form2.get('address.district');
-  }
+  get district(){return this.form2.get('district');}
 
   get teaSub(){
     return this.form2.get('teaSub');

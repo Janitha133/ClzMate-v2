@@ -1,73 +1,44 @@
 <form class="pl-2 pr-2" [formGroup]="form1" (ngSubmit)="onSubmit(form1)">
   <hr>
   <div class="pb-3">
-      <h5><strong>Basic Information >></strong></h5>
+    <h5><strong>Basic Information >></strong></h5>
   </div>
-  
+
   <div class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">Full Name</label>
     <div class="col-sm-10">
-      <input formControlName="fullname" type="text" class="form-control" id="" placeholder="Full Name">
-      <div class="alert alert-danger" *ngIf="fullname.touched && fullname.invalid">
+      <input formControlName="fullName" type="text" class="form-control" id="" placeholder="Full Name">
+      <div class="alert alert-danger" *ngIf="fullName.touched && fullName.invalid">
         <small>Please enter full name</small>
-      </div>    
+      </div>
     </div>
   </div>
 
   <div class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">First Name</label>
     <div class="col-sm-4">
-      <input formControlName="firstname" type="text" class="form-control" id="" placeholder="First Name">    
-      <div class="alert alert-danger" *ngIf="firstname.touched && firstname.invalid">
+      <input formControlName="firstName" type="text" class="form-control" id="" placeholder="First Name">
+      <div class="alert alert-danger" *ngIf="firstName.touched && firstName.invalid">
         <small>Please enter first name</small>
-      </div>    
+      </div>
     </div>
 
     <label for="inputFullame" class="col-sm-2 col-form-label">Last Name</label>
     <div class="col-sm-4">
-      <input formControlName="lastname" type="text" class="form-control" id="" placeholder="Last Name">
-      <div class="alert alert-danger" *ngIf="lastname.touched && lastname.invalid">
+      <input formControlName="lastName" type="text" class="form-control" id="" placeholder="Last Name">
+      <div class="alert alert-danger" *ngIf="lastName.touched && lastName.invalid">
         <small>Please enter last name</small>
-      </div>  
+      </div>
     </div>
   </div>
 
-  <div formGroupName="birthday" class="form-group row">
+  <div  class="form-group row">
     <label for="birthday" class="col-sm-2 col-form-label">Birthday</label>
     <div class="col-sm-4">
-      <select formControlName="year" id="inputState" class="form-control">
-        <option value="">Year</option>
-        <option>1994</option>
-        <option>1995</option>
-        <option>1996</option>
-      </select>
-      <div class="alert alert-danger" *ngIf="year.touched && year.invalid">
-        <small>Please select year</small>
-      </div>
-    </div>
-    <div class="col-sm-2">
-      <select formControlName="month" id="inputState" class="form-control">
-        <option value="">Month</option>
-        <option>01</option>
-        <option>02</option>
-        <option>03</option>
-        <option>04</option>
-      </select>
-      <div class="alert alert-danger" *ngIf="month.touched && month.invalid">
-        <small>Please select month</small>
+      <input formControlName="birthday" type="text" class="form-control" id="birthday" placeholder="yyyy/mm/dd">
+      <div class="alert alert-danger" *ngIf="birthday.touched && birthday.invalid">
+        <small>Please select birthday</small>
       </div>  
-    </div>
-    <div class="col-sm-2">
-      <select formControlName="day" id="inputState" class="form-control">
-        <option value="">Day</option>
-        <option>01</option>
-        <option>02</option>
-        <option>03</option>
-        <option>04</option>
-      </select>
-      <div class="alert alert-danger" *ngIf="day.touched && day.invalid">
-        <small>Please select day</small>
-      </div>    
     </div>
   </div>
 
@@ -82,45 +53,40 @@
         <div class="alert alert-danger" *ngIf="email.errors.required">
           <small>Please enter email</small>
         </div>
-      </div>    
+      </div>
     </div>
   </div>
 
-  <div formGroupName="contact" class="form-group row">
+  <div class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">Contact</label>
     <div class="col-sm-5">
-      <input formControlName="mobile" type="text" class="form-control" id="" placeholder="Mobile Number">
-      <div *ngIf="mobile.touched && mobile.invalid">
-        <div class="alert alert-danger" *ngIf="mobile.errors.required">
-          <small>Enter mobile mumber</small>
-        </div>
-        <div class="alert alert-danger" *ngIf="mobile.errors.minlenght">
-          <small>Should be 10 numbers</small>
-        </div>
-      </div> 
+      <input formControlName="mobileNumber" type="text" class="form-control" id="" placeholder="Mobile Number">
+      <div class="alert alert-danger" *ngIf="mobileNumber.touched && mobileNumber.invalid">
+        <small>Enter mobile mumber</small>
+      </div>
     </div>
     <div class="col-sm-5">
-      <input formControlName="landLine" type="text" class="form-control" id="" placeholder="Land-line Number">
+      <input formControlName="landNumber" type="text" class="form-control" id="" placeholder="Land-line Number">
     </div>
   </div>
 
-  <div formGroupName="address" class="form-group row">
+  <div  class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">Address</label>
     <div class="col-sm-10">
-      <input formControlName="line1" type="text" class="form-control mt-1" id="" placeholder="Address Line 1">
-      <div class="alert alert-danger" *ngIf="line1.touched && line1.invalid">
+      <input formControlName="firstLine" type="text" class="form-control mt-1" id="" placeholder="Address Line 1">
+      <div class="alert alert-danger" *ngIf="firstLine.touched && firstLine.invalid">
         <small>Fill address line 1</small>
-      </div> 
-      <input formControlName="line2" type="text" class="form-control mt-1" id="" placeholder="Address Line 2">
-      <div class="alert alert-danger" *ngIf="line2.touched && line2.invalid">
+      </div>
+      <input formControlName="secondLine" type="text" class="form-control mt-1" id="" placeholder="Address Line 2">
+      <div class="alert alert-danger" *ngIf="secondLine.touched && secondLine.invalid">
         <small>Fill address line 2</small>
-      </div> 
+      </div>
       <div class="row mt-1">
         <div class="col-sm-6">
           <input formControlName="city" type="text" class="form-control" id="" placeholder="City">
           <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
             <small>Fill city</small>
-          </div> 
+          </div>
         </div>
         <div class="col-sm-6">
           <select formControlName="district" id="inputState" class="form-control">
@@ -132,7 +98,7 @@
           </select>
           <div class="alert alert-danger" *ngIf="district.touched && district.invalid">
             <small>Select district</small>
-          </div>         
+          </div>
         </div>
       </div>
     </div>
@@ -140,71 +106,49 @@
 
   <hr>
   <div class="pb-3">
-      <h5><strong>Class Information >></strong></h5>
+    <h5><strong>Class Information >></strong></h5>
   </div>
 
-  <div formGroupName="batch" class="form-group row">
+  <div class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">Batch</label>
     <div class="col-sm-5">
-      <select formControlName="byear" id="inputState" class="form-control">
+      <select formControlName="batch" id="inputState" class="form-control">
         <option value="">Choose year</option>
         <option>2018</option>
         <option>2019</option>
         <option>2020</option>
       </select>
-      <div class="alert alert-danger" *ngIf="byear.touched && byear.invalid">
+      <!-- <div class="alert alert-danger" *ngIf="byear.touched && byear.invalid">
         <small>Select year</small>
-      </div>
+      </div> -->
     </div>
     <div class="col-sm-5">
-      <select formControlName="bclass" id="inputState" class="form-control">
+      <select  id="inputState" class="form-control">
         <option value="">Choose Class</option>
         <option>A/L</option>
         <option>O/L</option>
       </select>
-      <div class="alert alert-danger" *ngIf="bclass.touched && bclass.invalid">
+      <!-- <div class="alert alert-danger" *ngIf="bclass.touched && bclass.invalid">
         <small>Select class</small>
-      </div>
+      </div> -->
     </div>
   </div>
 
-  <div formGroupName="subject" class="form-group row">
+  <div formGroupName="subjects" class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">Subject(s)</label>
     <div class="col-sm-4">
-      <select formControlName="sub1" id="inputState" class="form-control">
-        <option value="">Choose subject 1</option>
-        <option>Maths</option>
-        <option>Physics</option>
-        <option>Chemistry</option>
-      </select> 
-
-      <select formControlName="sub2" id="inputState" class="form-control mt-1">
-        <option value="">Choose subject 2</option>
-        <option>Maths</option>
-        <option>Physics</option>
-        <option>Chemistry</option>
-      </select>
+      <input #subject id="inputState" class="form-control" placeholder="Type Subject">
     </div>
-    <div class="col-sm-4">        
-      <select formControlName="sub3" id="inputState" class="form-control">
-        <option value="">Choose subject 3</option>
-        <option>Maths</option>
-        <option>Physics</option>
-        <option>Chemistry</option>
-      </select>
-
-      <select formControlName="sub4" id="inputState" class="form-control mt-1">
-        <option value="">Choose subject 4</option>
-        <option>Maths</option>
-        <option>Physics</option>
-        <option>Chemistry</option>
-      </select>
-      <!-- <div class="row">
-        <div class="pl-3"></div>
-        <button type="button" class="btn btn-primary col-sm-2"><strong>+</strong></button>          
-        <button type="button" class="btn btn-danger col-sm-2"><strong>-</strong></button>          
-      </div> -->
+    <div class="col-sm-3">
+      <div class="btn btn-danger btn-sm" (click)="addSubject(subject)">Add</div>
     </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-2"></div>
+    <ul class="list-group col-sm-4 ml-3">
+      <li class="list-group-item list-group-item-info" *ngFor="let topic of topics" (click)="removeSubject(topic)">{{topic}}</li>
+    </ul>
   </div>
 
   <hr>
@@ -218,17 +162,17 @@
       <input formControlName="fatherName" type="text" class="form-control" id="" placeholder="Father Name">
       <div class="alert alert-danger" *ngIf="fatherName.touched && fatherName.invalid">
         <small>Enter father name</small>
-      </div>    
+      </div>
     </div>
   </div>
 
   <div class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">Contact</label>
     <div class="col-sm-5">
-      <input formControlName="faContact" type="text" class="form-control" id="" placeholder="Contact Number">
-      <div class="alert alert-danger" *ngIf="faContact.touched && faContact.invalid">
+      <input formControlName="dadNumber" type="text" class="form-control" id="" placeholder="Contact Number">
+      <div class="alert alert-danger" *ngIf="dadNumber.touched && dadNumber.invalid">
         <small>Enter father contact number</small>
-      </div>  
+      </div>
     </div>
   </div>
 
@@ -238,34 +182,34 @@
       <input formControlName="motherName" type="text" class="form-control" id="" placeholder="Mother Name">
       <div class="alert alert-danger" *ngIf="motherName.touched && motherName.invalid">
         <small>Enter mother name</small>
-      </div>  
+      </div>
     </div>
   </div>
 
   <div class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">Contact</label>
     <div class="col-sm-5">
-      <input formControlName="moContact" type="text" class="form-control" id="" placeholder="Contact Number">
-      <div class="alert alert-danger" *ngIf="moContact.touched && moContact.invalid">
+      <input formControlName="momNumber" type="text" class="form-control" id="" placeholder="Contact Number">
+      <div class="alert alert-danger" *ngIf="momNumber.touched && momNumber.invalid">
         <small>Enter mother contact number</small>
-      </div>      
+      </div>
     </div>
   </div>
 
   <div class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">Guardian</label>
     <div class="col-sm-10">
-      <input formControlName="garName" type="text" class="form-control" id="" placeholder="Gardian Name (Optonal)">
+      <input formControlName="gardianName" type="text" class="form-control" id="" placeholder="Gardian Name (Optonal)">
     </div>
   </div>
 
   <div class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">Contact</label>
     <div class="col-sm-5">
-      <input formControlName="GarContact" type="text" class="form-control" id="" placeholder="Contact Number (Optonal)">
+      <input formControlName="gardianNumber" type="text" class="form-control" id="" placeholder="Contact Number (Optonal)">
     </div>
   </div>
 
   <hr>
-  <button mdbBtn type="submit" color="indigo" class="waves-light col-sm-3 float-right" mdbWavesEffect>Submit</button>
+  <button [disabled]="form1.invalid" mdbBtn type="submit" color="indigo" class="waves-light col-sm-3 float-right" mdbWavesEffect>Submit</button>
 </form>

@@ -23,6 +23,8 @@ import { HttpModule } from '@angular/http';
 import { AdminAttendComponent } from './admin/admin-attend/admin-attend.component';
 import { AdminClassFeesComponent } from './admin/admin-class-fees/admin-class-fees.component';
 import { AdminClassSchedComponent } from './admin/admin-class-sched/admin-class-sched.component';
+import { StudentReegister } from './services/student-register.service';
+import { UserService } from './services/users.service';
 
 
 @NgModule({
@@ -56,7 +58,9 @@ import { AdminClassSchedComponent } from './admin/admin-class-sched/admin-class-
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
-    AuthService
+    AuthService,
+    StudentReegister,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

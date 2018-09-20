@@ -1,7 +1,9 @@
+import { StudentReegister } from './../../../services/student-register.service';
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators} from '@angular/forms';
+import {FormBuilder, Validators, FormArray, FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './../../../services/auth.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-ad-reg-student',
@@ -11,52 +13,35 @@ import { AuthService } from './../../../services/auth.service';
 export class AdRegStudentComponent implements OnInit {
 
   form1;
+  topics:String[] = [];
 
   constructor(
-    private fb1: FormBuilder
+    private fb1: FormBuilder,
+    private register: StudentReegister
   ){ 
     this.form1 = this.fb1.group({
-      fullname: ['',  Validators.required],
-      firstname: ['', Validators.required],
-      lastname: ['', Validators.required],
-      birthday: fb1.group({
-        year: ['', Validators.required],
-        month: ['', Validators.required],
-        day: ['', Validators.required]
-      }),
+      fullName: ['',  Validators.required],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required], 
+      birthday: ['', Validators.required],
       email: ['', [
         Validators.email,
         Validators.required
       ]],
-      contact: fb1.group({
-        mobile: ['', [
-          Validators.minLength(10),
-          Validators.required
-        ]],
-        landLine: [''],
-      }),
-      address: fb1.group({
-        line1: ['', Validators.required],
-        line2: ['', Validators.required],
-        city: ['', Validators.required],
-        district: ['', Validators.required]
-      }),
-      batch: fb1.group({
-        byear: ['', Validators.required],
-        bclass: ['', Validators.required]
-      }),
-      subject: fb1.group({
-        sub1: [''],
-        sub2: [''],
-        sub3: [''],
-        sub4: ['']
-      }),
+      mobileNumber: ['',Validators.required],
+      landNumber: [''],
+      firstLine: ['', Validators.required],
+      secondLine: ['', Validators.required],
+      city: ['', Validators.required],
+      district: ['', Validators.required],
+      batch:[''],
+      subjects: new FormArray([]),
       fatherName: ['', Validators.required],
-      faContact: ['', Validators.required],
+      dadNumber: ['', Validators.required],
       motherName: ['', Validators.required],
-      moContact: ['', Validators.required],
-      garName: [''],
-      GarContact: ['']
+      momNumber: ['', Validators.required],
+      gardianName: [''],
+      gardianNumber: ['']
     })
   }
  
@@ -64,78 +49,61 @@ export class AdRegStudentComponent implements OnInit {
   }
 
   onSubmit(form1){
+    form1.value['role'] = "student";
+    form1.value['password'] = "password";
+    form1.value['school'] = "school";
     console.log(form1.value);
+    this.register.register(form1.value)
+      .subscribe(result => {
+        if(result.json().state) alert("user registered successfully");
+        else if(result.json().exist) alert("user already exist"); 
+        else alert("Error occured please register user again");
+        console.log(result);
+      })
+    this.form1.reset();
   }
 
-  get email(){
-    return this.form1.get('email');
+  get email(){return this.form1.get('email');}
+
+  get fullName(){return this.form1.get('fullName');}
+
+  get firstName(){return this.form1.get('firstName');}
+
+  get lastName(){return this.form1.get('lastName');}
+
+  get birthday(){return this.form1.get('birthday');}
+
+  get mobileNumber(){return this.form1.get('mobileNumber');}
+
+  get firstLine(){return this.form1.get('firstLine');}
+
+  get secondLine(){return this.form1.get('secondLine');}
+
+  get city(){return this.form1.get('city');}
+
+  get district(){return this.form1.get('district');}
+
+  get batch(){return this.form1.get('batch');}
+
+  get fatherName(){return this.form1.get('fatherName');}
+
+  get dadNumber(){return this.form1.get('dadNumber');}
+
+  get motherName(){return this.form1.get('motherName');}
+
+  get momNumber(){return this.form1.get('momNumber');}
+
+  addSubject(subject: HTMLInputElement){
+    this.subjects.push(new FormControl(subject.value));
+    this.topics.push(subject.value);
+    console.log(subject.value);
+    subject.value = ''; 
   }
 
-  get fullname(){
-    return this.form1.get('fullname');
+  removeSubject(topic:FormControl){
+    this.subjects.removeAt(this.subjects.controls.indexOf(topic));
+    this.topics = this.topics.filter(item => item !== topic.value);
   }
 
-  get firstname(){
-    return this.form1.get('firstname');
-  }
-
-  get lastname(){
-    return this.form1.get('lastname');
-  }
-
-  get year(){
-    return this.form1.get('birthday.year');
-  }
-
-  get month(){
-    return this.form1.get('birthday.month');
-  }
-
-  get day(){
-    return this.form1.get('birthday.day');
-  }
-
-  get mobile(){
-    return this.form1.get('contact.mobile');
-  }
-
-  get line1(){
-    return this.form1.get('address.line1');
-  }
-
-  get line2(){
-    return this.form1.get('address.line2');
-  }
-
-  get city(){
-    return this.form1.get('address.city');
-  }
-
-  get district(){
-    return this.form1.get('address.district');
-  }
-
-  get byear(){
-    return this.form1.get('batch.byear');
-  }
-
-  get bclass(){
-    return this.form1.get('batch.bclass');
-  }
-
-  get fatherName(){
-    return this.form1.get('fatherName');
-  }
-
-  get faContact(){
-    return this.form1.get('faContact');
-  }
-
-  get motherName(){
-    return this.form1.get('motherName');
-  }
-
-  get moContact(){
-    return this.form1.get('moContact');
-  }
+  get subjects(){return this.form1.get('subjects') as FormArray}
 }
