@@ -1,6 +1,6 @@
-import { StudentReegister } from './../../../services/student-register.service';
+import { userRegister } from '../../../services/register.service';
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators, FormArray, FormControl} from '@angular/forms';
+import { FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './../../../services/auth.service';
 import { Subject } from 'rxjs';
@@ -17,7 +17,7 @@ export class AdRegStudentComponent implements OnInit {
 
   constructor(
     private fb1: FormBuilder,
-    private register: StudentReegister
+    private register: userRegister
   ){ 
     this.form1 = this.fb1.group({
       fullName: ['',  Validators.required],
@@ -27,7 +27,7 @@ export class AdRegStudentComponent implements OnInit {
       email: ['', [
         Validators.email,
         Validators.required
-      ]],
+      ]], 
       mobileNumber: ['',Validators.required],
       landNumber: [''],
       firstLine: ['', Validators.required],
@@ -55,9 +55,9 @@ export class AdRegStudentComponent implements OnInit {
     console.log(form1.value);
     this.register.register(form1.value)
       .subscribe(result => {
-        if(result.json().state) alert("user registered successfully");
-        else if(result.json().exist) alert("user already exist"); 
-        else alert("Error occured please register user again");
+        if(result.json().state) alert("Student registered successfully");
+        else if(result.json().exist) alert("Student already exist"); 
+        else alert("Error occured please register student again");
         console.log(result);
       })
     this.form1.reset();

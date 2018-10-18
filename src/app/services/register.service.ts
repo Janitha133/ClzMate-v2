@@ -1,9 +1,9 @@
 import { Router } from '@angular/router';
-import {Http} from '@angular/http';
+import { Http } from '@angular/http';
 import { Injectable } from "@angular/core";
 
 @Injectable()
-export class StudentReegister{
+export class userRegister{
 
     constructor(
         private http: Http,

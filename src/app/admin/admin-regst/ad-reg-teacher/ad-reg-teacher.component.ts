@@ -1,7 +1,9 @@
+import { userRegister } from '../../../services/register.service'
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators} from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './../../../services/auth.service';
+import { resource } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-ad-reg-teacher',
@@ -13,7 +15,8 @@ export class AdRegTeacherComponent implements OnInit {
   form2;
 
   constructor(
-    private fb2: FormBuilder
+    private fb2: FormBuilder,
+    private register: userRegister
   ) { 
     this.form2 = this.fb2.group({
       fullName: ['',  Validators.required],
@@ -48,7 +51,17 @@ export class AdRegTeacherComponent implements OnInit {
   }
 
   onSubmit(form2){
+    form2.value['role'] = "teacher";
+    form2.value['password'] = "password";
     console.log(form2.value);
+    this.register.register(form2.value)
+      .subscribe(result => {
+        if(result.json().state) alert("Teacher registered successfully");
+        else if(result.json().exist) alert("Teacher already exist");
+        else alert("Error occured please register teacher again");
+        console.log(result);
+      })
+    this.form2.reset();
   }
 
   get email(){return this.form2.get('email');}

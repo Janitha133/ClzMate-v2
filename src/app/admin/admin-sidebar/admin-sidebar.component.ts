@@ -18,9 +18,6 @@ export class AdminSidebarComponent implements OnInit {
     this.decodeJWT = lc.getDecodedAccessToken(this.token);
     this.UserName = this.decodeJWT.user.firstName;
     this.UserEmail = this.decodeJWT.user.email;
-    console.log(this.decodeJWT)
-    console.log(this.UserName)
-    console.log(this.UserEmail)
   }
  
   ngOnInit() {
