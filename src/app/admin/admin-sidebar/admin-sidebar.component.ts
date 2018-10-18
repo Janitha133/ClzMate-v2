@@ -1,16 +1,31 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginComponent } from '../../login/login.component';
 
 @Component({
   selector: 'app-admin-sidebar',
   templateUrl: './admin-sidebar.component.html',
-  styleUrls: ['./admin-sidebar.component.scss']
+  styleUrls: ['./admin-sidebar.component.scss'],
+  providers: [LoginComponent]
 })
 export class AdminSidebarComponent implements OnInit {
 
-  constructor() { }
-
+  token = localStorage.getItem('token');
+  decodeJWT;
+  UserName = '';
+  UserEmail = '';
+  
+  constructor(private lc: LoginComponent) { 
+    this.decodeJWT = lc.getDecodedAccessToken(this.token);
+    this.UserName = this.decodeJWT.user.firstName;
+    this.UserEmail = this.decodeJWT.user.email;
+    console.log(this.decodeJWT)
+    console.log(this.UserName)
+    console.log(this.UserEmail)
+  }
+ 
   ngOnInit() {
   }
 
+  
   viewModeSide = 'dashboard';
 }
