@@ -2,6 +2,7 @@ import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-login',
@@ -34,6 +35,8 @@ export class LoginComponent implements OnInit {
   onSubmit(form){
     this.auth.login(form.value).subscribe(result => {
       let token = result.json().JWT_Token; 
+      let decodeJWT = this.getDecodedAccessToken(token)
+      console.log(decodeJWT)
       console.log(token);
       if(token){
         localStorage.setItem('token', token);
@@ -45,9 +48,16 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  getDecodedAccessToken(token: string): any {
+    try{
+        return jwt_decode(token);
+    }
+    catch(Error){
+        return null;
+    }
+  }
+
   get email(){return this.form.get('email');}
   get password(){return this.form.get('password');}
 
- 
-  
 }

@@ -66,11 +66,11 @@
       </thead>
       <tbody>
         <tr *ngFor="let user of users" class="cell">
-          <td (click)="frame.show(user)">{{user.First_Name}}</td>
-          <td (click)="frame.show(user)">{{user.Last_Name}}</td>
-          <td (click)="frame.show(user)">{{user.Birthday}}</td>
-          <td (click)="frame.show(user)">{{user.Email}}</td>
-          <td (click)="frame.show(user)">{{user.Batch}}</td>
+          <td (click)="frame.show(user)">{{user.firstName}}</td>
+          <td (click)="frame.show(user)">{{user.lastName}}</td>
+          <td (click)="frame.show(user)">{{user.birthday}}</td>
+          <td (click)="frame.show(user)">{{user.email}}</td>
+          <td (click)="frame.show(user)">{{user.batch}}</td>
           <td>
             <div class="chip badge green ml-3 mr-2">
                 <i class="fa fa-user-plus p-1" aria-hidden="true" mdbTooltip="Edit User" placement="bottom"></i>
@@ -98,14 +98,14 @@
                   <!-- <i class="fa fa-bell fa-4x animated rotateIn mb-4"></i> -->
                   <i class="fa fa-user-circle-o fa-4x indigo-text"></i>
                   <hr>
-                  <p><strong>Role :</strong> {{user.Role}}</p>
-                  <p><strong>Role Id :</strong> {{user.Id}}</p>
-                  <p><strong>Full Name :</strong> {{user.Full_Name}}</p>
-                  <p><strong>Birthday :</strong> {{user.Birthday}}</p>
-                  <p><strong>Email :</strong> {{user.Email}}</p>
-                  <p><strong>Batch :</strong> {{user.Batch}}</p>
-                  <p><strong>Subjects :</strong> {{user.Subjects}}</p>
-                  <p><strong>Stream :</strong> {{user.Stream}}</p>
+                  <p><strong>Role :</strong> {{user.role}}</p>
+                  <p><strong>Role Id :</strong> {{user._id}}</p>
+                  <p><strong>Full Name :</strong> {{user.fullName}}</p>
+                  <p><strong>Birthday :</strong> {{user.birthday}}</p>
+                  <p><strong>Email :</strong> {{user.email}}</p>
+                  <p><strong>Batch :</strong> {{user.batch}}</p>
+                  <p><strong>Subjects :</strong> {{user.subjects}}</p>
+                  <p><strong>Stream :</strong> {{user.stream}}</p>
                 </div>
 
                 <!--Footer-->
