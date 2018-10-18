@@ -24,9 +24,9 @@ export class AdminUserListComponent implements OnInit {
   getAllStudents() {
     this.userService.getAllUsers()
       .subscribe(response => {
-        this.users = response.json().Users;
+        this.users = response.json().User;
         console.log(this.users);
-        console.log(Object.values(response.json().Users[0]));
+        console.log(Object.values(response.json().User));
       });
   }
 
