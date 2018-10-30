@@ -14,7 +14,8 @@ export class AdminUserListComponent implements OnInit {
   constructor(
     private http: Http,
     private userService: UserService
-  ) {
+  ) 
+  {
     this.getAllStudents();
   }
 
@@ -25,7 +26,6 @@ export class AdminUserListComponent implements OnInit {
     this.userService.getAllUsers()
       .subscribe(response => {
         this.users = response.json().User;
-        console.log(this.users);
         console.log(Object.values(response.json().User));
       });
   }

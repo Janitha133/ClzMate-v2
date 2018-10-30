@@ -15,7 +15,7 @@ import { clzService } from '../../../services/clz.service';
 export class AdRegStudentComponent implements OnInit {
 
   form1;
-  topics:String[] = [];
+  classes: any[] = [];
 
   constructor(
     private fb1: FormBuilder,
@@ -38,7 +38,7 @@ export class AdRegStudentComponent implements OnInit {
       city: ['', Validators.required],
       district: ['', Validators.required],
       batch:[''],
-      subjects: new FormArray([]),
+      clzes: new FormArray([]),
       fatherName: ['', Validators.required],
       dadNumber: ['', Validators.required],
       motherName: ['', Validators.required],
@@ -49,11 +49,13 @@ export class AdRegStudentComponent implements OnInit {
   }
  
   ngOnInit() {
+    this.getAllClzes()
   }
 
   getAllClzes(){
     this.getClzes.getAllClzes()
       .subscribe(result => {
+        this.classes = result.json().Clz;
         if(result.json()) console.log(result.json());
       })
   }
@@ -103,17 +105,19 @@ export class AdRegStudentComponent implements OnInit {
 
   get momNumber(){return this.form1.get('momNumber');}
 
-  addSubject(subject: HTMLInputElement){
-    this.subjects.push(new FormControl(subject.value));
-    this.topics.push(subject.value);
-    console.log(subject.value);
-    subject.value = ''; 
+  get clzes(){return this.form1.get('clzes') as FormArray}
+
+  addSubject(clz: HTMLInputElement){
+    this.clzes.push(new FormControl(clz.value));
+    // this.topics.push(new FormControl(clz.value));
+    // this.topics.push(clz.value);
+    console.log(clz.value);
+    clz.value = ''; 
   }
 
   removeSubject(topic:FormControl){
-    this.subjects.removeAt(this.subjects.controls.indexOf(topic));
-    this.topics = this.topics.filter(item => item !== topic.value);
+    this.clzes.removeAt(this.clzes.controls.indexOf(topic));
+    // this.topics = this.topics.filter(item => item !== topic);
+    console.log(topic);
   }
-
-  get subjects(){return this.form1.get('subjects') as FormArray}
 }
