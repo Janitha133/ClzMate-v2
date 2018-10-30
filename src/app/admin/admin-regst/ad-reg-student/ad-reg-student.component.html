@@ -118,20 +118,8 @@
         <option>2019</option>
         <option>2020</option>
       </select>
-      <!-- <div class="alert alert-danger" *ngIf="byear.touched && byear.invalid">
-        <small>Select year</small>
-      </div> -->
-    </div>
-    <div class="col-sm-5">
-      <select formControlName="" id="inputState" class="form-control">
-        <option value="">Choose Class</option>
-        <option>A/L</option>
-        <option>O/L</option>
-      </select>
-      <!-- <div class="alert alert-danger" *ngIf="bclass.touched && bclass.invalid">
-        <small>Select class</small>
-      </div> -->
-    </div>
+    </div> 
+    <div class="btn btn-danger btn-sm" (click)="getAllClzes()">Get All Clzes</div>
   </div>
 
   <div formGroupName="subjects" class="form-group row">
@@ -143,6 +131,8 @@
       <div class="btn btn-danger btn-sm" (click)="addSubject(subject)">Add</div>
     </div>
   </div>
+
+  <!-- <button (click)="getAllClzes()">Clzes</button> -->
 
   <div class="form-group row">
     <div class="col-sm-2"></div>
@@ -213,3 +203,4 @@
   <hr>
   <button [disabled]="form1.invalid" mdbBtn type="submit" color="indigo" class="waves-light col-sm-3 float-right" mdbWavesEffect>Submit</button>
 </form>
+
