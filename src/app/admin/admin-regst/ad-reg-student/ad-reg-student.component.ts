@@ -4,11 +4,13 @@ import { FormBuilder, Validators, FormArray, FormControl } from '@angular/forms'
 import { Router } from '@angular/router';
 import { AuthService } from './../../../services/auth.service';
 import { Subject } from 'rxjs';
+import { clzService } from '../../../services/clz.service';
 
 @Component({
   selector: 'app-ad-reg-student',
   templateUrl: './ad-reg-student.component.html',
-  styleUrls: ['./ad-reg-student.component.scss']
+  styleUrls: ['./ad-reg-student.component.scss'],
+  providers: [clzService]
 })
 export class AdRegStudentComponent implements OnInit {
 
@@ -17,7 +19,8 @@ export class AdRegStudentComponent implements OnInit {
 
   constructor(
     private fb1: FormBuilder,
-    private register: userRegister
+    private register: userRegister,
+    private getClzes: clzService
   ){ 
     this.form1 = this.fb1.group({
       fullName: ['',  Validators.required],
@@ -46,6 +49,13 @@ export class AdRegStudentComponent implements OnInit {
   }
  
   ngOnInit() {
+  }
+
+  getAllClzes(){
+    this.getClzes.getAllClzes()
+      .subscribe(result => {
+        if(result.json()) console.log(result.json());
+      })
   }
 
   onSubmit(form1){

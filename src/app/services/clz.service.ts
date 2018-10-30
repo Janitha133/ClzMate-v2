@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import { Injectable } from "@angular/core";
 
 @Injectable()
-export class userRegister{
+export class clzService{
 
     constructor(
         private http: Http,
@@ -12,9 +12,9 @@ export class userRegister{
 
     }
 
-    register(user){
-        return this.http.post('https://polar-meadow-28819.herokuapp.com/user/register', user);
-        // return this.http.post('http://localhost:3000/user/register', user);
+    getAllClzes(){
+        return this.http.get('https://polar-meadow-28819.herokuapp.com/clz/');
+        // return this.http.get('http://localhost:3000/clz/');
     }
 
 }
