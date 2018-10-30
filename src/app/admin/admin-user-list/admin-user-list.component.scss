@@ -30,6 +30,15 @@
  background-color: rgb(240, 240, 240);
 }
 
-.hvr tr:hover {
+.hvr tbody tr:hover {
     background-color: #0c104273;
   }
+
+.profile2 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.4);
+  border: solid 2px #A6A57A;
+}
