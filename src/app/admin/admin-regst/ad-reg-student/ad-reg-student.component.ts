@@ -27,10 +27,12 @@ export class AdRegStudentComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required], 
       birthday: ['', Validators.required],
+      gender: ['', Validators.required],
       email: ['', [
         Validators.email,
         Validators.required
       ]], 
+      school: ['', Validators.required],
       mobileNumber: ['',Validators.required],
       landNumber: [''],
       firstLine: ['', Validators.required],
@@ -56,6 +58,7 @@ export class AdRegStudentComponent implements OnInit {
     this.getClzes.getAllClzes()
       .subscribe(result => {
         this.classes = result.json().Clz;
+        // console.log(this.classes);
         if(result.json()) console.log(result.json());
       })
   }
@@ -63,7 +66,6 @@ export class AdRegStudentComponent implements OnInit {
   onSubmit(form1){
     form1.value['role'] = "student";
     form1.value['password'] = "password";
-    form1.value['school'] = "school";
     console.log(form1.value);
     this.register.register(form1.value)
       .subscribe(result => {
@@ -85,6 +87,10 @@ export class AdRegStudentComponent implements OnInit {
 
   get birthday(){return this.form1.get('birthday');}
 
+  get gender(){return this.form1.get('gender');}
+
+  get school(){return this.form1.get('school');}
+
   get mobileNumber(){return this.form1.get('mobileNumber');}
 
   get firstLine(){return this.form1.get('firstLine');}
@@ -105,17 +111,20 @@ export class AdRegStudentComponent implements OnInit {
 
   get momNumber(){return this.form1.get('momNumber');}
 
-  get clzes(){return this.form1.get('clzes') as FormArray}
+  get clzes(){return this.form1.get('clzes')}
 
-  addSubject(clz: HTMLInputElement){
+  addClz(clz){
+    // console.log(clz);
+    // this.clzes.push(clz);
     this.clzes.push(new FormControl(clz.value));
-    // this.topics.push(new FormControl(clz.value));
     // this.topics.push(clz.value);
+    // this.clzes[this.clzes.length] = "ssdf";
     console.log(clz.value);
-    clz.value = ''; 
+    // console.log(this.classes);
+    // clz._id = ''; 
   }
 
-  removeSubject(topic:FormControl){
+  removeClz(topic:FormControl){
     this.clzes.removeAt(this.clzes.controls.indexOf(topic));
     // this.topics = this.topics.filter(item => item !== topic);
     console.log(topic);
