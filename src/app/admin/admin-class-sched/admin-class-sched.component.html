@@ -2,7 +2,16 @@
     <div class="bd-col p-3 bck-col">
       <h3 class="pl-3">Class Schedule</h3>
     </div>
-    
-
-
-  </div>
+    <hr>
+    <br>
+    <form class="pl-2 pr-2" [formGroup]="form5" (ngSubmit)="onSubmit(form5)">
+      <div class="form-group row">
+          <label for="subjectName" class="col-sm-2 col-form-label">Subject Name</label>
+          <div class="col-sm-10">
+            <input formControlName="subjectName" type="text" class="form-control" id="" placeholder="Subject Name">
+            <div class="alert alert-danger" *ngIf="subjectName.touched && subjectName.invalid">
+              <small>Please enter Subject name</small>
+            </div>
+          </div>
+      </div>
+    </form>
