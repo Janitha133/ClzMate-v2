@@ -15,7 +15,7 @@ import { clzService } from '../../../services/clz.service';
 export class AdRegStudentComponent implements OnInit {
 
   form1;
-  topics:String[] = [];
+  classes: any[] = [];
 
   constructor(
     private fb1: FormBuilder,
@@ -27,10 +27,12 @@ export class AdRegStudentComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required], 
       birthday: ['', Validators.required],
+      gender: ['', Validators.required],
       email: ['', [
         Validators.email,
         Validators.required
       ]], 
+      school: ['', Validators.required],
       mobileNumber: ['',Validators.required],
       landNumber: [''],
       firstLine: ['', Validators.required],
@@ -38,7 +40,7 @@ export class AdRegStudentComponent implements OnInit {
       city: ['', Validators.required],
       district: ['', Validators.required],
       batch:[''],
-      subjects: new FormArray([]),
+      clzes: new FormArray([]),
       fatherName: ['', Validators.required],
       dadNumber: ['', Validators.required],
       motherName: ['', Validators.required],
@@ -49,11 +51,14 @@ export class AdRegStudentComponent implements OnInit {
   }
  
   ngOnInit() {
+    this.getAllClzes()
   }
 
   getAllClzes(){
     this.getClzes.getAllClzes()
       .subscribe(result => {
+        this.classes = result.json().Clz;
+        // console.log(this.classes);
         if(result.json()) console.log(result.json());
       })
   }
@@ -61,7 +66,6 @@ export class AdRegStudentComponent implements OnInit {
   onSubmit(form1){
     form1.value['role'] = "student";
     form1.value['password'] = "password";
-    form1.value['school'] = "school";
     console.log(form1.value);
     this.register.register(form1.value)
       .subscribe(result => {
@@ -83,6 +87,10 @@ export class AdRegStudentComponent implements OnInit {
 
   get birthday(){return this.form1.get('birthday');}
 
+  get gender(){return this.form1.get('gender');}
+
+  get school(){return this.form1.get('school');}
+
   get mobileNumber(){return this.form1.get('mobileNumber');}
 
   get firstLine(){return this.form1.get('firstLine');}
@@ -103,17 +111,22 @@ export class AdRegStudentComponent implements OnInit {
 
   get momNumber(){return this.form1.get('momNumber');}
 
-  addSubject(subject: HTMLInputElement){
-    this.subjects.push(new FormControl(subject.value));
-    this.topics.push(subject.value);
-    console.log(subject.value);
-    subject.value = ''; 
+  get clzes(){return this.form1.get('clzes')}
+
+  addClz(clz){
+    // console.log(clz);
+    // this.clzes.push(clz);
+    this.clzes.push(new FormControl(clz.value));
+    // this.topics.push(clz.value);
+    // this.clzes[this.clzes.length] = "ssdf";
+    console.log(clz.value);
+    // console.log(this.classes);
+    // clz._id = ''; 
   }
 
-  removeSubject(topic:FormControl){
-    this.subjects.removeAt(this.subjects.controls.indexOf(topic));
-    this.topics = this.topics.filter(item => item !== topic.value);
+  removeClz(topic:FormControl){
+    this.clzes.removeAt(this.clzes.controls.indexOf(topic));
+    // this.topics = this.topics.filter(item => item !== topic);
+    console.log(topic);
   }
-
-  get subjects(){return this.form1.get('subjects') as FormArray}
 }
