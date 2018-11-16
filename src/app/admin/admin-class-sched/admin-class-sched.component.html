@@ -82,18 +82,20 @@
   <div class="white animated fadeIn hvr">
       <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
-          <tr>
+          <tr (click) = getAllClzes()>
             <th class="th-sm">Subject Name</th>
             <th class="th-sm">Hall No</th>
             <th class="th-sm">Grade</th>
+            <th class="th-sm">Batch</th>
             <th class="th-sm">Time</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let clz of classes" class="cell">
-            <td>{{clz.name}}</td>
+            <td>{{clz.subjectName}}</td>
             <td>{{clz.hallNo}}</td>
             <td>{{clz.grade}}</td>
+            <td>{{clz.batch}}</td>
             <td>{{clz.time}}</td>
           </tr>
         </tbody>

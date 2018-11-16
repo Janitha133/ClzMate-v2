@@ -45,7 +45,10 @@ export class AdminClassSchedComponent implements OnInit {
     console.log(form5.value);
     this.Clzes.createClz(form5.value)
       .subscribe(result => {
-        if(result.json().state) alert("Class Created Successfully");
+        if(result.json().state) {
+          alert("Class Created Successfully");
+          this.getAllClzes();
+        }
         else alert("Something Went Wrong");
         console.log(result);
       })
