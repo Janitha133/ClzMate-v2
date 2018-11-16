@@ -1,8 +1,111 @@
 <div class="mycol rounded z-depth-3">
-    <div class="bd-col p-3 bck-col">
-      <h3 class="pl-3">Attendance</h3>
-    </div>
-    
-
-
+  <div class="bd-col p-3 bck-col">
+    <h3 class="pl-3">Attendance</h3>
   </div>
+
+  <div class="mdb-color mdb-color darken-3">
+    <div class="form-group row">
+      <div class="col-md-3">
+        <p class="p-3 text-white ml-4 mb-0">Select Role</p>
+      </div>    
+      <div class="col-md-9">
+        <div class="text-white p-3">
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" class="custom-control-input" id="defaultChecked2" name="inlineDefaultRadiosExample" checked mdbInputDirective>
+              <label class="custom-control-label" for="defaultChecked2">Student</label>
+            </div>
+  
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample"
+                mdbInputDirective>
+              <label class="custom-control-label" for="defaultInline2">Teacher</label>
+            </div>
+  
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" class="custom-control-input" id="defaultInline3" name="inlineDefaultRadiosExample"
+                mdbInputDirective>
+              <label class="custom-control-label" for="defaultInline3">Paper Maker</label>
+            </div>
+  
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" class="custom-control-input" id="defaultInline4" name="inlineDefaultRadiosExample"
+                mdbInputDirective>
+              <label class="custom-control-label" for="defaultInline4">Card Maker</label>
+            </div>
+          </div>
+      </div>      
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-4">
+      <select formControlName="year" id="inputState" class="form-control">
+        <option value="">Year</option>
+        <option>Anuradhapura</option>
+        <option>Colombo</option>
+        <option>Gampaha</option>
+        <option>Rathnapura</option>
+      </select>
+      <!-- <div class="alert alert-danger" *ngIf="year.touched && year.invalid">
+        <small>Select district</small>
+      </div> -->
+    </div>
+
+    <div class="col-sm-4">
+      <select formControlName="month" id="inputState" class="form-control">
+        <option value="">Month</option>
+        <option>Anuradhapura</option>
+        <option>Colombo</option>
+        <option>Gampaha</option>
+        <option>Rathnapura</option>
+      </select>
+      <!-- <div class="alert alert-danger" *ngIf="month.touched && month.invalid">
+        <small>Select district</small>
+      </div> -->
+    </div>
+
+    <div class="col-sm-4">
+      <select formControlName="clz" id="inputState" class="form-control">
+        <option value="">Class</option>
+        <option>Anuradhapura</option>
+        <option>Colombo</option>
+        <option>Gampaha</option>
+        <option>Rathnapura</option>
+      </select>
+      <!-- <div class="alert alert-danger" *ngIf="clz.touched && clz.invalid">
+        <small>Select district</small>
+      </div> -->
+    </div>
+  </div>
+
+  <div class="white animated fadeIn hvr">
+    <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th class="th-sm">User ID</th>
+          <th class="th-sm">First Name</th>
+          <th class="th-sm">Last Name</th>
+          <th class="th-sm">week 1</th>
+          <th class="th-sm">week 2</th>
+          <th class="th-sm">week 3</th>
+          <th class="th-sm">week 4</th>
+          <th class="th-sm">week 5</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users" class="cell">
+          <td (click)="frame.show(user)">{{user._id}}</td>
+          <td (click)="frame.show(user)">{{user.firstName}}</td>
+          <td (click)="frame.show(user)">{{user.lastName}}</td>
+          <td (click)="frame.show(user)"></td>
+          <td (click)="frame.show(user)"></td>
+          <td (click)="frame.show(user)"></td>
+          <td (click)="frame.show(user)"></td>
+          <td (click)="frame.show(user)"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
