@@ -49,10 +49,10 @@ export class AdminUserListComponent implements OnInit {
   }
 
   deleteUser(user) {
-    console.log(user.Id);
+    console.log(user._id);
     let index = this.users.indexOf(user);
     this.users.splice(index, 1);
-    this.userService.deleteUser(user.Id)
+    this.userService.deleteUser(user._id)
       .subscribe(response => {
         if (response.json().state) alert("user deleted");
         else alert("error occured");
