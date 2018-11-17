@@ -1,8 +1,114 @@
 <div class="mycol rounded z-depth-3">
-    <div class="bd-col p-3 bck-col">
-      <h3 class="pl-3">Class Schedule</h3>
-    </div>
+<div class="bd-col p-3 bck-col">
+  <h3 class="pl-3">Class Schedule</h3>
+</div>
+<hr>
+<div class="pb-3">
+  <h5><strong>Create new Class >></strong></h5>
+</div>
+<div> <!-- form -->
+  <form class="pl-2 pr-2" [formGroup]="form5" (ngSubmit)="onSubmit(form5)">
     
+    <div class="form-group row">
+        <label for="subjectName" class="col-sm-2 col-form-label">Subject Name:</label>
+        <div class="col-sm-10">
+          <input formControlName="subjectName" type="text" class="form-control" id="" placeholder="Subject Name">
+          <div class="alert alert-danger" *ngIf="subjectName.touched && subjectName.invalid">
+            <small>Please enter Subject name</small>
+          </div>
+        </div>
+    </div>
 
+    <div class="form-group row">
+      <label for="hallNo" class="col-sm-2 col-form-label">Hall No: </label>
+      <div class="col-sm-10">
+        <input formControlName="hallNo" type="text" class="form-control" id="" placeholder="Hall No">
+        <div class="alert alert-danger" *ngIf="hallNo.touched && hallNo.invalid">
+          <small>Please enter Hall No</small>
+        </div>
+      </div>
+    </div>
 
+    <div class="form-group row">
+      <label for="grade" class="col-sm-2 col-form-label">Grade: </label>
+      <div class="col-sm-10">
+        <input formControlName="grade" type="text" class="form-control" id="" placeholder="Grade ">
+        <div class="alert alert-danger" *ngIf="grade.touched && grade.invalid">
+          <small>Please enter Grade</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="batch" class="col-sm-2 col-form-label">Batch: </label>
+      <div class="col-sm-10">
+        <input formControlName="batch" type="text" class="form-control" id="" placeholder="Batch">
+        <div class="alert alert-danger" *ngIf="batch.touched && batch.invalid">
+          <small>Please enter Batch</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="stream" class="col-sm-2 col-form-label">Stream</label>
+      <div class="col-sm-10">
+        <input formControlName="stream" type="text" class="form-control" id="" placeholder="Stream">
+        <div class="alert alert-danger" *ngIf="stream.touched && stream.invalid">
+          <small>Please enter Stream</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="time" class="col-sm-2 col-form-label">Time: </label>
+      <div class="col-sm-10">
+        <input formControlName="time" type="text" class="form-control" id="" placeholder="Time">
+        <div class="alert alert-danger" *ngIf="time.touched && time.invalid">
+          <small>Please enter Subject name</small>
+        </div>
+      </div>
+    </div>
+    <button [disabled]="form5.invalid" mdbBtn type="submit" color="indigo" class="form-group row float-right" mdbWavesEffect>Create Class</button>
+  </form>
+</div> <!-- form -->
+<hr>
+<br>
+<div class="pb-">
+  <h5><strong>All classes >></strong></h5>
+</div>
+
+<div> <!-- clz table -->
+  <div class="white animated fadeIn hvr">
+      <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+          <tr (click) = getAllClzes()>
+            <th class="th-sm">Subject Name</th>
+            <th class="th-sm">Hall No</th>
+            <th class="th-sm">Grade</th>
+            <th class="th-sm">Batch</th>
+            <th class="th-sm">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let clz of classes" class="cell">
+            <td>{{clz.subjectName}}</td>
+            <td>{{clz.hallNo}}</td>
+            <td>{{clz.grade}}</td>
+            <td>{{clz.batch}}</td>
+            <td>{{clz.time}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div> <!-- clz table -->
+
+  <div> 
+      <hr>
+      <div class="pb-3">
+        <h5><strong> >></strong></h5>
+      </div>
+    <div>
+      <input class="form-control mr-sm-2 col-md-12" type="search" placeholder="Search" aria-label="Search">
+    </div>
   </div>
+</div>

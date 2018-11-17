@@ -20,7 +20,7 @@ export class AdRegStudentComponent implements OnInit {
   constructor(
     private fb1: FormBuilder,
     private register: userRegister,
-    private getClzes: clzService
+    private Clzes: clzService
   ){ 
     this.form1 = this.fb1.group({
       fullName: ['',  Validators.required],
@@ -55,7 +55,7 @@ export class AdRegStudentComponent implements OnInit {
   }
 
   getAllClzes(){
-    this.getClzes.getAllClzes()
+    this.Clzes.getAllClzes()
       .subscribe(result => {
         this.classes = result.json().Clz;
         // console.log(this.classes);
