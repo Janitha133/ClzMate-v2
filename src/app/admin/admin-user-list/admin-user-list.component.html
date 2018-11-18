@@ -13,7 +13,6 @@
       <form class="form-inline animated fadeIn">
         <input class="form-control mr-sm-2 col-md-12" type="search" placeholder="Search" aria-label="Search"
           #searchValue (keyup)="searchByName($event.target)">
-        <!-- <button mdbBtn type="button" size="md" color="deep-purple" class="waves-light" mdbWavesEffect (click)="searchByName(searchValue)">Search</button> -->
       </form>
     </div>
     <div class="col-md-2"></div>
@@ -63,7 +62,7 @@
           <th class="th-sm">Birthday</th>
           <th class="th-sm">Email</th>
           <th class="th-sm">Batch/Grade</th>
-          <th class="th-sm">Actions</th>
+          <!-- <th class="th-sm">Actions</th> -->
         </tr>
       </thead>
       <tbody>
@@ -73,14 +72,14 @@
           <td (click)="frame.show(user)">{{user.birthday}}</td>
           <td (click)="frame.show(user)">{{user.email}}</td>
           <td (click)="frame.show(user)">{{user.batch}}</td>
-          <td>
+          <!-- <td>
             <div class="chip badge green ml-3 mr-2">
                 <i class="fa fa-user-plus p-1" aria-hidden="true" mdbTooltip="Edit User" placement="bottom"></i>
             </div>
             <div class="chip badge red mr-2">
               <i class="fa fa-user-times p-1" aria-hidden="true" mdbTooltip="Delete User" placement="bottom" (click)="deleteUser(user)"></i>
             </div>
-          </td>
+          </td> -->
 
 
           <!-- user modal -->
@@ -110,13 +109,18 @@
                   <p><strong>Subjects :</strong> {{user.subjects}}</p>
                   <p><strong>Stream :</strong> {{user.stream}}</p>
                 </div>
-
                 <!--Footer-->
                 <div class="modal-footer flex-center">
-                 
                   <a type="button" mdbBtn color="danger" outline="true" class="waves-light" mdbWavesEffect
+                    data-dismiss="modal" (click)="deleteUser(user)">Delete User</a>
+
+                  <a type="button" mdbBtn color="primary" outline="true" class="waves-light" mdbWavesEffect
                     data-dismiss="modal" (click)="frame.hide()">close</a>
                 </div>
+                <!-- <div [config]="{backdrop: false, ignoreBackdropClick: true}" mdbModal #frame1="mdbModal" class="modal fade" id="frameModalTop"
+                  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+                        
+                </div> -->
               </div>
               <!--/.Content-->
             </div>
