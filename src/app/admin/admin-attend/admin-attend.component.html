@@ -84,24 +84,24 @@
         <tr>
           <th class="th-sm">User ID</th>
           <th class="th-sm">First Name</th>
-          <th class="th-sm">Last Name</th>
+          <!-- <th class="th-sm">Last Name</th> -->
           <th class="th-sm">week 1</th>
           <th class="th-sm">week 2</th>
           <th class="th-sm">week 3</th>
-          <!-- <th class="th-sm">week 4</th>
-          <th class="th-sm">week 5</th> -->
+          <th class="th-sm">week 4</th>
+          <!-- <th class="th-sm">week 5</th> -->
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let user of users" class="cell">
           <td (click)="frame.show(user)">{{user._id}}</td>
           <td (click)="frame.show(user)">{{user.firstName}}</td>
-          <td (click)="frame.show(user)">{{user.lastName}}</td>
+          <!-- <td (click)="frame.show(user)">{{user.lastName}}</td> -->
           <td (click)="frame.show(user)"></td>
           <td (click)="frame.show(user)"></td>
           <td (click)="frame.show(user)"></td>
-          <!-- <td (click)="frame.show(user)"></td>
-          <td (click)="frame.show(user)"></td> -->
+          <td (click)="frame.show(user)"></td>
+          <!-- <td (click)="frame.show(user)"></td> -->
         </tr>
       </tbody>
     </table>
