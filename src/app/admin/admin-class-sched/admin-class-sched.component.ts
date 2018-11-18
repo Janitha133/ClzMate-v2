@@ -66,6 +66,24 @@ export class AdminClassSchedComponent implements OnInit {
       })
   }
 
+  searchBySubject(name){
+    console.log(name.value);
+    if(!name.value){
+      this.getAllClzes();
+    } else {
+      let temp = [];
+      for(let j of this.classes){
+        for(var i of Object.values(j)){
+          if((i.toString().replace(/ /g,'').toUpperCase()).includes(name.value.toUpperCase())){
+            temp.push(j);
+            break;
+          }
+        }
+      }
+      this.classes = temp;
+    }
+  }
+
   get subjectName(){ return this.form5.get('subjectName'); }
 
   get hallNo(){ return this.form5.get('hallNo'); }

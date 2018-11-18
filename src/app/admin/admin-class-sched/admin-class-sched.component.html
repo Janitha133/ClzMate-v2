@@ -71,11 +71,25 @@
     <button [disabled]="form5.invalid" mdbBtn type="submit" color="indigo" class="form-group row float-right" mdbWavesEffect>Create Class</button>
   </form>
 </div> <!-- form -->
-<hr>
 <br>
+<br>
+<br>
+<hr>
 <div class="pb-">
   <h5><strong>All classes >></strong></h5>
 </div>
+<div class="row pb-2">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <form class="form-inline animated fadeIn">
+      <input class="form-control mr-sm-2 col-md-12" type="search" placeholder="Search" aria-label="Search"
+        #searchValue (keyup)="searchBySubject($event.target)">
+    </form>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+<hr>
 
 <div> <!-- clz table -->
   <div class="white animated fadeIn hvr">
@@ -87,6 +101,7 @@
             <th class="th-sm">Grade</th>
             <th class="th-sm">Batch</th>
             <th class="th-sm">Time</th>
+            <th class="th-sm">Stream</th>
           </tr>
         </thead>
         <tbody>
@@ -96,19 +111,10 @@
             <td>{{clz.grade}}</td>
             <td>{{clz.batch}}</td>
             <td>{{clz.time}}</td>
+            <td>{{clz.stream}}</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div> <!-- clz table -->
-
-  <div> 
-      <hr>
-      <div class="pb-3">
-        <h5><strong> >></strong></h5>
-      </div>
-    <div>
-      <input class="form-control mr-sm-2 col-md-12" type="search" placeholder="Search" aria-label="Search">
-    </div>
-  </div>
 </div>
