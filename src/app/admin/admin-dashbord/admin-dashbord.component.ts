@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-dashbord',
@@ -70,9 +71,16 @@ export class AdminDashbordComponent implements OnInit {
   public chartClicked(e: any): void { }
   public chartHovered(e: any): void { }
 
-  constructor() { }
+  constructor(
+    private router: Router
+
+  ) { }
 
   ngOnInit() {
+    const token = localStorage.getItem('token');
+    if(!token){
+      this.router.navigate(['']);
+    }
   }
 
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from '../../login/login.component';
 import { AdRegStudentComponent } from '../admin-regst/ad-reg-student/ad-reg-student.component';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-admin-sidebar',
@@ -15,13 +17,23 @@ export class AdminSidebarComponent implements OnInit {
   UserName = '';
   UserEmail = '';
   
-  constructor(private lc: LoginComponent) { 
-    this.decodeJWT = lc.getDecodedAccessToken(this.token);
-    this.UserName = this.decodeJWT.user.firstName;
-    this.UserEmail = this.decodeJWT.user.email;
+  constructor(
+    private lc: LoginComponent,
+    private router: Router
+    ) { 
+      if(!this.token){
+          this.router.navigate(['']);
+      } else{
+          this.decodeJWT = lc.getDecodedAccessToken(this.token);
+          this.UserName = this.decodeJWT.user.firstName;
+          this.UserEmail = this.decodeJWT.user.email;
+      }
   }
  
   ngOnInit() {
+    if(!this.token){
+      this.router.navigate(['']);
+    }
   }
   
   viewModeSide = 'dashboard';
