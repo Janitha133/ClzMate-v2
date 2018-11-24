@@ -24,6 +24,7 @@ export class AdRegPaperMkrComponent implements OnInit {
         Validators.email,
         Validators.required
       ]],
+      nicNo: ['', Validators.required],
       mobileNumber: ['',Validators.required],
       landNumber: [''],
       firstLine: ['', Validators.required],
@@ -41,6 +42,8 @@ export class AdRegPaperMkrComponent implements OnInit {
   }
 
   get email(){return this.form3.get('email');}
+
+  get nicNo(){return this.form3.get('nicNo');}
 
   get fullName(){return this.form3.get('fullName');}
 

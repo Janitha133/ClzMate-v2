@@ -27,6 +27,7 @@ export class AdRegTeacherComponent implements OnInit {
         Validators.email,
         Validators.required
       ]],
+      nicNo: ['', Validators.required],
       mobileNumber: ['',Validators.required],
       landNumber: [''],
       firstLine: ['', Validators.required],
@@ -67,6 +68,8 @@ export class AdRegTeacherComponent implements OnInit {
   get email(){return this.form2.get('email');}
 
   get fullName(){return this.form2.get('fullName');}
+
+  get nicNo(){return this.form2.get('nicNO');}
 
   get firstName(){return this.form2.get('firstName');}
 
