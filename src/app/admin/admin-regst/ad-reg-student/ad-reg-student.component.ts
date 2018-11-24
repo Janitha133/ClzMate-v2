@@ -69,8 +69,10 @@ export class AdRegStudentComponent implements OnInit {
     console.log(form1.value);
     this.register.register(form1.value)
       .subscribe(result => {
-        if(result.json().state) alert("Student registered successfully");
-        else if(result.json().exist) alert("Student already exist"); 
+        if(result.json().state) alert("Student Registered Successfully\n"+"Index No: "+result.json().indexNo);
+        else if(result.json().exist){ 
+          alert("Student already exist");
+        } 
         else alert("Error occured please register student again");
         console.log(result);
       })

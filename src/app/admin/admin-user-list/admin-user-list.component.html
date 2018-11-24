@@ -59,7 +59,7 @@
         <tr>
           <th class="th-sm">First Name</th>
           <th class="th-sm">Last Name</th>
-          <th class="th-sm">Birthday</th>
+          <th class="th-sm">Index No</th>
           <th class="th-sm">Email</th>
           <th class="th-sm">Batch/Grade</th>
           <!-- <th class="th-sm">Actions</th> -->
@@ -69,7 +69,7 @@
         <tr *ngFor="let user of users" class="cell">
           <td (click)="frame.show(user)">{{user.firstName}}</td>
           <td (click)="frame.show(user)">{{user.lastName}}</td>
-          <td (click)="frame.show(user)">{{user.birthday}}</td>
+          <td (click)="frame.show(user)">{{user.indexNo}}</td>
           <td (click)="frame.show(user)">{{user.email}}</td>
           <td (click)="frame.show(user)">{{user.batch}}</td>
           <!-- <td>
