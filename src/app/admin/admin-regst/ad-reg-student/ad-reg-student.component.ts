@@ -1,16 +1,16 @@
-import { userRegister } from '../../../services/register.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './../../../services/auth.service';
 import { Subject } from 'rxjs';
-import { clzService } from '../../../services/clz.service';
+import { ClzService } from '../../../services/clz.service';
+import { UserService } from '../../../services/users.service';
 
 @Component({
   selector: 'app-ad-reg-student',
   templateUrl: './ad-reg-student.component.html',
   styleUrls: ['./ad-reg-student.component.scss'],
-  providers: [clzService]
+  providers: [ClzService, UserService]
 })
 export class AdRegStudentComponent implements OnInit {
 
@@ -19,8 +19,8 @@ export class AdRegStudentComponent implements OnInit {
 
   constructor(
     private fb1: FormBuilder,
-    private register: userRegister,
-    private Clzes: clzService
+    private Clzes: ClzService,
+    private Users: UserService
   ){ 
     this.form1 = this.fb1.group({
       fullName: ['',  Validators.required],
@@ -58,7 +58,6 @@ export class AdRegStudentComponent implements OnInit {
     this.Clzes.getAllClzes()
       .subscribe(result => {
         this.classes = result.json().Clz;
-        // console.log(this.classes);
         if(result.json()) console.log(result.json());
       })
   }
@@ -67,7 +66,7 @@ export class AdRegStudentComponent implements OnInit {
     form1.value['role'] = "student";
     form1.value['password'] = "password";
     console.log(form1.value);
-    this.register.register(form1.value)
+    this.Users.register(form1.value)
       .subscribe(result => {
         if(result.json().state) alert("Student Registered Successfully\n"+"Index No: "+result.json().indexNo);
         else if(result.json().exist){ 

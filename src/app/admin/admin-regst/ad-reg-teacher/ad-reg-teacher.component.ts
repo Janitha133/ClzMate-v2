@@ -1,14 +1,15 @@
-import { userRegister } from '../../../services/register.service'
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './../../../services/auth.service';
 import { resource } from 'selenium-webdriver/http';
+import { UserService } from '../../../services/users.service';
 
 @Component({
   selector: 'app-ad-reg-teacher',
   templateUrl: './ad-reg-teacher.component.html',
-  styleUrls: ['./ad-reg-teacher.component.scss']
+  styleUrls: ['./ad-reg-teacher.component.scss'],
+  providers: [UserService, AuthService]
 })
 export class AdRegTeacherComponent implements OnInit {
 
@@ -16,7 +17,7 @@ export class AdRegTeacherComponent implements OnInit {
 
   constructor(
     private fb2: FormBuilder,
-    private register: userRegister
+    private Users: UserService
   ) { 
     this.form2 = this.fb2.group({
       fullName: ['',  Validators.required],
@@ -33,18 +34,7 @@ export class AdRegTeacherComponent implements OnInit {
       firstLine: ['', Validators.required],
       secondLine: ['', Validators.required],
       city: ['', Validators.required],
-      district: ['', Validators.required],
-      teaSub: ['', Validators.required],
-      teaBatchs: fb2.group({
-        teaBatch1: fb2.group({
-          teaYear1: ['', Validators.required],
-          teaClass1: ['', Validators.required]
-        }),
-        teaBatch2: fb2.group({
-          teaYear2: ['', Validators.required],
-          teaClass2: ['', Validators.required]
-        })
-      })
+      district: ['', Validators.required]
     })
   }
  
@@ -55,7 +45,7 @@ export class AdRegTeacherComponent implements OnInit {
     form2.value['role'] = "teacher";
     form2.value['password'] = "password";
     console.log(form2.value);
-    this.register.register(form2.value)
+    this.Users.register(form2.value)
       .subscribe(result => {
         if(result.json().state) alert("Teacher registered successfully");
         else if(result.json().exist) alert("Teacher already exist");
@@ -87,23 +77,23 @@ export class AdRegTeacherComponent implements OnInit {
 
   get district(){return this.form2.get('district');}
 
-  get teaSub(){
-    return this.form2.get('teaSub');
-  }
+  // get teaSub(){
+  //   return this.form2.get('teaSub');
+  // }
 
-  get teaYear1(){
-    return this.form2.get('teaBatchs.teaBatch1.teaYear1');
-  }
+  // get teaYear1(){
+  //   return this.form2.get('teaBatchs.teaBatch1.teaYear1');
+  // }
 
-  get teaClass1(){
-    return this.form2.get('teaBatchs.teaBatch1.teaClass1');
-  }
+  // get teaClass1(){
+  //   return this.form2.get('teaBatchs.teaBatch1.teaClass1');
+  // }
 
-  get teaYear2(){
-    return this.form2.get('teaBatchs.teaBatch2.teaYear2');
-  }
+  // get teaYear2(){
+  //   return this.form2.get('teaBatchs.teaBatch2.teaYear2');
+  // }
 
-  get teaClass2(){
-    return this.form2.get('teaBatchs.teaBatch2.teaClass2');
-  }
+  // get teaClass2(){
+  //   return this.form2.get('teaBatchs.teaBatch2.teaClass2');
+  // }
 }
