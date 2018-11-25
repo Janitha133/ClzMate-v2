@@ -55,7 +55,7 @@ export class AdminClassSchedComponent implements OnInit {
   getAllSubjects(){
     this.Subjects.getAllSubjects()
       .subscribe(result => {
-        this.subjects = result.json().subject;
+        this.subjects = result.json().Subject;
         if(result.json()) console.log(result.json());
       })
   }
@@ -74,9 +74,9 @@ export class AdminClassSchedComponent implements OnInit {
     this.form5.reset();
   }
 
-  onSubmitSubject(form6){
+  onSubmitNewSubject(form6){
     console.log(form6.value);
-    this.Clzes.createSubject(form6.value)
+    this.Subjects.createSubject(form6.value)
       .subscribe(result => {
         if(result.json().state){
           alert("Subject added successfully");
@@ -99,21 +99,39 @@ export class AdminClassSchedComponent implements OnInit {
       })
   }
 
-  searchBySubject(name){
-    console.log(name.value);
-    if(!name.value){
+  searchByValueInClasses(searchValue){
+    console.log(searchValue.value);
+    if(!searchValue.value){
       this.getAllClzes();
-    } else {
+    } else { 
       let temp = [];
       for(let j of this.classes){
         for(var i of Object.values(j)){
-          if((i.toString().replace(/ /g,'').toUpperCase()).includes(name.value.toUpperCase())){
+          if((i.toString().replace(/ /g,'').toUpperCase()).includes(searchValue.value.toUpperCase())){
             temp.push(j);
             break;
           }
         }
       }
       this.classes = temp;
+    }
+  }
+
+  searchByValueInSubjects(searchValue){
+    console.log(searchValue.value);
+    if(!searchValue.value){
+      this.getAllSubjects();
+    } else { 
+      let temp = [];
+      for(let j of this.subjects){
+        for(var i of Object.values(j)){
+          if((i.toString().replace(/ /g,'').toUpperCase()).includes(searchValue.value.toUpperCase())){
+            temp.push(j);
+            break;
+          }
+        }
+      }
+      this.subjects = temp;
     }
   }
 
@@ -129,10 +147,9 @@ export class AdminClassSchedComponent implements OnInit {
 
   get time(){ return this.form5.get('time'); }
 
+  get name(){ return this.form6.get('name'); }
 
-  get name(){return this.form6.get('name');}
+  get level(){ return this.form6.get('level'); }
 
-  get level(){return this.form6.get('level');}
-
-  get subjectStream(){return this.form6.get('stream');}
+  get subjectStream(){ return this.form6.get('subjectStream'); }
 }
