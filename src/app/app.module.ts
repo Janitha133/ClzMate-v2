@@ -23,8 +23,9 @@ import { HttpModule } from '@angular/http';
 import { AdminAttendComponent } from './admin/admin-attend/admin-attend.component';
 import { AdminClassFeesComponent } from './admin/admin-class-fees/admin-class-fees.component';
 import { AdminClassSchedComponent } from './admin/admin-class-sched/admin-class-sched.component';
-import { userRegister } from './services/register.service';
 import { UserService } from './services/users.service';
+import { SubjectService } from './services/subject.service';
+import { ClzService } from './services/clz.service';
 
 
 @NgModule({
@@ -59,8 +60,9 @@ import { UserService } from './services/users.service';
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
     AuthService,
-    userRegister,
-    UserService
+    UserService,
+    SubjectService,
+    ClzService
   ],
   bootstrap: [AppComponent]
 })

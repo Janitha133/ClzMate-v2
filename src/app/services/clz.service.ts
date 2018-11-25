@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import { Injectable } from "@angular/core";
 
 @Injectable()
-export class clzService{
+export class ClzService{
 
     constructor(
         private http: Http,
@@ -23,6 +23,10 @@ export class clzService{
 
     deleteClz(clzId){
         return this.http.delete('https://polar-meadow-28819.herokuapp.com/clz/'+clzId);
+    }
+
+    createSubject(subject){
+        return this.http.post('https://polar-meadow-28819.herokuapp.com/subject/', subject );
     }
 
 }
