@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './../../../services/auth.service';
+import { UserService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-ad-reg-paper-mkr',
@@ -13,6 +14,7 @@ export class AdRegPaperMkrComponent implements OnInit {
   form3;
 
   constructor(
+    private Users: UserService,
     private fb3: FormBuilder
   ){ 
     this.form3 = this.fb3.group({
@@ -38,7 +40,17 @@ export class AdRegPaperMkrComponent implements OnInit {
   }
 
   onSubmit(form3){
+    form3.value['role'] = "paper marker";
+    form3.value['password'] = "password";
     console.log(form3.value);
+    this.Users.register(form3.value)
+      .subscribe(result => {
+        if(result.json().state) alert("Paper marker registered successfully");
+        else if(result.json().exist) alert("Paper marker already exist");
+        else alert("Error occured please register Paper marker again");
+        console.log(result);
+      })
+    this.form3.reset();
   }
 
   get email(){return this.form3.get('email');}

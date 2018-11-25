@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './../../../services/auth.service';
+import { UserService } from 'src/app/services/users.service';
 
 
 @Component({
@@ -14,6 +15,7 @@ export class AdRegCardMkrComponent implements OnInit {
   form4;
 
   constructor(
+    private Users: UserService,
     private fb4: FormBuilder
   ){ 
     this.form4 = this.fb4.group({
@@ -39,7 +41,17 @@ export class AdRegCardMkrComponent implements OnInit {
   }
 
   onSubmit(form4){
+    form4.value['role'] = "paper marker";
+    form4.value['password'] = "password";
     console.log(form4.value);
+    this.Users.register(form4.value)
+      .subscribe(result => {
+        if(result.json().state) alert("Card marker registered successfully");
+        else if(result.json().exist) alert("Card marker already exist");
+        else alert("Error occured please register Card marker again");
+        console.log(result);
+      })
+    this.form4.reset();
   }
 
   get email(){return this.form4.get('email');}
