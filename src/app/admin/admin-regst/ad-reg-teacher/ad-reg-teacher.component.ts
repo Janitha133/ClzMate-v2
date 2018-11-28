@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './../../../services/auth.service';
 import { resource } from 'selenium-webdriver/http';
 import { UserService } from '../../../services/users.service';
+import { ClzService } from 'src/app/services/clz.service';
 
 @Component({
   selector: 'app-ad-reg-teacher',
@@ -14,35 +15,54 @@ import { UserService } from '../../../services/users.service';
 export class AdRegTeacherComponent implements OnInit {
 
   form2;
+  classes: any[] = [];
 
   constructor(
     private fb2: FormBuilder,
+    private Clzes: ClzService,
     private Users: UserService
   ) { 
     this.form2 = this.fb2.group({
-      fullName: ['',  Validators.required],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required], 
-      birthday: ['', Validators.required],
-      email: ['', [
-        Validators.email,
-        Validators.required
-      ]],
-      nicNo: ['', Validators.required],
-      mobileNumber: ['',Validators.required],
-      landNumber: [''],
       firstLine: ['', Validators.required],
       secondLine: ['', Validators.required],
       city: ['', Validators.required],
-      district: ['', Validators.required]
+      district: ['', Validators.required],
+      landNumber: [''],
+      mobileNumber: ['', Validators.required],
+      motherName: [''],
+      momNumber: [''],
+      fatherName:[''], 
+      dadNumber: [''],
+      gardianName: [''],
+      gardianNumber: [''],
+      nicNo: ['', Validators.required],
+      email: ['', [Validators.email,Validators.required]], 
+      fullName: ['', Validators.required],
+      batch:[''],
+      school: [''],
+      clzes: new FormArray([]),
+      stream: [''],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      birthday: ['', Validators.required],
+      gender: ['', Validators.required]
     })
   }
  
   ngOnInit() {
+    this.getAllClzes()
+  }
+
+  getAllClzes(){
+    this.Clzes.getAllClzes()
+      .subscribe(result => {
+        this.classes = result.json().Clz;
+        if(result.json()) console.log(result.json());
+      })
   }
 
   onSubmit(form2){
-    form2.value['role'] = "teacher";
+    form2.value['role'] = "Teacher";
     form2.value['password'] = "password";
     console.log(form2.value);
     this.Users.register(form2.value)
@@ -55,11 +75,28 @@ export class AdRegTeacherComponent implements OnInit {
     this.form2.reset();
   }
 
+  addClz(clz){
+    // console.log(clz);
+    // this.clzes.push(clz);
+    this.clzes.push(new FormControl(clz.value));
+    // this.topics.push(clz.value);
+    // this.clzes[this.clzes.length] = "ssdf";
+    console.log(clz.value);
+    // console.log(this.classes);
+    // clz._id = ''; 
+  }
+
+  removeClz(topic:FormControl){
+    this.clzes.removeAt(this.clzes.controls.indexOf(topic));
+    // this.topics = this.topics.filter(item => item !== topic);
+    console.log(topic);
+  }
+
   get email(){return this.form2.get('email');}
 
   get fullName(){return this.form2.get('fullName');}
 
-  get nicNo(){return this.form2.get('nicNO');}
+  get nicNo(){return this.form2.get('nicNo');}
 
   get firstName(){return this.form2.get('firstName');}
 
@@ -76,6 +113,13 @@ export class AdRegTeacherComponent implements OnInit {
   get city(){return this.form2.get('city');}
 
   get district(){return this.form2.get('district');}
+
+  get gender(){return this.form2.get('gender');}
+
+  get stream(){return this.form2.get('stream');}
+
+  get clzes(){return this.form2.get('clzes')}
+
 
   // get teaSub(){
   //   return this.form2.get('teaSub');

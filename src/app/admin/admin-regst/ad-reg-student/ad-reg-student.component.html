@@ -47,7 +47,10 @@
         <option value="">Choose Gender</option>
         <option>Male</option>
         <option>Female</option>
-      </select>  
+      </select>
+      <div class="alert alert-danger" *ngIf="gender.touched && gender.invalid">
+        <small>Please select gender</small>
+      </div>  
     </div>
   </div>
 
@@ -137,6 +140,9 @@
         <option>2019</option>
         <option>2020</option>
       </select>
+      <div class="alert alert-danger" *ngIf="batch.touched && batch.invalid">
+        <small>Select batch</small>
+      </div>
     </div> 
     <div class="col-sm-5">
       <!-- <select id="inputState" class="form-control">

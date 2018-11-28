@@ -23,30 +23,29 @@ export class AdRegStudentComponent implements OnInit {
     private Users: UserService
   ){ 
     this.form1 = this.fb1.group({
-      fullName: ['',  Validators.required],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required], 
-      birthday: ['', Validators.required],
-      gender: ['', Validators.required],
-      email: ['', [
-        Validators.email,
-        Validators.required
-      ]], 
-      school: ['', Validators.required],
-      mobileNumber: ['',Validators.required],
-      landNumber: [''],
       firstLine: ['', Validators.required],
       secondLine: ['', Validators.required],
       city: ['', Validators.required],
       district: ['', Validators.required],
-      batch:[''],
-      clzes: new FormArray([]),
-      fatherName: ['', Validators.required],
-      dadNumber: ['', Validators.required],
+      landNumber: [''],
+      mobileNumber: ['', Validators.required],
       motherName: ['', Validators.required],
       momNumber: ['', Validators.required],
+      fatherName:['', Validators.required], 
+      dadNumber: ['', Validators.required],
       gardianName: [''],
-      gardianNumber: ['']
+      gardianNumber: [''],
+      nicNo: [''],
+      email: ['', [Validators.email,Validators.required]], 
+      fullName: ['', Validators.required],
+      batch:[''],
+      school: ['', Validators.required],
+      clzes: new FormArray([]),
+      stream: [''],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      birthday: ['', Validators.required],
+      gender: ['', Validators.required]
     })
   }
  
@@ -63,7 +62,7 @@ export class AdRegStudentComponent implements OnInit {
   }
 
   onSubmit(form1){
-    form1.value['role'] = "student";
+    form1.value['role'] = "Student";
     form1.value['password'] = "password";
     console.log(form1.value);
     this.Users.register(form1.value)

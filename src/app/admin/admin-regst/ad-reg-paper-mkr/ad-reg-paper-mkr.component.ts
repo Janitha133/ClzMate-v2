@@ -15,24 +15,33 @@ export class AdRegPaperMkrComponent implements OnInit {
 
   constructor(
     private Users: UserService,
+ 
     private fb3: FormBuilder
   ){ 
     this.form3 = this.fb3.group({
-      fullName: ['',  Validators.required],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required], 
-      birthday: ['', Validators.required],
-      email: ['', [
-        Validators.email,
-        Validators.required
-      ]],
-      nicNo: ['', Validators.required],
-      mobileNumber: ['',Validators.required],
-      landNumber: [''],
       firstLine: ['', Validators.required],
       secondLine: ['', Validators.required],
       city: ['', Validators.required],
-      district: ['', Validators.required]
+      district: ['', Validators.required],
+      landNumber: [''],
+      mobileNumber: ['', Validators.required],
+      motherName: [''],
+      momNumber: [''],
+      fatherName:[''], 
+      dadNumber: [''],
+      gardianName: [''],
+      gardianNumber: [''],
+      nicNo: ['', Validators.required],
+      email: ['', [Validators.email,Validators.required]], 
+      fullName: ['', Validators.required],
+      batch:[''],
+      school: [''],
+      clzes: [''],
+      stream: [''],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      birthday: ['', Validators.required],
+      gender: ['', Validators.required]
     })
   }
 
@@ -74,5 +83,7 @@ export class AdRegPaperMkrComponent implements OnInit {
   get city(){return this.form3.get('city');}
 
   get district(){return this.form3.get('district');}
+
+  get gender(){return this.form3.get('gender');}
 
 }

@@ -19,21 +19,29 @@ export class AdRegCardMkrComponent implements OnInit {
     private fb4: FormBuilder
   ){ 
     this.form4 = this.fb4.group({
-      fullName: ['',  Validators.required],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required], 
-      birthday: ['', Validators.required],
-      email: ['', [
-        Validators.email,
-        Validators.required
-      ]],
-      nicNo: ['', Validators.required],
-      mobileNumber: ['',Validators.required],
-      landNumber: [''],
       firstLine: ['', Validators.required],
       secondLine: ['', Validators.required],
       city: ['', Validators.required],
-      district: ['', Validators.required]
+      district: ['', Validators.required],
+      landNumber: [''],
+      mobileNumber: ['', Validators.required],
+      motherName: [''],
+      momNumber: [''],
+      fatherName:[''], 
+      dadNumber: [''],
+      gardianName: [''],
+      gardianNumber: [''],
+      nicNo: ['', Validators.required],
+      email: ['', [Validators.email,Validators.required]], 
+      fullName: ['', Validators.required],
+      batch:[''],
+      school: [''],
+      clzes: [''],
+      stream: [''],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      birthday: ['', Validators.required],
+      gender: ['', Validators.required]
     })
   }
 
