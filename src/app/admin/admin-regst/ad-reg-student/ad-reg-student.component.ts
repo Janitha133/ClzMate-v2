@@ -62,7 +62,7 @@ export class AdRegStudentComponent implements OnInit {
   }
 
   onSubmit(form1){
-    form1.value['role'] = "Student";
+    form1.value['role'] = "student";
     form1.value['password'] = "password";
     console.log(form1.value);
     this.Users.register(form1.value)
