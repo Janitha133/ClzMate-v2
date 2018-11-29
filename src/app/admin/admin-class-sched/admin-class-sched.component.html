@@ -125,52 +125,6 @@
 <br>
 <hr>
 
-  <div>
-    <div class="pb-3">
-      <h5><strong>Add New Subject >></strong></h5>
-    </div>
-    <div> <!-- form -->
-      <form class="pl-2 pr-2" [formGroup]="form6" (ngSubmit)="onSubmitNewSubject(form6)">
-        
-        <div class="form-group row">
-            <label for="name" class="col-sm-2 col-form-label">Subject Name:</label>
-            <div class="col-sm-10">
-              <input formControlName="name" type="text" class="form-control" id="" placeholder="Subject Name">
-              <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
-                <small>Please enter Subject name</small>
-              </div>
-            </div>
-        </div>
-    
-        <div class="form-group row">
-          <label for="level" class="col-sm-2 col-form-label">Level: </label>
-          <div class="col-sm-10">
-            <input formControlName="level" type="text" class="form-control" id="" placeholder="A/L or O/L">
-            <div class="alert alert-danger" *ngIf="level.touched && level.invalid">
-              <small>Please enter Level</small>
-            </div> 
-          </div>
-        </div>
-    
-        <div class="form-group row">
-          <label for="grade" class="col-sm-2 col-form-label">Stream: </label>
-          <div class="col-sm-10">
-            <input formControlName="subjectStream" type="text" class="form-control" id="" placeholder="Stream ">
-            <div class="alert alert-danger" *ngIf="stream.touched && stream.invalid">
-              <small>Please enter Stream</small>
-            </div>
-          </div>
-        </div>
-
-        <button [disabled]="form6.invalid" mdbBtn type="submit" color="indigo" class="form-group row float-right" mdbWavesEffect>Add Subject</button>
-      </form>
-    </div> <!-- form -->
-  </div>
-  <br>
-  <br>
-  <br>
-  <hr>
-
   <div class="pb-">
     <h5><strong>All Subjects >></strong></h5>
   </div>
@@ -208,6 +162,50 @@
       </div>
     </div> <!-- clz table -->
   
+    <br>
     <hr>
+    
+    
+    <div>
+      <div class="pb-3">
+        <h5><strong>Add New Subject >></strong></h5>
+      </div>
+      <div> <!-- form -->
+        <form class="pl-2 pr-2" [formGroup]="form6" (ngSubmit)="onSubmitNewSubject(form6)">
+          
+          <div class="form-group row">
+              <label for="name" class="col-sm-2 col-form-label">Subject Name:</label>
+              <div class="col-sm-10">
+                <input formControlName="name" type="text" class="form-control" id="" placeholder="Subject Name">
+                <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+                  <small>Please enter Subject name</small>
+                </div>
+              </div>
+          </div>
+      
+          <div class="form-group row">
+            <label for="level" class="col-sm-2 col-form-label">Level: </label>
+            <div class="col-sm-10">
+              <input formControlName="level" type="text" class="form-control" id="" placeholder="A/L or O/L">
+              <div class="alert alert-danger" *ngIf="level.touched && level.invalid">
+                <small>Please enter Level</small>
+              </div> 
+            </div>
+          </div>
+      
+          <div class="form-group row">
+            <label for="grade" class="col-sm-2 col-form-label">Stream: </label>
+            <div class="col-sm-10">
+              <input formControlName="subjectStream" type="text" class="form-control" id="" placeholder="Stream ">
+              <div class="alert alert-danger" *ngIf="stream.touched && stream.invalid">
+                <small>Please enter Stream</small>
+              </div>
+            </div>
+          </div>
+  
+          <button [disabled]="form6.invalid" mdbBtn type="submit" color="indigo" class="form-group row float-right" mdbWavesEffect>Add Subject</button>
+        </form>
+      </div> <!-- form -->
+    </div>
 
 </div>
