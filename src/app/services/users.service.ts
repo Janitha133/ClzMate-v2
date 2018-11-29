@@ -25,4 +25,8 @@ export class UserService{
         return this.http.delete('https://polar-meadow-28819.herokuapp.com/user/'+userId);
     }
 
+    getUserByRole(userRole){
+        return this.http.get('')
+    }
+
 }

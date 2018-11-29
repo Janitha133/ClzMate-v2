@@ -10,6 +10,7 @@ import { UserService } from '../../services/users.service';
 export class AdminUserListComponent implements OnInit {
 
   users: any[] = [];
+  role: String = "Student";
 
   constructor(
     private http: Http,
@@ -17,11 +18,27 @@ export class AdminUserListComponent implements OnInit {
   ) 
   {
     this.getAllStudents();
+    //in this time disable below fun
+    //this.getUserByRole(this.role);
   }
 
   ngOnInit() {
   }
 
+  selectRole(_role){
+    this.role = _role;
+    this.getUserByRole(this.role);
+  }
+
+  getUserByRole(userRole){
+    this.userService.getUserByRole(userRole)
+    .subscribe(res => {
+      this.users = res.json().User;
+      console.log(Object.values(res.json().User));
+    })
+  }
+
+  //this is current fuc and when we considered role not need it.that time we can use select role fun
   getAllStudents() {
     this.userService.getAllUsers()
       .subscribe(response => {
