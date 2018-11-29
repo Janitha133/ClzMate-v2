@@ -49,7 +49,7 @@ export class AdRegCardMkrComponent implements OnInit {
   }
 
   onSubmit(form4){
-    form4.value['role'] = "paper marker";
+    form4.value['role'] = "cardMarker";
     form4.value['password'] = "password";
     console.log(form4.value);
     this.Users.register(form4.value)
@@ -83,5 +83,7 @@ export class AdRegCardMkrComponent implements OnInit {
   get city(){return this.form4.get('city');}
 
   get district(){return this.form4.get('district');}
+
+  get gender(){return this.form4.get('gender');}
   
 }
