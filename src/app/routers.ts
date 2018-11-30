@@ -7,6 +7,7 @@ import { AdminUserListComponent } from './admin/admin-user-list/admin-user-list.
 import { AdminAttendComponent } from './admin/admin-attend/admin-attend.component';
 import { AdminClassFeesComponent } from './admin/admin-class-fees/admin-class-fees.component';
 import { AdminClassSchedComponent } from './admin/admin-class-sched/admin-class-sched.component';
+import { PgeNtFoundComponent } from './pge-nt-found/pge-nt-found.component';
 
 export const appRoutes: Routes = [
     {
@@ -25,5 +26,9 @@ export const appRoutes: Routes = [
             {path:"classschedule", component: AdminClassSchedComponent}          
         ]
     },
+    {
+        path: '**',
+        component: PgeNtFoundComponent
+    }
 
 ]

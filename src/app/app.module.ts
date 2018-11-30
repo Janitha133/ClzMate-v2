@@ -26,6 +26,8 @@ import { AdminClassSchedComponent } from './admin/admin-class-sched/admin-class-
 import { UserService } from './services/users.service';
 import { SubjectService } from './services/subject.service';
 import { ClzService } from './services/clz.service';
+import { ForgotPswdComponent } from './forgot-pswd/forgot-pswd.component';
+import { PgeNtFoundComponent } from './pge-nt-found/pge-nt-found.component';
 
 
 @NgModule({
@@ -46,6 +48,8 @@ import { ClzService } from './services/clz.service';
     AdminAttendComponent,
     AdminClassFeesComponent,
     AdminClassSchedComponent,
+    ForgotPswdComponent,
+    PgeNtFoundComponent,
   ],
   imports: [
     FormsModule,
