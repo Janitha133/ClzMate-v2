@@ -35,7 +35,7 @@
   <div  class="form-group row">
     <label for="birthday" class="col-sm-2 col-form-label">Birthday</label>
     <div class="col-sm-4">
-      <input formControlName="birthday" type="text" class="form-control" id="birthday" placeholder="yyyy/mm/dd">
+      <input formControlName="birthday" type="date" class="form-control" id="birthday" placeholder="yyyy/mm/dd">
       <div class="alert alert-danger" *ngIf="birthday.touched && birthday.invalid">
         <small>Please select birthday</small>
       </div>  
@@ -82,13 +82,16 @@
   <div class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">Contact</label>
     <div class="col-sm-5">
-      <input formControlName="mobileNumber" type="text" class="form-control" id="" placeholder="Mobile Number">
+      <input formControlName="mobileNumber" type="text" class="form-control" id="" placeholder="Mobile 000-0000000">
       <div class="alert alert-danger" *ngIf="mobileNumber.touched && mobileNumber.invalid">
-        <small>Enter mobile mumber</small>
+        <small *ngIf="mobileNumber.errors.required">Enter mobile number</small>
+        <small *ngIf="mobileNumber.errors.minlength">Should be minimum 10 numbers</small>
+        <small *ngIf="mobileNumber.errors.maxlength">Should be maximum 10 numbers</small>
+        <small *ngIf="mobileNumber.errors.pattern"><br>Doesn't match to number pattern</small>
       </div>
     </div>
     <div class="col-sm-5">
-      <input formControlName="landNumber" type="text" class="form-control" id="" placeholder="Land-line Number">
+      <input formControlName="landNumber" type="text" class="form-control" id="" placeholder="Land-line 000-0000000 (optional)">
     </div>
   </div>
 

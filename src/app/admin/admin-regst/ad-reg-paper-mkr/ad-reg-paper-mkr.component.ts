@@ -24,7 +24,7 @@ export class AdRegPaperMkrComponent implements OnInit {
       city: ['', Validators.required],
       district: ['', Validators.required],
       landNumber: [''],
-      mobileNumber: ['', Validators.required],
+      mobileNumber: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11), Validators.pattern('000-0000000')]],
       motherName: [''],
       momNumber: [''],
       fatherName:[''], 
