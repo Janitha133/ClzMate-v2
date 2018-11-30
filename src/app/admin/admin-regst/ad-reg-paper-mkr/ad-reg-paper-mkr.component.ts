@@ -49,7 +49,7 @@ export class AdRegPaperMkrComponent implements OnInit {
   }
 
   onSubmit(form3){
-    form3.value['role'] = "paperMarker";
+    form3.value['role'] = "Paper Marker";
     form3.value['password'] = "password";
     console.log(form3.value);
     this.Users.register(form3.value)

@@ -38,13 +38,13 @@
             </div>
   
             <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" (click)="selectRole('Paper')" class="custom-control-input" id="defaultInline3" name="inlineDefaultRadiosExample"
+              <input type="radio" (click)="selectRole('Paper Marker')" class="custom-control-input" id="defaultInline3" name="inlineDefaultRadiosExample"
                 mdbInputDirective>
               <label class="custom-control-label" for="defaultInline3">Paper Maker</label>
             </div>
   
             <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" (click)="selectRole('Card')" class="custom-control-input" id="defaultInline4" name="inlineDefaultRadiosExample"
+              <input type="radio" (click)="selectRole('Card Marker')" class="custom-control-input" id="defaultInline4" name="inlineDefaultRadiosExample"
                 mdbInputDirective>
               <label class="custom-control-label" for="defaultInline4">Card Maker</label>
             </div>
@@ -57,9 +57,9 @@
     <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
       <thead>
         <tr>
+          <th class="th-sm">Index No</th>
           <th class="th-sm">First Name</th>
           <th class="th-sm">Last Name</th>
-          <th class="th-sm">Index No</th>
           <th class="th-sm">Email</th>
           <th class="th-sm">Batch/Grade</th>
           <!-- <th class="th-sm">Actions</th> -->
@@ -67,11 +67,11 @@
       </thead>
       <tbody>
         <tr *ngFor="let user of users" class="cell">
+          <td (click)="frame.show(user)">{{user.indexNo}}</td>
           <td (click)="frame.show(user)">{{user.firstName}}</td>
           <td (click)="frame.show(user)">{{user.lastName}}</td>
-          <td (click)="frame.show(user)">{{user.indexNo}}</td>
-          <td (click)="frame.show(user)">{{user.email}}</td>
-          <td (click)="frame.show(user)">{{user.batch}}</td>
+          <td (click)="frame.show(user)">{{user.Email}}</td>
+          <td (click)="frame.show(user)">{{user.Batch}}</td>
           <!-- <td>
             <div class="chip badge green ml-3 mr-2">
                 <i class="fa fa-user-plus p-1" aria-hidden="true" mdbTooltip="Edit User" placement="bottom"></i>

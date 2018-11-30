@@ -49,7 +49,7 @@ export class AdRegCardMkrComponent implements OnInit {
   }
 
   onSubmit(form4){
-    form4.value['role'] = "cardMarker";
+    form4.value['role'] = "Card Marker";
     form4.value['password'] = "password";
     console.log(form4.value);
     this.Users.register(form4.value)

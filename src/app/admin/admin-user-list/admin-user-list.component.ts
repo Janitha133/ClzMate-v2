@@ -17,9 +17,9 @@ export class AdminUserListComponent implements OnInit {
     private userService: UserService
   ) 
   {
-    this.getAllStudents();
+    //this.getAllStudents();
     //in this time disable below fun
-    //this.getUserByRole(this.role);
+    this.getUserByRole(this.role);
   }
 
   ngOnInit() {
@@ -33,37 +33,37 @@ export class AdminUserListComponent implements OnInit {
   getUserByRole(userRole){
     this.userService.getUserByRole(userRole)
     .subscribe(res => {
-      this.users = res.json().User;
-      console.log(Object.values(res.json().User));
+      this.users = res.json().Users;
+      console.log(Object.values(res.json().Users));
     })
   }
 
   //this is current fuc and when we considered role not need it.that time we can use select role fun
-  getAllStudents() {
-    this.userService.getAllUsers()
-      .subscribe(response => {
-        this.users = response.json().User;
-        console.log(Object.values(response.json().User));
-      });
-  }
+  // getAllStudents() {
+  //   this.userService.getAllUsers()
+  //     .subscribe(response => {
+  //       this.users = response.json().User;
+  //       console.log(Object.values(response.json().User));
+  //     });
+  // }
 
-  searchByName(name) {
-    console.log(name.value);
-    if (!name.value) {
-      this.getAllStudents();
-    } else {
-      let temp = [];
-      for (let j of this.users) {
-        for (var i of Object.values(j)) {
-          if ((i.toString().replace(/ /g,'').toUpperCase()).includes(name.value.toUpperCase())) {
-            temp.push(j);
-            break;
-          }
-        }
-      }
-      this.users = temp;
-    }
-  }
+  // searchByName(name) {
+  //   console.log(name.value);
+  //   if (!name.value) {
+  //     this.getAllStudents();
+  //   } else {
+  //     let temp = [];
+  //     for (let j of this.users) {
+  //       for (var i of Object.values(j)) {
+  //         if ((i.toString().replace(/ /g,'').toUpperCase()).includes(name.value.toUpperCase())) {
+  //           temp.push(j);
+  //           break;
+  //         }
+  //       }
+  //     }
+  //     this.users = temp;
+  //   }
+  // }
 
   deleteUser(user) {
     console.log(user._id);
