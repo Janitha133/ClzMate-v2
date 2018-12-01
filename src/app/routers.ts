@@ -8,6 +8,7 @@ import { AdminAttendComponent } from './admin/admin-attend/admin-attend.componen
 import { AdminClassFeesComponent } from './admin/admin-class-fees/admin-class-fees.component';
 import { AdminClassSchedComponent } from './admin/admin-class-sched/admin-class-sched.component';
 import { PgeNtFoundComponent } from './pge-nt-found/pge-nt-found.component';
+import { ForgotPswdComponent } from './forgot-pswd/forgot-pswd.component';
 
 export const appRoutes: Routes = [
     {
@@ -25,6 +26,10 @@ export const appRoutes: Routes = [
             {path:"classfees", component: AdminClassFeesComponent},          
             {path:"classschedule", component: AdminClassSchedComponent}          
         ]
+    },
+    {
+        path: "forgotpswd",
+        component: ForgotPswdComponent,
     },
     {
         path: '**',

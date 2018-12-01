@@ -76,16 +76,16 @@
   <div class="form-group row">
     <label for="inputFullame" class="col-sm-2 col-form-label">Contact</label>
     <div class="col-sm-5">
-      <input formControlName="mobileNumber" type="text" class="form-control" id="" placeholder="Mobile 000-0000000">
+      <input formControlName="mobileNumber" type="text" class="form-control" id="" placeholder="Mobile 07********">
       <div class="alert alert-danger" *ngIf="mobileNumber.touched && mobileNumber.invalid">
-          <small *ngIf="mobileNumber.errors.required">Enter mobile number</small>
-          <small *ngIf="mobileNumber.errors.minlength">Should be minimum 10 numbers</small>
-          <small *ngIf="mobileNumber.errors.maxlength">Should be maximum 10 numbers</small>
-          <small *ngIf="mobileNumber.errors.pattern"><br>Doesn't match to number pattern</small>
-        </div>
+        <small *ngIf="mobileNumber.errors.required">Enter mobile number</small>
+        <small *ngIf="mobileNumber.errors.minlength">Should be minimum 10 numbers<br></small>
+        <small *ngIf="mobileNumber.errors.maxlength">Should be maximum 10 numbers<br></small>
+        <small *ngIf="mobileNumber.errors.pattern">Doesn't match to number pattern</small>
+      </div>
     </div>
     <div class="col-sm-5">
-      <input formControlName="landNumber" type="text" class="form-control" id="" placeholder="Land-line 000-0000000 (optional)">
+      <input formControlName="landNumber" type="text" class="form-control" id="" placeholder="Land-line 07******** (optional)">
     </div>
   </div>
 

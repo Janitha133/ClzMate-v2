@@ -12,6 +12,7 @@ import { UserService } from 'src/app/services/users.service';
 export class AdRegPaperMkrComponent implements OnInit {
 
   form3;
+  mobnumPattern = "^((\\+91-?)|0)?[0-9]{10}$";
 
   constructor(
     private Users: UserService,
@@ -24,7 +25,7 @@ export class AdRegPaperMkrComponent implements OnInit {
       city: ['', Validators.required],
       district: ['', Validators.required],
       landNumber: [''],
-      mobileNumber: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11), Validators.pattern('000-0000000')]],
+      mobileNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(this.mobnumPattern)]],
       motherName: [''],
       momNumber: [''],
       fatherName:[''], 

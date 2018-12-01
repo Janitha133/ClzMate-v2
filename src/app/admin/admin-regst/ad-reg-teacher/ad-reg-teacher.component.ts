@@ -16,6 +16,7 @@ export class AdRegTeacherComponent implements OnInit {
 
   form2;
   classes: any[] = [];
+  mobnumPattern = "^((\\+91-?)|0)?[0-9]{10}$";
 
   constructor(
     private fb2: FormBuilder,
@@ -28,7 +29,7 @@ export class AdRegTeacherComponent implements OnInit {
       city: ['', Validators.required],
       district: ['', Validators.required],
       landNumber: [''],
-      mobileNumber: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11), Validators.pattern('000-0000000')]],
+      mobileNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(this.mobnumPattern)]],
       motherName: [''],
       momNumber: [''],
       fatherName:[''], 
