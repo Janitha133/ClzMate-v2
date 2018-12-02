@@ -1,24 +1,59 @@
 <div class="container">
 
-  <div class="jumbotron text-center">
+  <form class="" [formGroup]="form6" (ngSubmit)="onSubmit(form6)">
+  <div class="jumbotron text-center animated fadeIn">
     <h2 class="card-title h2">Forgot Your Password?</h2>
 
     <img src="../../assets/pic/forgot_password_371007.png" style="height: 200px; overflow: hidden;" class="img-fluid" alt="">
     <div class="row d-flex justify-content-center">
       <div class="col-xl-7 pb-2">
   
-        <p class="card-text">Please enter your email address below to start the process of resetting your password</p>
+        <p *ngIf="this.userEmail=='send'" class="card-text">Please enter your email address below to start the process of resetting your password.</p>
+        <p *ngIf="this.userEmail=='sent'" class="card-text">Reset code sent to {{this.saveEmail}}.Check your inbox and enter reset code below to confirm the email.</p>
+        <p *ngIf="this.userEmail=='done'" class="card-text">New password sent to {{this.saveEmail}}.Check your inbox for getting new password</p>
+
+          <div *ngIf="this.userEmail=='send'" class="form-group row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+              <input formControlName="email" type="email" class="form-control" id="inputEmail3" placeholder="Email">
+              <div *ngIf="email.touched && email.invalid">
+                <div class="alert alert-danger" *ngIf="email.errors.email">
+                  <small>Invalid email</small>
+                </div>
+                <div class="alert alert-danger" *ngIf="email.errors.required">
+                  <small>Please enter email</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-1"></div>
+          </div>
+
+          <div *ngIf="this.userEmail=='sent'" class="form-group row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+              <input formControlName="resetCode" type="text" class="form-control" id="resetCode" placeholder="Reset Code">
+              <div *ngIf="resetCode.touched && resetCode.invalid">
+                <div class="alert alert-danger" *ngIf="email.errors.required">
+                  <small>Please enter reset code</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+     
       </div>
     </div>
   
     <hr class="my-4">
   
     <div class="pt-2">
-      <button type="button" mdbBtn color="blue" mdbWavesEffect>Buy now <mdb-icon icon="diamond" class="ml-1"></mdb-icon> </button>
-      <button type="button" mdbBtn color="primary" outline="true" mdbWavesEffect> Download <mdb-icon icon="download" class="ml-1"></mdb-icon></button>
+      <button *ngIf="this.userEmail=='send'" class="col-md-3" type="submit" mdbBtn color="blue" mdbWavesEffect>Reset Password</button>
+      <button *ngIf="this.userEmail=='sent'" class="col-md-3" type="submit" mdbBtn color="blue" mdbWavesEffect>Confirm Email</button>
+      <button *ngIf="this.userEmail=='done'" routerLink="" class="col-md-3" type="button" mdbBtn color="blue" mdbWavesEffect>Go to Login</button>
     </div>
   
   </div>
+  </form>  
 </div>
   
 
