@@ -33,8 +33,8 @@ export class AdminUserListComponent implements OnInit {
   getUserByRole(userRole){
     this.userService.getUserByRole(userRole)
     .subscribe(res => {
-      this.users = res.json().Users;
-      console.log(Object.values(res.json().Users));
+      this.users = res.json().User;
+      console.log(Object.values(res.json().User));
     })
   }
 

@@ -61,7 +61,7 @@
           <th class="th-sm">First Name</th>
           <th class="th-sm">Last Name</th>
           <th class="th-sm">Email</th>
-          <th class="th-sm">Batch/Grade</th>
+          <th class="th-sm">mobile</th>
           <!-- <th class="th-sm">Actions</th> -->
         </tr>
       </thead>
@@ -70,8 +70,8 @@
           <td (click)="frame.show(user)">{{user.indexNo}}</td>
           <td (click)="frame.show(user)">{{user.firstName}}</td>
           <td (click)="frame.show(user)">{{user.lastName}}</td>
-          <td (click)="frame.show(user)">{{user.Email}}</td>
-          <td (click)="frame.show(user)">{{user.Batch}}</td>
+          <td (click)="frame.show(user)">{{user.email}}</td>
+          <td (click)="frame.show(user)">{{user.contactDetails.mobileNumber}}</td>
           <!-- <td>
             <div class="chip badge green ml-3 mr-2">
                 <i class="fa fa-user-plus p-1" aria-hidden="true" mdbTooltip="Edit User" placement="bottom"></i>
