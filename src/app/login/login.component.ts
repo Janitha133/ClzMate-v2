@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   form;
   invalidLogin = false;
+  showSpinner = '';
 
   constructor(
     private fb: FormBuilder,
@@ -35,15 +36,18 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form){
+    this.showSpinner = 'true';
     this.auth.login(form.value).subscribe(result => {
       let token = result.json().JWT_Token; 
       let decodeJWT = this.getDecodedAccessToken(token)
-      console.log(decodeJWT)
-      console.log(token);
+      console.log(decodeJWT);
+      //console.log(token);
       if(token){
         localStorage.setItem('token', token);
         this.router.navigate(['admin/dashboard']);
-      }else{
+        this.showSpinner = 'false';
+      }
+      else{
         this.invalidLogin = true;
         this.form.reset();
       }

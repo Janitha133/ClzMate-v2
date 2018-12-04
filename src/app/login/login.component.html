@@ -1,4 +1,8 @@
 <div class="container">
+  <div *ngIf="showSpinner == 'true'" class="bck-ovrly">
+        <app-spinner class="postn"></app-spinner>
+  </div>
+
   <div class="row">
     <div class="col-md-1"></div>
     <div class="card col-md-4 wrapper log-back pl-0 pr-0 animated fadeInLeft">
