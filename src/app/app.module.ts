@@ -28,6 +28,7 @@ import { SubjectService } from './services/subject.service';
 import { ClzService } from './services/clz.service';
 import { ForgotPswdComponent } from './forgot-pswd/forgot-pswd.component';
 import { PgeNtFoundComponent } from './pge-nt-found/pge-nt-found.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { PgeNtFoundComponent } from './pge-nt-found/pge-nt-found.component';
     AdminClassSchedComponent,
     ForgotPswdComponent,
     PgeNtFoundComponent,
+    SpinnerComponent,
   ],
   imports: [
     FormsModule,
