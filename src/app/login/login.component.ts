@@ -30,9 +30,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(localStorage.getItem('token') !== null){
-      this.router.navigate(['admin/dashboard']);
-    }
+    // if(localStorage.getItem('token') !== null){
+    //   this.router.navigate(['admin/dashboard']);
+    // }
   }
 
   onSubmit(form){
