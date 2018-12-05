@@ -28,4 +28,8 @@ export class UserService{
         return this.http.get('https://polar-meadow-28819.herokuapp.com/user/findByRole/'+userRole);
     }
 
+    resetPassword(email){
+        return this.http.get('https://polar-meadow-28819.herokuapp.com/user/forgotPassword/'+email);
+    }
+
 }
