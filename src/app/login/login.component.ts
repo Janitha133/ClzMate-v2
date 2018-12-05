@@ -49,8 +49,8 @@ export class LoginComponent implements OnInit {
       }
       else{
         this.invalidLogin = true;
-        this.form.reset();
         this.showSpinner = 'false';
+        this.form.reset();
       }
     });
   }
