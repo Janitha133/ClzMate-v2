@@ -22,34 +22,34 @@
     <div class="form-group row">
       <div class="col-md-3">
         <p class="p-3 text-white ml-4 mb-0">Select Role</p>
-      </div>    
+      </div>
       <div class="col-md-9">
         <div class="text-white p-3">
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" (click)="selectRole('Student')" class="custom-control-input" id="defaultChecked2" name="inlineDefaultRadiosExample" 
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" (click)="selectRole('Student')" class="custom-control-input" id="defaultChecked2" name="inlineDefaultRadiosExample"
               checked mdbInputDirective>
-              <label class="custom-control-label" for="defaultChecked2">Student</label>
-            </div>
-  
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" (click)="selectRole('Teacher')" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample"
-                mdbInputDirective>
-              <label class="custom-control-label" for="defaultInline2">Teacher</label>
-            </div>
-  
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" (click)="selectRole('Paper Marker')" class="custom-control-input" id="defaultInline3" name="inlineDefaultRadiosExample"
-                mdbInputDirective>
-              <label class="custom-control-label" for="defaultInline3">Paper Maker</label>
-            </div>
-  
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" (click)="selectRole('Card Marker')" class="custom-control-input" id="defaultInline4" name="inlineDefaultRadiosExample"
-                mdbInputDirective>
-              <label class="custom-control-label" for="defaultInline4">Card Maker</label>
-            </div>
+            <label class="custom-control-label" for="defaultChecked2">Student</label>
           </div>
-      </div>      
+
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" (click)="selectRole('Teacher')" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample"
+              mdbInputDirective>
+            <label class="custom-control-label" for="defaultInline2">Teacher</label>
+          </div>
+
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" (click)="selectRole('Paper Marker')" class="custom-control-input" id="defaultInline3"
+              name="inlineDefaultRadiosExample" mdbInputDirective>
+            <label class="custom-control-label" for="defaultInline3">Paper Maker</label>
+          </div>
+
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" (click)="selectRole('Card Marker')" class="custom-control-input" id="defaultInline4"
+              name="inlineDefaultRadiosExample" mdbInputDirective>
+            <label class="custom-control-label" for="defaultInline4">Card Maker</label>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -72,67 +72,62 @@
           <td (click)="frame.show(user)">{{user.lastName}}</td>
           <td (click)="frame.show(user)">{{user.email}}</td>
           <td (click)="frame.show(user)">{{user.contactDetails.mobileNumber}}</td>
-          <!-- <td>
-            <div class="chip badge green ml-3 mr-2">
-                <i class="fa fa-user-plus p-1" aria-hidden="true" mdbTooltip="Edit User" placement="bottom"></i>
-            </div>
-            <div class="chip badge red mr-2">
-              <i class="fa fa-user-times p-1" aria-hidden="true" mdbTooltip="Delete User" placement="bottom" (click)="deleteUser(user)"></i>
-            </div>
-          </td> -->
-
 
           <!-- user modal -->
 
           <div [config]="{backdrop: false, ignoreBackdropClick: true}" mdbModal #frame="mdbModal" class="modal fade" id="frameModalTop"
             tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-notify modal-info" role="document">
+            <div class="modal-dialog modal-notify modal-info modal-lg" role="document">
               <!--Content-->
-              <div class="modal-content text-center">
+              <div class="modal-content">
                 <!--Header-->
                 <div class="modal-header d-flex justify-content-center mdb-color darken-3">
-                  <p class="heading">{{user.firstName}} {{user.lastName}}</p>
+                  <p class="heading">User Details</p>
                 </div>
 
                 <!--Body-->
                 <div class="modal-body">
-                  <!-- <i class="fa fa-bell fa-4x animated rotateIn mb-4"></i> -->
-                  <!-- <i class="fa fa-user-circle-o fa-4x indigo-text"></i> -->
-                  <img src="../../../assets/nobody_m.original.jpg" alt="profile-sample3" class="profile2" />
-                  <hr>
-                  <p><strong>Role :</strong> {{user.role}}</p>
-                  <p><strong>Role Id :</strong> {{user._id}}</p>
-                  <p><strong>Full Name :</strong> {{user.fullName}}</p>
-                  <p><strong>Birthday :</strong> {{user.birthday}}</p>
-                  <p><strong>Email :</strong> {{user.email}}</p>
-                  <p><strong>Batch :</strong> {{user.batch}}</p>
-                  <p><strong>Subjects :</strong> {{user.subjects}}</p>
-                  <p><strong>Stream :</strong> {{user.stream}}</p>
+                  <div class="row">
+                    <div class="col-md-3 card ml-4">
+                        <img src="../../../assets/nobody_m.original.jpg" alt="profile-sample3" class="profile2" />
+                    </div>
+                    <div class="col-md-8 card ml-2">
+                        <p><strong>Role :</strong> {{user.role}}</p>
+                        <p><strong>Role Id :</strong> {{user._id}}</p>
+                        <p><strong>Full Name :</strong> {{user.fullName}}</p>
+                        <p><strong>Birthday :</strong> {{user.birthday}}</p>
+                        <p><strong>Email :</strong> {{user.email}}</p>
+                        <p><strong>Batch :</strong> {{user.batch}}</p>
+                        <p><strong>Subjects :</strong> {{user.subjects}}</p>
+                        <p><strong>Stream :</strong> {{user.stream}}</p>
+                    </div>
+                  </div>
                 </div>
                 <!--Footer-->
                 <div class="modal-footer flex-center">
-                  <a type="button" mdbBtn color="danger" outline="true" class="waves-light" mdbWavesEffect
-                    data-dismiss="modal" (click)="deleteUser(user)">Delete User</a>
+                  <a type="button" mdbBtn color="danger" outline="true" class="waves-light" mdbWavesEffect data-dismiss="modal"
+                    (click)="deleteUser(user)">Delete User</a>
 
                   <a type="button" mdbBtn color="primary" outline="true" class="waves-light" mdbWavesEffect
                     data-dismiss="modal" (click)="frame.hide()">close</a>
                 </div>
                 <!-- <div [config]="{backdrop: false, ignoreBackdropClick: true}" mdbModal #frame1="mdbModal" class="modal fade" id="frameModalTop"
-                  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
-                        
-                </div> -->
+                          tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+                                
+                        </div> -->
               </div>
               <!--/.Content-->
             </div>
           </div>
 
           <!-- user modal -->
+
         </tr>
       </tbody>
     </table>
   </div>
 
-  <nav>
+  <!-- <nav>
     <ul class="pagination pg-dark justify-content-end">
       <li class="page-item">
         <a class="page-link" aria-label="Previous">
@@ -152,6 +147,6 @@
         </a>
       </li>
     </ul>
-  </nav>
+  </nav> -->
 
 </div>
