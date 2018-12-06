@@ -42,3 +42,22 @@
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
   border: solid 2px #A6A57A;
 }
+
+.UDcenter {
+    display: table-cell; 
+    vertical-align:middle;
+}
+
+.fntStyl {
+    font-family: 'Domine', serif;
+}
+
+.bck-ovrly {
+    background:rgba(255, 255, 255, 0.5);
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+}

@@ -20,3 +20,28 @@ body, html {
     height: 100%;
     margin: 0;
 }
+
+::-webkit-scrollbar {
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgba(0,0,0,0.1);
+  border: 1px solid #ccc;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(to left, #0c104293, #03052569);
+  border: 1px solid #aaa;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:linear-gradient(to left, #0c1042c4, #030525a8);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(to left, #0c1042, #030525);
+}

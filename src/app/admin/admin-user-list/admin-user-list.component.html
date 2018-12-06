@@ -74,52 +74,72 @@
           <td (click)="frame.show(user)">{{user.contactDetails.mobileNumber}}</td>
 
           <!-- user modal -->
+          <div mdbModal style="overflow-y: auto" class="">
+            <div [config]="{backdrop: false, ignoreBackdropClick: false}" mdbModal #frame="mdbModal" style="overflow-y: auto"
+              class="modal fade bck-ovrly" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-notify modal-info modal-lg" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                  <!--Header-->
+                  <div class="modal-header d-flex justify-content-center mdb-color darken-3">
+                    <p class="heading">User Details</p>
+                  </div>
 
-          <div [config]="{backdrop: false, ignoreBackdropClick: true}" mdbModal #frame="mdbModal" class="modal fade" id="frameModalTop"
-            tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-notify modal-info modal-lg" role="document">
-              <!--Content-->
-              <div class="modal-content">
-                <!--Header-->
-                <div class="modal-header d-flex justify-content-center mdb-color darken-3">
-                  <p class="heading">User Details</p>
-                </div>
-
-                <!--Body-->
-                <div class="modal-body">
-                  <div class="row">
-                    <div class="col-md-3 card ml-4">
-                        <img src="../../../assets/nobody_m.original.jpg" alt="profile-sample3" class="profile2" />
-                    </div>
-                    <div class="col-md-8 card ml-2">
-                        <p><strong>Role :</strong> {{user.role}}</p>
-                        <p><strong>Role Id :</strong> {{user._id}}</p>
-                        <p><strong>Full Name :</strong> {{user.fullName}}</p>
-                        <p><strong>Birthday :</strong> {{user.birthday}}</p>
-                        <p><strong>Email :</strong> {{user.email}}</p>
-                        <p><strong>Batch :</strong> {{user.batch}}</p>
-                        <p><strong>Subjects :</strong> {{user.subjects}}</p>
-                        <p><strong>Stream :</strong> {{user.stream}}</p>
+                  <!--Body-->
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-md-3 card ml-4">
+                        <div class="text-center mt-3">
+                          <img src="../../../assets/nobody_m.original.jpg" alt="profile-sample3" class="profile2 mb-3" />
+                          <h5 class="fntStyl mb-0">{{user.firstName}}</h5>
+                          <h5 class="fntStyl">{{user.lastName}}</h5>
+                          <hr>
+                          <p>{{user.role}}</p>
+                        </div>
+                      </div>
+                      <div class="col-md-8 card ml-2">
+                        <div class="mt-3 ml-3">
+                          <p><strong>Role Id :</strong> {{user.indexNo}}</p>
+                          <p><strong>Full Name :</strong> {{user.fullName}}</p>
+                          <p><strong>Birthday :</strong> {{user.birthday}}</p>
+                          <p><strong>Gender :</strong> {{user.gender}}</p>
+                          <p><strong>Email :</strong> {{user.email}}</p>
+                          <p><strong>School :</strong> {{user.school}}</p>
+                          <p><strong>Address :</strong> {{user.address.firstLine}}, {{user.address.secondLine}},
+                            {{user.address.city}}, {{user.address.district}}</p>
+                          <p><strong>Contact :</strong> Mob -
+                            {{user.contactDetails.mobileNumber}}&nbsp;&nbsp;&nbsp;&nbsp; Land -
+                            {{user.contactDetails.landNumber}}</p>
+                          <p><strong>Batch :</strong> {{user.batch}}</p>
+                          <p><strong>Subjects :</strong> {{user.subjects}}</p>
+                          <p><strong>Mother Name :</strong> {{user.contactDetails.motherName}}</p>
+                          <p><strong>Mother Contact :</strong> {{user.contactDetails.momNumber}}</p>
+                          <p><strong>Father Name :</strong> {{user.contactDetails.fatherName}}</p>
+                          <p><strong>Father Contact :</strong> {{user.contactDetails.dadNumber}}</p>
+                          <p><strong>Gardian Name :</strong> {{user.contactDetails.gardianName}}</p>
+                          <p><strong>Gardian Contact :</strong> {{user.contactDetails.gardianNumber}}</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <!--Footer-->
-                <div class="modal-footer flex-center">
-                  <a type="button" mdbBtn color="danger" outline="true" class="waves-light" mdbWavesEffect data-dismiss="modal"
-                    (click)="deleteUser(user)">Delete User</a>
+                  <!--Footer-->
+                  <div class="modal-footer flex-center">
+                    <a type="button" mdbBtn color="danger" outline="true" class="waves-light" mdbWavesEffect
+                      data-dismiss="modal" (click)="deleteUser(user)">Delete User</a>
 
-                  <a type="button" mdbBtn color="primary" outline="true" class="waves-light" mdbWavesEffect
-                    data-dismiss="modal" (click)="frame.hide()">close</a>
-                </div>
-                <!-- <div [config]="{backdrop: false, ignoreBackdropClick: true}" mdbModal #frame1="mdbModal" class="modal fade" id="frameModalTop"
+                    <a type="button" mdbBtn color="primary" outline="true" class="waves-light" mdbWavesEffect
+                      data-dismiss="modal" (click)="frame.hide()">close</a>
+                  </div>
+                  <!-- <div [config]="{backdrop: false, ignoreBackdropClick: true}" mdbModal #frame1="mdbModal" class="modal fade" id="frameModalTop"
                           tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
                                 
                         </div> -->
+                </div>
+                <!--/.Content-->
               </div>
-              <!--/.Content-->
             </div>
           </div>
-
           <!-- user modal -->
 
         </tr>
