@@ -20,11 +20,9 @@ export class HeaderComponent implements OnInit {
   }
 
   logBtnOff(){
-    if(this.router.url === "/"){
-      console.log("false");  
+    if(this.router.url === "/"){ 
       return false;
     }
-    console.log("true");
     return true;
 }
   
