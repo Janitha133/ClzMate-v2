@@ -82,7 +82,7 @@
     <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
       <thead>
         <tr>
-          <th class="th-sm">User ID</th>
+          <th class="th-sm">Index No</th>
           <th class="th-sm">First Name</th>
           <!-- <th class="th-sm">Last Name</th> -->
           <th class="th-sm">week 1</th>
@@ -94,7 +94,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let user of users" class="cell">
-          <td (click)="frame.show(user)">{{user._id}}</td>
+          <td (click)="frame.show(user)">{{user.indexNo}}</td>
           <td (click)="frame.show(user)">{{user.firstName}}</td>
           <!-- <td (click)="frame.show(user)">{{user.lastName}}</td> -->
           <td (click)="frame.show(user)"></td>
