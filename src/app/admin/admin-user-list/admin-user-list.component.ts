@@ -10,6 +10,7 @@ import { UserService } from '../../services/users.service';
 export class AdminUserListComponent implements OnInit {
 
   users: any[] = [];
+  searchUsers: any[] = [];
   role: String = "Student";
 
   constructor(
@@ -17,8 +18,7 @@ export class AdminUserListComponent implements OnInit {
     private userService: UserService
   ) 
   {
-    //this.getAllStudents();
-    //in this time disable below fun
+    this.getAllStudents();
     this.getUserByRole(this.role);
   }
 
@@ -39,31 +39,31 @@ export class AdminUserListComponent implements OnInit {
   }
 
   //this is current fuc and when we considered role not need it.that time we can use select role fun
-  // getAllStudents() {
-  //   this.userService.getAllUsers()
-  //     .subscribe(response => {
-  //       this.users = response.json().User;
-  //       console.log(Object.values(response.json().User));
-  //     });
-  // }
+  getAllStudents() {
+    this.userService.getAllUsers()
+      .subscribe(response => {
+        this.searchUsers = response.json().User;
+        console.log(Object.values(response.json().User));
+      });
+  }
 
-  // searchByName(name) {
-  //   console.log(name.value);
-  //   if (!name.value) {
-  //     this.getAllStudents();
-  //   } else {
-  //     let temp = [];
-  //     for (let j of this.users) {
-  //       for (var i of Object.values(j)) {
-  //         if ((i.toString().replace(/ /g,'').toUpperCase()).includes(name.value.toUpperCase())) {
-  //           temp.push(j);
-  //           break;
-  //         }
-  //       }
-  //     }
-  //     this.users = temp;
-  //   }
-  // }
+  searchByName(name) {
+    console.log(name.value);
+    if (!name.value) {
+      this.getAllStudents();
+    } else {
+      let temp = [];
+      for (let j of this.users) {
+        for (var i of Object.values(j)) {
+          if ((i.toString().replace(/ /g,'').toUpperCase()).includes(name.value.toUpperCase())) {
+            temp.push(j);
+            break;
+          }
+        }
+      }
+      this.searchUsers = temp;
+    }
+  }
 
   deleteUser(user) {
     console.log(user._id);
