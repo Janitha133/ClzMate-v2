@@ -4,21 +4,6 @@
   </div>
 
   <div class="mdb-color mdb-color darken-3">
-    <p class="p-3 text-white ml-4">Search User</p>
-  </div>
-
-  <div class="row pb-4">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <form class="form-inline animated fadeIn">
-        <input class="form-control mr-sm-2 col-md-12" type="search" placeholder="Search" aria-label="Search"
-          #searchValue (keyup)="searchByName($event.target)">
-      </form>
-    </div>
-    <div class="col-md-2"></div>
-  </div>
-
-  <div class="mdb-color mdb-color darken-3">
     <div class="form-group row">
       <div class="col-md-3">
         <p class="p-3 text-white ml-4 mb-0">Select Role</p>
@@ -50,6 +35,18 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="row pb-2">
+    <div class="col-md-8">
+      <hr>
+    </div>
+    <div class="col-md-4">
+      <form class="form-inline animated fadeIn">
+        <input class="form-control mr-sm-2 col-md-12" type="search" placeholder="Search" aria-label="Search"
+          #searchValue (keyup)="searchByName($event.target)">
+      </form>
     </div>
   </div>
 
