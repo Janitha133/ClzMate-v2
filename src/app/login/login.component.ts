@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
       let token = result.json().JWT_Token; 
       let decodeJWT = this.getDecodedAccessToken(token)
       console.log(decodeJWT);
-      //console.log(token);
+      console.log(token);
       if(token){
         localStorage.setItem('token', token);
         this.router.navigate(['admin/dashboard']);
