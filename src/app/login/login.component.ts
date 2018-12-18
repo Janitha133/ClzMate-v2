@@ -30,9 +30,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    // if(localStorage.getItem('token') !== null){
-    //   this.router.navigate(['admin/dashboard']);
-    // }
   }
 
   onSubmit(form){
@@ -43,9 +40,16 @@ export class LoginComponent implements OnInit {
       console.log(decodeJWT);
       console.log(token);
       if(token){
-        localStorage.setItem('token', token);
-        this.router.navigate(['admin/dashboard']);
-        this.showSpinner = 'false';
+        if(decodeJWT.user.role == 'Admin'){
+          localStorage.setItem('token', token);
+          this.router.navigate(['admin/dashboard']);
+          this.showSpinner = 'false';
+        } else{
+          this.invalidLogin = true;
+          this.showSpinner = 'false';
+          this.form.reset();
+          this.router.navigate(['']);
+        }
       }
       else{
         this.invalidLogin = true;
