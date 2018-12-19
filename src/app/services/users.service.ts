@@ -13,7 +13,6 @@ export class UserService{
     }
 
     register(user){
-        const headers = new 
         return this.http.post('https://polar-meadow-28819.herokuapp.com/user/register', user);
     }
 
