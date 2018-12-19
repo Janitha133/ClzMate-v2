@@ -1,32 +1,35 @@
 <div class="mycol rounded z-depth-3">
-<div class="bd-col p-3 bck-col">
-  <h3 class="pl-3">Class Schedule</h3>
-</div>
-<hr>
+  <div class="bd-col p-3 bck-col">
+    <h3 class="pl-3">Classes Schedule</h3>
+  </div>
 
-<div>
-  <div class="pb-">
-    <h5><strong>All classes >></strong></h5>
+  <div class="mdb-color mdb-color darken-3">
+    <p class="p-3 text-white ml-4">Class Details</p>
   </div>
-  <div class="row pb-2">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <form class="form-inline animated fadeIn">
-        <input class="form-control mr-sm-2 col-md-12" type="search" placeholder="Search" aria-label="Search"
-          #searchValue (keyup)="searchByValueInClasses($event.target)">
-      </form>
+
+  <div>
+    <div class="pl-2 pr-2">
+      <h5><strong>All Classes >></strong></h5>
     </div>
-    <div class="col-md-2"></div>
-  </div>
-  
-  <hr>
-  <br>
-  
-  <div> <!-- clz table -->
-    <div class="white animated fadeIn hvr">
+    <div class="row pb-2">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <form class="form-inline animated fadeIn">
+          <input class="form-control mr-sm-2 col-md-12" type="search" placeholder="Search" aria-label="Search"
+            #searchValue (keyup)="searchByValueInClasses($event.target)">
+        </form>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+
+    <hr>
+
+    <div>
+      <!-- clz table -->
+      <div class="white animated fadeIn hvr">
         <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
           <thead>
-            <tr (click) = getAllClzes()>
+            <tr (click)=getAllClzes()>
               <th class="th-sm">Subject Name</th>
               <th class="th-sm">Hall No</th>
               <th class="th-sm">Grade</th>
@@ -50,15 +53,18 @@
     </div> <!-- clz table -->
     <br>
     <hr>
-</div>
+  </div>
 
-<div class="pb-3">
-  <h5><strong>Create new Class >></strong></h5>
-</div>
-<div> <!-- form -->
-  <form class="pl-2 pr-2" [formGroup]="form5" (ngSubmit)="onSubmit(form5)">
-    
-    <div class="form-group row">
+  
+
+  <div class="pb-3 pl-2 pr-2">
+    <h5><strong>Create New Class >></strong></h5>
+  </div>
+  <div>
+    <!-- form -->
+    <form class="pb-5 pl-2 pr-2" [formGroup]="form5" (ngSubmit)="onSubmit(form5)">
+
+      <div class="form-group row">
         <label for="subjectName" class="col-sm-2 col-form-label">Subject Name:</label>
         <div class="col-sm-10">
           <input formControlName="subjectName" type="text" class="form-control" id="" placeholder="Subject Name">
@@ -66,66 +72,69 @@
             <small>Please enter Subject name</small>
           </div>
         </div>
-    </div>
+      </div>
 
-    <div class="form-group row">
-      <label for="hallNo" class="col-sm-2 col-form-label">Hall No: </label>
-      <div class="col-sm-10">
-        <input formControlName="hallNo" type="text" class="form-control" id="" placeholder="Hall No">
-        <div class="alert alert-danger" *ngIf="hallNo.touched && hallNo.invalid">
-          <small>Please enter Hall No</small>
+      <div class="form-group row">
+        <label for="hallNo" class="col-sm-2 col-form-label">Hall No: </label>
+        <div class="col-sm-10">
+          <input formControlName="hallNo" type="text" class="form-control" id="" placeholder="Hall No">
+          <div class="alert alert-danger" *ngIf="hallNo.touched && hallNo.invalid">
+            <small>Please enter Hall No</small>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="form-group row">
-      <label for="grade" class="col-sm-2 col-form-label">Grade: </label>
-      <div class="col-sm-10">
-        <input formControlName="grade" type="text" class="form-control" id="" placeholder="Grade ">
-        <div class="alert alert-danger" *ngIf="grade.touched && grade.invalid">
-          <small>Please enter Grade</small>
+      <div class="form-group row">
+        <label for="grade" class="col-sm-2 col-form-label">Grade: </label>
+        <div class="col-sm-10">
+          <input formControlName="grade" type="text" class="form-control" id="" placeholder="Grade ">
+          <div class="alert alert-danger" *ngIf="grade.touched && grade.invalid">
+            <small>Please enter Grade</small>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="form-group row">
-      <label for="batch" class="col-sm-2 col-form-label">Batch: </label>
-      <div class="col-sm-10">
-        <input formControlName="batch" type="text" class="form-control" id="" placeholder="Batch">
-        <div class="alert alert-danger" *ngIf="batch.touched && batch.invalid">
-          <small>Please enter Batch</small>
+      <div class="form-group row">
+        <label for="batch" class="col-sm-2 col-form-label">Batch: </label>
+        <div class="col-sm-10">
+          <input formControlName="batch" type="text" class="form-control" id="" placeholder="Batch">
+          <div class="alert alert-danger" *ngIf="batch.touched && batch.invalid">
+            <small>Please enter Batch</small>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="form-group row">
-      <label for="stream" class="col-sm-2 col-form-label">Stream</label>
-      <div class="col-sm-10">
-        <input formControlName="stream" type="text" class="form-control" id="" placeholder="Stream">
-        <div class="alert alert-danger" *ngIf="stream.touched && stream.invalid">
-          <small>Please enter Stream</small>
+      <div class="form-group row">
+        <label for="stream" class="col-sm-2 col-form-label">Stream</label>
+        <div class="col-sm-10">
+          <input formControlName="stream" type="text" class="form-control" id="" placeholder="Stream">
+          <div class="alert alert-danger" *ngIf="stream.touched && stream.invalid">
+            <small>Please enter Stream</small>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="form-group row">
-      <label for="time" class="col-sm-2 col-form-label">Time: </label>
-      <div class="col-sm-10">
-        <input formControlName="time" type="text" class="form-control" id="" placeholder="Time">
-        <div class="alert alert-danger" *ngIf="time.touched && time.invalid">
-          <small>Please enter Subject name</small>
+      <div class="form-group row">
+        <label for="time" class="col-sm-2 col-form-label">Time: </label>
+        <div class="col-sm-10">
+          <input formControlName="time" type="text" class="form-control" id="" placeholder="Time">
+          <div class="alert alert-danger" *ngIf="time.touched && time.invalid">
+            <small>Please enter Subject name</small>
+          </div>
         </div>
       </div>
-    </div>
-    <button [disabled]="form5.invalid" mdbBtn type="submit" color="indigo" class="form-group row float-right" mdbWavesEffect>Create Class</button>
-  </form>
-</div> <!-- form -->
-<br>
-<br>
-<br>
-<hr>
+      <button [disabled]="form5.invalid" mdbBtn type="submit" color="indigo" class="form-group row float-right"
+        mdbWavesEffect>Create Class</button>
+    </form>
+  </div> <!-- form -->
 
-  <div class="pb-">
+  <br>
+
+  <div class="mdb-color mdb-color darken-3">
+    <p class="p-3 text-white ml-4">Subjects Details</p>
+  </div>
+
+  <div class="pl-2 pr-2">
     <h5><strong>All Subjects >></strong></h5>
   </div>
   <div class="row pb-2">
@@ -138,74 +147,77 @@
     </div>
     <div class="col-md-2"></div>
   </div>
-  
+
   <hr>
-  
-  <div> <!-- clz table -->
+
+  <div>
+    <!-- clz table -->
     <div class="white animated fadeIn hvr">
-        <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
-          <thead>
-            <tr (click) = getAllSubjects()>
-              <th class="th-sm">Subject</th>
-              <th class="th-sm">Level(O/L or A/L)</th>
-              <th class="th-sm">Stream</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let subject of subjects" class="cell">
-              <td>{{subject.name}}</td>
-              <td>{{subject.level}}</td>
-              <td>{{subject.subjectStream}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div> <!-- clz table -->
-  
-    <br>
-    <hr>
-    
-    
-    <div>
-      <div class="pb-3">
-        <h5><strong>Add New Subject >></strong></h5>
-      </div>
-      <div> <!-- form -->
-        <form class="pl-2 pr-2" [formGroup]="form6" (ngSubmit)="onSubmitNewSubject(form6)">
-          
-          <div class="form-group row">
-              <label for="name" class="col-sm-2 col-form-label">Subject Name:</label>
-              <div class="col-sm-10">
-                <input formControlName="name" type="text" class="form-control" id="" placeholder="Subject Name">
-                <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
-                  <small>Please enter Subject name</small>
-                </div>
-              </div>
-          </div>
-      
-          <div class="form-group row">
-            <label for="level" class="col-sm-2 col-form-label">Level: </label>
-            <div class="col-sm-10">
-              <input formControlName="level" type="text" class="form-control" id="" placeholder="A/L or O/L">
-              <div class="alert alert-danger" *ngIf="level.touched && level.invalid">
-                <small>Please enter Level</small>
-              </div> 
-            </div>
-          </div>
-      
-          <div class="form-group row">
-            <label for="grade" class="col-sm-2 col-form-label">Stream: </label>
-            <div class="col-sm-10">
-              <input formControlName="subjectStream" type="text" class="form-control" id="" placeholder="Stream ">
-              <div class="alert alert-danger" *ngIf="stream.touched && stream.invalid">
-                <small>Please enter Stream</small>
-              </div>
-            </div>
-          </div>
-  
-          <button [disabled]="form6.invalid" mdbBtn type="submit" color="indigo" class="form-group row float-right" mdbWavesEffect>Add Subject</button>
-        </form>
-      </div> <!-- form -->
+      <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+          <tr (click)=getAllSubjects()>
+            <th class="th-sm">Subject</th>
+            <th class="th-sm">Level(O/L or A/L)</th>
+            <th class="th-sm">Stream</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let subject of subjects" class="cell">
+            <td>{{subject.name}}</td>
+            <td>{{subject.level}}</td>
+            <td>{{subject.subjectStream}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div> <!-- clz table -->
+
+  <br>
+  <hr>
+
+
+  <div>
+    <div class="pb-3 pl-2 pr-2">
+      <h5><strong>Add New Subject >></strong></h5>
+    </div>
+    <div>
+      <!-- form -->
+      <form class="pl-2 pr-2" [formGroup]="form6" (ngSubmit)="onSubmitNewSubject(form6)">
+
+        <div class="form-group row">
+          <label for="name" class="col-sm-2 col-form-label">Subject Name:</label>
+          <div class="col-sm-10">
+            <input formControlName="name" type="text" class="form-control" id="" placeholder="Subject Name">
+            <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+              <small>Please enter Subject name</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="level" class="col-sm-2 col-form-label">Level: </label>
+          <div class="col-sm-10">
+            <input formControlName="level" type="text" class="form-control" id="" placeholder="A/L or O/L">
+            <div class="alert alert-danger" *ngIf="level.touched && level.invalid">
+              <small>Please enter Level</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="grade" class="col-sm-2 col-form-label">Stream: </label>
+          <div class="col-sm-10">
+            <input formControlName="subjectStream" type="text" class="form-control" id="" placeholder="Stream ">
+            <div class="alert alert-danger" *ngIf="stream.touched && stream.invalid">
+              <small>Please enter Stream</small>
+            </div>
+          </div>
+        </div>
+
+        <button [disabled]="form6.invalid" mdbBtn type="submit" color="indigo" class="form-group row float-right"
+          mdbWavesEffect>Add Subject</button>
+      </form>
+    </div> <!-- form -->
+  </div>
 
 </div>
