@@ -47,7 +47,7 @@ export class AdRegCardMkrComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
+  }  
 
   onSubmit(form4){
     form4.value['role'] = "Card Marker";
@@ -57,7 +57,7 @@ export class AdRegCardMkrComponent implements OnInit {
       .subscribe(result => {
         if(result.json().state) alert("Card marker registered successfully");
         else if(result.json().exist) alert("Card marker already exist");
-        else alert("Error occured please register Card marker again");
+        else alert("Error occured please register Card marker again"); 
         console.log(result);
       })
     this.form4.reset();

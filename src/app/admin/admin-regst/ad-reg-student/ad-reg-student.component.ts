@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 import { ClzService } from '../../../services/clz.service';
 import { UserService } from '../../../services/users.service';
 
-@Component({
+@Component({ 
   selector: 'app-ad-reg-student',
   templateUrl: './ad-reg-student.component.html',
   styleUrls: ['./ad-reg-student.component.scss'],
@@ -115,12 +115,12 @@ export class AdRegStudentComponent implements OnInit {
   get clzes(){return this.form1.get('clzes')}
 
   addClz(clz){
-    // console.log(clz);
+    console.log(clz);
     // this.clzes.push(clz);
-    this.clzes.push(new FormControl(clz.value));
+    // this.clzes.push(new FormControl(clz));
     // this.topics.push(clz.value);
     // this.clzes[this.clzes.length] = "ssdf";
-    console.log(clz.value);
+    // console.log(clz);
     // console.log(this.classes);
     // clz._id = ''; 
   }
@@ -130,4 +130,13 @@ export class AdRegStudentComponent implements OnInit {
     // this.topics = this.topics.filter(item => item !== topic);
     console.log(topic);
   }
+
+  consoleLog(){
+    console.log("console logging");
+  }
+
+  setNewClz(clz) {
+    console.log(clz.value);
+    }
+
 }

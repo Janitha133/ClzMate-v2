@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import {Http} from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { Injectable } from "@angular/core";
 
 @Injectable()
@@ -9,11 +9,12 @@ export class UserService{
         private http: Http,
         private router: Router
     ){
-
     }
 
     register(user){
-        return this.http.post('https://polar-meadow-28819.herokuapp.com/user/register', user);
+        const header = new Headers();
+        header.append('Authorization','Bearer '+localStorage.getItem('token'));
+        return this.http.post('https://polar-meadow-28819.herokuapp.com/user/register', user, {headers: header});
     }
 
     getAllUsers(){
@@ -26,6 +27,10 @@ export class UserService{
 
     getUserByRole(userRole){
         return this.http.get('https://polar-meadow-28819.herokuapp.com/user/findByRole/'+userRole);
+    }
+
+    resetPassword(email){
+        return this.http.get('https://polar-meadow-28819.herokuapp.com/user/forgotPassword/'+email);
     }
 
 }
