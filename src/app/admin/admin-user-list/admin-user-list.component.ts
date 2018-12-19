@@ -10,58 +10,60 @@ import { UserService } from '../../services/users.service';
 export class AdminUserListComponent implements OnInit {
 
   users: any[] = [];
-  searchUsers: any[] = [];
+  // searchUsers: any[] = [];
   role: String = "Student";
 
   constructor(
     private http: Http,
     private userService: UserService
-  ) 
-  {
-    this.getAllStudents();
+  ) {
+    // this.getAllStudents();
     this.getUserByRole(this.role);
   }
 
   ngOnInit() {
   }
 
-  selectRole(_role){
+  selectRole(_role) {
     this.role = _role;
     this.getUserByRole(this.role);
   }
 
-  getUserByRole(userRole){
+  getUserByRole(userRole) {
     this.userService.getUserByRole(userRole)
-    .subscribe(res => {
-      this.users = res.json().User;
-      console.log(Object.values(res.json().User));
-    })
+      .subscribe(res => {
+        this.users = res.json().User;
+        console.log(Object.values(res.json().User));
+      })
   }
 
   //this is current fuc and when we considered role not need it.that time we can use select role fun
-  getAllStudents() {
-    this.userService.getAllUsers()
-      .subscribe(response => {
-        this.searchUsers = response.json().User;
-        console.log(Object.values(response.json().User));
-      });
-  }
+  // getAllStudents() {
+  //   this.userService.getAllUsers()
+  //     .subscribe(response => {
+  //       this.searchUsers = response.json().User;
+  //       console.log(Object.values(response.json().User));
+  //     });
+  // }
 
   searchByName(name) {
     console.log(name.value);
     if (!name.value) {
-      this.getAllStudents();
+      this.getUserByRole(this.role);
     } else {
       let temp = [];
       for (let j of this.users) {
         for (var i of Object.values(j)) {
-          if ((i.toString().replace(/ /g,'').toUpperCase()).includes(name.value.toUpperCase())) {
+          if(i == null){
+            continue;
+          }
+          if ((i.toString().replace(/ /g, '').toUpperCase()).includes(name.value.toUpperCase())) {
             temp.push(j);
             break;
           }
         }
       }
-      this.searchUsers = temp;
+      this.users = temp;
     }
   }
 
@@ -76,7 +78,7 @@ export class AdminUserListComponent implements OnInit {
       })
   }
 
-  userSelect(user){
+  userSelect(user) {
     alert(user.First_Name);
   }
 
