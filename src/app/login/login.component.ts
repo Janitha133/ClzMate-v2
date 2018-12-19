@@ -55,6 +55,7 @@ export class LoginComponent implements OnInit {
         this.invalidLogin = true;
         this.showSpinner = 'false';
         this.form.reset();
+        this.router.navigate(['']);
       }
     });
   }
