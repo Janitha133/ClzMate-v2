@@ -14,7 +14,6 @@ export class ClzService{
 
     getAllClzes(){
         return this.http.get('https://polar-meadow-28819.herokuapp.com/clz/');
-        // return this.http.get('http://localhost:3000/clz/');
     }
 
     createClz(clz){
