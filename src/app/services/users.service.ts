@@ -33,4 +33,8 @@ export class UserService{
         return this.http.get('https://polar-meadow-28819.herokuapp.com/user/forgotPassword/'+email);
     }
 
+    editUser(userId,updateData){
+        return this.http.patch('https://polar-meadow-28819.herokuapp.com/user/userUpdate/'+userId, updateData);
+    }
+
 }
