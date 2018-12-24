@@ -14,14 +14,15 @@ export class ForgotPswdComponent implements OnInit {
   userEmail = 'send';
   saveEmail = 'example@gmail.com';
   verificationCode
+  verified = false
 
   constructor(
     private Users: UserService,
     private fb6: FormBuilder
     ) {
     this.form6 = this.fb6.group({
-      email: ['', [Validators.email,Validators.required]],
-      resetCode: ['', Validators.required]
+      email: ['', [Validators.email]],
+      resetCode: ['']
     })
    }
 
@@ -30,7 +31,17 @@ export class ForgotPswdComponent implements OnInit {
    
   onSubmit(form6){
     console.log(form6.value);
-    this.Users.resetPassword(form6.email)
+    if(this.form6.value.resetCode && this.form6.value.email == null){
+      console.log("if block")
+      this.verifyEmail()
+      if(this.verified == true){
+        this.userEmail = 'done';
+      } else{
+        this.userEmail = 'send'; 
+      }
+    }if(form6.value.email){
+      console.log("else block");
+      this.Users.resetPassword(form6.value.email)
       .subscribe(result => {
         if(result.json().state){
           this.verificationCode = result.json().code
@@ -40,6 +51,19 @@ export class ForgotPswdComponent implements OnInit {
       })
     this.userEmail = 'sent';
     this.form6.reset();
+    }  
+  }
+
+  verifyEmail(){
+    if(this.verificationCode == this.form6.value.resetCode){
+      this.verified = true   
+      console.log("verified")
+      return this.verified
+    } else {
+      this.verified = false
+      console.log("not verified")
+      return this.verified
+    }
   }
 
   get email(){return this.form6.get('email');}
