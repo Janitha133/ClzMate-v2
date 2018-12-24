@@ -12,11 +12,11 @@ export class ForgotPswdComponent implements OnInit {
 
   form6;
   userEmail = 'send';
-  saveEmail = 'example@gmail.com';
+  saveEmail = '';
   verificationCode
   verified = false
 
-  constructor(
+  constructor( 
     private Users: UserService,
     private fb6: FormBuilder
     ) {
@@ -32,22 +32,29 @@ export class ForgotPswdComponent implements OnInit {
   onSubmit(form6){
     console.log(form6.value);
     if(this.form6.value.resetCode && this.form6.value.email == null){
-      console.log("if block")
       this.verifyEmail()
       if(this.verified == true){
+        this.Users.saveNewPassword(this.saveEmail)
+          .subscribe(result => {
+            if(result.json().state){
+              alert("New Password Sent to "+this.saveEmail+". You can login now.")
+            } else{
+              alert("Error occured. Please try again");
+            }
+          })
         this.userEmail = 'done';
       } else{
         this.userEmail = 'send'; 
       }
     }if(form6.value.email){
-      console.log("else block");
+      this.saveEmail = form6.value.email
       this.Users.resetPassword(form6.value.email)
       .subscribe(result => {
         if(result.json().state){
           this.verificationCode = result.json().code
           console.log(this.verificationCode);
-        } 
-        else alert("Error occured please re enter your email again");
+        }   
+        else alert("Error occured. Please re enter your email again");
       })
     this.userEmail = 'sent';
     this.form6.reset();
