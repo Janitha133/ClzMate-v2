@@ -9,8 +9,8 @@
       <div class="col-xl-7 pb-2">
   
         <p *ngIf="this.userEmail=='send'" class="card-text">Please enter your email address below to start the process of resetting your password.</p>
-        <p *ngIf="this.userEmail=='sent'" class="card-text">Reset code sent to {{this.saveEmail}}.Check your inbox and enter reset code below to confirm the email.</p>
-        <p *ngIf="this.userEmail=='done'" class="card-text">New password sent to {{this.saveEmail}}.Check your inbox for getting new password</p>
+        <p *ngIf="this.userEmail=='sent'" class="card-text">Reset code sent to {{ this.saveEmail }}.Check your inbox and enter reset code below to confirm the email.</p>
+        <p *ngIf="this.userEmail=='done'" class="card-text">New password sent to {{ this.saveEmail }}.Check your inbox for getting new password</p>
 
           <div *ngIf="this.userEmail=='send'" class="form-group row">
             <div class="col-sm-1"></div>
