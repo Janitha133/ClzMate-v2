@@ -33,13 +33,14 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form){
+    console.log(form.value)
     this.showSpinner = 'true';
     this.auth.login(form.value).subscribe(result => {
       let token = result.json().JWT_Token; 
       let decodeJWT = this.getDecodedAccessToken(token)
       console.log(decodeJWT);
       console.log(token);
-      if(token){
+      if(token){ 
         if(decodeJWT.user.role == 'Admin'){
           localStorage.setItem('token', token);
           this.router.navigate(['admin/dashboard']);
