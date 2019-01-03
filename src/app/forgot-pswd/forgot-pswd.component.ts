@@ -36,13 +36,14 @@ export class ForgotPswdComponent implements OnInit {
       if(this.verified == true){
         this.Users.saveNewPassword(this.saveEmail)
           .subscribe(result => {
+            console.log(result.json().newPassword)
             if(result.json().state){
               alert("New Password Sent to "+this.saveEmail+". You can login now.")
             } else{
               alert("Error occured. Please try again");
             }
           })
-        this.userEmail = 'done';
+        this.userEmail = 'done'; 
       } else{
         this.userEmail = 'send'; 
       }

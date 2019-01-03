@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import {Http} from '@angular/http';
+import {Http, CookieXSRFStrategy} from '@angular/http';
 import { Injectable } from "@angular/core";
 
 @Injectable()
@@ -13,12 +13,13 @@ export class AuthService{
     }
 
     login(user){
-        return this.http.post('https://polar-meadow-28819.herokuapp.com/user/login', user);
-        // return this.http.post('http://localhost:3000/user/login', user);
+        console.log("login route")
+        // return this.http.post('https://polar-meadow-28819.herokuapp.com/user/login', user);
+        return this.http.post('http://localhost:3000/user/login', user);
     }
 
     isLogged(){
-        if(localStorage.getItem('token')){
+        if(localStorage.getItem('token')){ 
             return true;
         }
         return false;
