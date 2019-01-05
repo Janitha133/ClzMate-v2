@@ -22,7 +22,9 @@ export class UserService{
     }
 
     deleteUser(userId){
-        return this.http.delete('https://polar-meadow-28819.herokuapp.com/user/'+userId);
+        const header = new Headers();
+        header.append('Authorization','Bearer '+localStorage.getItem('token'));
+        return this.http.delete('https://polar-meadow-28819.herokuapp.com/user/'+userId, {headers: header});
     }
 
     getUserByRole(userRole){
@@ -30,17 +32,19 @@ export class UserService{
     }
 
     resetPassword(email){
-        // return this.http.get('https://polar-meadow-28819.herokuapp.com/user/forgotPassword/'+email);
-        return this.http.get('http://localhost:3000/user/forgotPassword/'+email);
+        return this.http.get('https://polar-meadow-28819.herokuapp.com/user/forgotPassword/'+email);
+        // return this.http.get('http://localhost:3000/user/forgotPassword/'+email);
     }
 
     editUser(userId,updateData){
-        return this.http.patch('https://polar-meadow-28819.herokuapp.com/user/userUpdate/'+userId, updateData);
+        const header = new Headers();
+        header.append('Authorization','Bearer '+localStorage.getItem('token'));
+        return this.http.patch('https://polar-meadow-28819.herokuapp.com/user/userUpdate/'+userId, updateData, {headers: header});
     }
 
     saveNewPassword(email){
-        // return this.http.get('https://polar-meadow-28819.herokuapp.com/user/newPassword/'+email);
-        return this.http.get('http://localhost:3000/user/newPassword/'+email);
+        return this.http.get('https://polar-meadow-28819.herokuapp.com/user/newPassword/'+email);
+        // return this.http.get('http://localhost:3000/user/newPassword/'+email);
     }
 
 }
