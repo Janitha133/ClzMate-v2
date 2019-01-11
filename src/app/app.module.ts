@@ -29,6 +29,7 @@ import { ClzService } from './services/clz.service';
 import { ForgotPswdComponent } from './forgot-pswd/forgot-pswd.component';
 import { PgeNtFoundComponent } from './pge-nt-found/pge-nt-found.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { UpdateFormComponent } from './admin/admin-user-list/update-form/update-form.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     ForgotPswdComponent,
     PgeNtFoundComponent,
     SpinnerComponent,
+    UpdateFormComponent,
   ],
   imports: [
     FormsModule,
