@@ -13,19 +13,19 @@ export class ClzService{
     }
 
     getAllClzes(){
-        return this.http.get('https://polar-meadow-28819.herokuapp.com/clz/');
+        return this.http.get('https://clzmate.herokuapp.com/clz/');
     }
 
     createClz(clz){
-        return this.http.post('https://polar-meadow-28819.herokuapp.com/clz/', clz);
+        return this.http.post('https://clzmate.herokuapp.com/clz/', clz);
     }
 
     deleteClz(clzId){
-        return this.http.delete('https://polar-meadow-28819.herokuapp.com/clz/'+clzId);
+        return this.http.delete('https://clzmate.herokuapp.com/clz/'+clzId);
     }
 
     createSubject(subject){
-        return this.http.post('https://polar-meadow-28819.herokuapp.com/subject/', subject );
+        return this.http.post('https://clzmate.herokuapp.com/subject/', subject );
     }
 
 }

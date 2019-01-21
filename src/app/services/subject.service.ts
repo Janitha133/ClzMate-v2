@@ -13,11 +13,11 @@ export class SubjectService{
     }
     
     getAllSubjects(){
-        return this.http.get('https://polar-meadow-28819.herokuapp.com/subject/');
+        return this.http.get('https://clzmate.herokuapp.com/subject/');
     }
 
     createSubject(subject){
-        return this.http.post('https://polar-meadow-28819.herokuapp.com/subject/addSubject/', subject );
+        return this.http.post('https://clzmate.herokuapp.com/subject/addSubject/', subject );
     }
 
 }

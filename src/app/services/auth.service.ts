@@ -14,7 +14,7 @@ export class AuthService{
 
     login(user){
         console.log("login route")
-        return this.http.post('https://polar-meadow-28819.herokuapp.com/user/login', user);
+        return this.http.post('https://clzmate.herokuapp.com/user/login', user);
         // return this.http.post('http://localhost:3000/user/login', user);
     }
 
