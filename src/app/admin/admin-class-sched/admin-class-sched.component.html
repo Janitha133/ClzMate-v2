@@ -31,6 +31,7 @@
           <thead>
             <tr (click)=getAllClzes()>
               <th class="th-sm">Subject Name</th>
+              <th class="th-sm">Class No</th>
               <th class="th-sm">Hall No</th>
               <th class="th-sm">Grade</th>
               <th class="th-sm">Batch</th>
@@ -41,6 +42,7 @@
           <tbody>
             <tr *ngFor="let clz of classes" class="cell">
               <td>{{clz.subjectName}}</td>
+              <td>{{clz.clzNo}}</td>
               <td>{{clz.hallNo}}</td>
               <td>{{clz.grade}}</td>
               <td>{{clz.batch}}</td>
