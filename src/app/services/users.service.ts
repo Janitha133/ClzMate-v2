@@ -14,36 +14,36 @@ export class UserService{
     register(user){
         const header = new Headers();
         header.append('Authorization','Bearer '+localStorage.getItem('token'));
-        return this.http.post('https://polar-meadow-28819.herokuapp.com/user/register', user, {headers: header});
+        return this.http.post('https://clzmate.herokuapp.com/user/register', user, {headers: header});
     }
 
     getAllUsers(){
-        return this.http.get('https://polar-meadow-28819.herokuapp.com/user/');
+        return this.http.get('https://clzmate.herokuapp.com/user/');
     }
 
     deleteUser(userId){
         const header = new Headers();
         header.append('Authorization','Bearer '+localStorage.getItem('token'));
-        return this.http.delete('https://polar-meadow-28819.herokuapp.com/user/'+userId, {headers: header});
+        return this.http.delete('https://clzmate.herokuapp.com/user/'+userId, {headers: header});
     }
 
     getUserByRole(userRole){
-        return this.http.get('https://polar-meadow-28819.herokuapp.com/user/findByRole/'+userRole);
+        return this.http.get('https://clzmate.herokuapp.com/user/findByRole/'+userRole);
     }
 
     resetPassword(email){
-        return this.http.get('https://polar-meadow-28819.herokuapp.com/user/forgotPassword/'+email);
+        return this.http.get('https://clzmate.herokuapp.com/user/forgotPassword/'+email);
         // return this.http.get('http://localhost:3000/user/forgotPassword/'+email);
     }
 
     editUser(userId,updateData){
         const header = new Headers();
         header.append('Authorization','Bearer '+localStorage.getItem('token'));
-        return this.http.patch('https://polar-meadow-28819.herokuapp.com/user/userUpdate/'+userId, updateData, {headers: header});
+        return this.http.patch('https://clzmate.herokuapp.com/user/userUpdate/'+userId, updateData, {headers: header});
     }
 
     saveNewPassword(email){
-        return this.http.get('https://polar-meadow-28819.herokuapp.com/user/newPassword/'+email);
+        return this.http.get('https://clzmate.herokuapp.com/user/newPassword/'+email);
         // return this.http.get('http://localhost:3000/user/newPassword/'+email);
     }
 
