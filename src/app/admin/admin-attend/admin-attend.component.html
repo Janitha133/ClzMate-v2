@@ -81,12 +81,8 @@
     </div>
 
     <div class="col-sm-3">
-      <select formControlName="clzId" id="inputState" class="form-control">
-        <option value="">{{ clzId }}</option>
-        <option>class1</option>
-        <option>class2</option>
-        <option>class3</option>
-        <option>class4</option>
+      <select #clz id="inputState" class="form-control">
+        <option *ngFor="let clz of clzes" class="cell">{{ clz.clzNo }}</option>
       </select>
       <!-- <div class="alert alert-danger" *ngIf="clz.touched && clz.invalid">
         <small>Select district</small>

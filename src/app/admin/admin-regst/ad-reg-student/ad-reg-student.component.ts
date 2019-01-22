@@ -123,7 +123,7 @@ export class AdRegStudentComponent implements OnInit {
     const noOfClasses = this.classes.length;
     clz.value = ''; 
     for(var i=0; i<noOfClasses; i++){
-      if(this.classes[i].subjectName == this.newClass){
+      if(this.classes[i].clzNo == this.newClass){
         var classId = this.classes[i]._id;
         this.classArray.push(classId); 
         this.printArray.push(this.newClass);
