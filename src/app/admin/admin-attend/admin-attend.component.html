@@ -56,7 +56,7 @@
   <div class="form-group row">
     <div class="col-sm-3">
       <select formControlName="year" id="inputState" class="form-control">
-        <option value="">{{ year }}</option>
+        <option value="">{{ defaultYear }}</option>
         <option>2018</option>
         <option>2017</option>
         <option>2016</option>
@@ -69,24 +69,19 @@
 
     <div class="col-sm-3">
       <select formControlName="month" id="inputState" class="form-control">
-        <option value="">{{ month }}</option>
+        <option value="">{{ defaultMonth }}</option>
         <option>January</option>
         <option>February</option>
         <option>March</option>
         <option>April</option>
       </select>
-      <!-- <div class="alert alert-danger" *ngIf="month.touched && month.invalid">
-        <small>Select district</small>
-      </div> -->
     </div>
 
     <div class="col-sm-3">
-      <select #clz id="inputState" class="form-control">
+      <select id="inputState" class="form-control" (change)="changeClz($event)">
+        <option class="cell">Class Id</option>
         <option *ngFor="let clz of clzes" class="cell">{{ clz.clzNo }}</option>
       </select>
-      <!-- <div class="alert alert-danger" *ngIf="clz.touched && clz.invalid">
-        <small>Select district</small>
-      </div> -->
     </div>
     <div class="col-sm-3">
       <button type="submit" class="btn btn-info">Search</button> 

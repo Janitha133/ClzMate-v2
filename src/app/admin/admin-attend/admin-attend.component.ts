@@ -18,9 +18,10 @@ console.log(formatDate);
 })
 export class AdminAttendComponent implements OnInit {
 
-  year = "Year";
-  month = "Month";
-  clzId = "Class Id";
+  defaultYear = "Year";
+  defaultMonth = "Month";
+  // defaultClzId = "Class Id";
+  selectedClz: ['']
   form7;
   studentAttendance: any[] = [];
   clzes: any[] = [];
@@ -45,7 +46,12 @@ export class AdminAttendComponent implements OnInit {
   }
 
   onSubmit(form7){
+    form7.value['clzId'] = this.selectedClz;
     console.log(form7.value);
+    this.Attendances.getClzAttendance(form7.value.year, form7.value.month, form7.value.clzId)
+      .subscribe(responce => {
+        console.log(responce);
+      })
   }
 
   getAllClzes(){
@@ -72,6 +78,41 @@ export class AdminAttendComponent implements OnInit {
         console.log(this.studentAttendance);
       })
   }
+
+  // addClzId(clz: HTMLInputElement){
+  //   console.log("addClzId")
+  //   console.log(clz)
+  //   this.selectedClz = clz.value;
+  //   console.log(this.selectedClz);
+  //   const noOfClzes = this.clzes.length;
+  //   clz.value = '';
+  //   for(var i=0; i<noOfClzes; i++){
+  //     if(this.clzes[i].clzNo == this.selectedClz){
+  //       this.form7.value.clzId = this.clzes[i]._id;
+  //     }
+  //   }
+  // }
+
+  changeClz(event){
+    console.log(event.target.value)
+    var clz = event.target.value;
+    this.selectedClz = clz;
+    // console.log(this.selectedClz);
+    const noOfClzes = this.clzes.length;
+    clz = '';
+    for(var i=0; i<noOfClzes; i++){
+      if(this.clzes[i].clzNo == this.selectedClz){
+        this.selectedClz = this.clzes[i]._id;
+        console.log(this.selectedClz);
+      }
+    }
+  }
+
+  get year(){ return this.form7.get('year'); }
+
+  get month(){ return this.form7.get('month'); }
+
+  get clzId(){ return this.form7.get('clzId'); }
   
 }
 
