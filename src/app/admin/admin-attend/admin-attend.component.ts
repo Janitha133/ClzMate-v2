@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, CookieXSRFStrategy } from '@angular/http';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { formatDate } from '@angular/common';
 
 import { UserService } from '../../services/users.service';
@@ -23,6 +23,7 @@ export class AdminAttendComponent implements OnInit {
   // defaultClzId = "Class Id";
   selectedClz: ['']
   form7;
+  show: boolean = false;
   studentAttendance: any[] = [];
   clzes: any[] = [];
   currentYear: Date
@@ -46,11 +47,16 @@ export class AdminAttendComponent implements OnInit {
   }
 
   onSubmit(form7){
+    if(!form7.value.month){
+      form7.value.month = "All"
+    }
     form7.value['clzId'] = this.selectedClz;
     console.log(form7.value);
     this.Attendances.getClzAttendance(form7.value.year, form7.value.month, form7.value.clzId)
       .subscribe(responce => {
-        console.log(responce);
+        this.studentAttendance = responce.json().Attendance;
+        this.show = true;
+        console.log(this.studentAttendance[0]);
       })
   }
 
@@ -79,21 +85,7 @@ export class AdminAttendComponent implements OnInit {
       })
   }
 
-  // addClzId(clz: HTMLInputElement){
-  //   console.log("addClzId")
-  //   console.log(clz)
-  //   this.selectedClz = clz.value;
-  //   console.log(this.selectedClz);
-  //   const noOfClzes = this.clzes.length;
-  //   clz.value = '';
-  //   for(var i=0; i<noOfClzes; i++){
-  //     if(this.clzes[i].clzNo == this.selectedClz){
-  //       this.form7.value.clzId = this.clzes[i]._id;
-  //     }
-  //   }
-  // }
-
-  changeClz(event){
+  addClz(event){
     console.log(event.target.value)
     var clz = event.target.value;
     this.selectedClz = clz;

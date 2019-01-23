@@ -57,10 +57,9 @@
     <div class="col-sm-3">
       <select formControlName="year" id="inputState" class="form-control">
         <option value="">{{ defaultYear }}</option>
+        <option>2019</option>
         <option>2018</option>
         <option>2017</option>
-        <option>2016</option>
-        <option>2015</option>
       </select>
       <!-- <div class="alert alert-danger" *ngIf="year.touched && year.invalid">
         <small>Select district</small>
@@ -74,11 +73,19 @@
         <option>February</option>
         <option>March</option>
         <option>April</option>
+        <option>May</option>
+        <option>June</option>
+        <option>July</option>
+        <option>August</option>
+        <option>September</option>
+        <option>Octomber</option>
+        <option>November</option>
+        <option>December</option>
       </select>
     </div>
 
     <div class="col-sm-3">
-      <select id="inputState" class="form-control" (change)="changeClz($event)">
+      <select id="inputState" class="form-control" (change)="addClz($event)">
         <option class="cell">Class Id</option>
         <option *ngFor="let clz of clzes" class="cell">{{ clz.clzNo }}</option>
       </select>
@@ -95,24 +102,20 @@
         <tr>
           <th class="th-sm">Class No</th>
           <th class="th-sm">card marker</th>
-          <!-- <th class="th-sm">Last Name</th> -->
           <th class="th-sm">week 1</th>
           <th class="th-sm">week 2</th>
           <th class="th-sm">week 3</th>
           <th class="th-sm">week 4</th>
-          <!-- <th class="th-sm">week 5</th> -->
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let attendance of studentAttendance" class="cell">
-          <td (click)="frame.show(user)">{{attendance._id}}</td>
-          <td (click)="frame.show(user)">{{attendance.clz}}</td>
-          <td (click)="frame.show(user)">{{attendance.cardMarker}}</td>
-          <td (click)="frame.show(user)">{{attendance.date}}</td>
-          <td (click)="frame.show(user)">{{attendance.day}}</td>
-          <!-- <td (click)="frame.show(user)">{{attendance.cardMarker}}</td> -->
-          <!-- <td (click)="frame.show(user)">{{attendance.cardMarker}}</td> -->
-          <!-- <td (click)="frame.show(user)"></td> -->
+        <tr *ngIf="show" class="cell">
+          <td (click)="frame.show(user)">{{studentAttendance[0].clz.clzNo}}</td>
+          <td (click)="frame.show(user)">{{studentAttendance[0].cardMarker.fullName}}</td>
+          <td (click)="frame.show(user)">{{studentAttendance[0].month}}</td>
+          <td (click)="frame.show(user)">{{studentAttendance[1].month}}</td>
+          <td (click)="frame.show(user)">{{studentAttendance[2].month}}</td>
+          <td (click)="frame.show(user)">{{studentAttendance[3].month}}</td>
         </tr>
       </tbody>
     </table>
