@@ -110,12 +110,28 @@
       </thead>
       <tbody>
         <tr *ngIf="show" class="cell">
-          <td (click)="frame.show(user)">{{studentAttendance[0].clz.clzNo}}</td>
-          <td (click)="frame.show(user)">{{studentAttendance[0].cardMarker.fullName}}</td>
-          <td (click)="frame.show(user)">{{studentAttendance[0].month}}</td>
-          <td (click)="frame.show(user)">{{studentAttendance[1].month}}</td>
-          <td (click)="frame.show(user)">{{studentAttendance[2].month}}</td>
-          <td (click)="frame.show(user)">{{studentAttendance[3].month}}</td>
+          <td>{{studentAttendance[0].clz.clzNo}}</td>
+          <td>{{studentAttendance[0].cardMarker.fullName}}</td>
+          <td>
+            <tr *ngFor="let student of studentAttendance[0].student">
+              <td>{{student.indexNo}}</td>
+            </tr>
+          </td>
+          <td>
+            <tr *ngFor="let student of studentAttendance[1].student">
+                <td>{{student.indexNo}}</td>
+            </tr>
+          </td>
+          <td>
+            <tr *ngFor="let student of studentAttendance[2].student">
+              <td>{{student.indexNo}}</td>
+            </tr>
+          </td>
+          <td>
+            <tr *ngFor="let student of studentAttendance[3].student">
+                <td>{{student.indexNo}}</td>
+            </tr>
+          </td>
         </tr>
       </tbody>
     </table>

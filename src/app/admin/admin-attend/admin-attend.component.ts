@@ -56,7 +56,7 @@ export class AdminAttendComponent implements OnInit {
       .subscribe(responce => {
         this.studentAttendance = responce.json().Attendance;
         this.show = true;
-        console.log(this.studentAttendance[0]);
+        console.log(this.studentAttendance[0].student);
       })
   }
 
