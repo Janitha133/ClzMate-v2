@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './../../../services/auth.service';
@@ -16,6 +16,9 @@ export class UpdateFormComponent implements OnInit {
   form8;
   classes: any[] = [];
   mobnumPattern = "^((\\+91-?)|0)?[0-9]{10}$";
+
+  @Input() public parentData;
+  @Output() public childEvent = new EventEmitter();
 
   constructor(
     private fb1: FormBuilder,
@@ -50,6 +53,11 @@ export class UpdateFormComponent implements OnInit {
    }
 
   ngOnInit() {
+    console.log(this.parentData.fullName);
+  }
+
+  fireEvent() {
+    this.childEvent.emit(false);
   }
 
   get email(){return this.form8.get('email');}

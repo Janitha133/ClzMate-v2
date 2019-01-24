@@ -1,10 +1,9 @@
 <form class="pl-2 pr-2" [formGroup]="form8" (ngSubmit)="onSubmit(form8)">
-  <hr>
 
   <div class="form-group row">
     <label for="inputFullame" class="col-sm-3 col-form-label">Full Name</label>
     <div class="col-sm-9">
-      <input formControlName="fullName" type="text" class="form-control" id="" placeholder="Full Name">
+      <input formControlName="fullName" type="text" class="form-control" id="" placeholder="Full Name" [ngModel]="">
       <div class="alert alert-danger" *ngIf="fullName.touched && fullName.invalid">
         <small>Please enter full name</small>
       </div>
@@ -245,6 +244,8 @@
   </div>
 
   <hr>
+  <p>{{parentData}}</p>
+  <button (click)="fireEvent()" mdbBtn type="button" color="danger" class="waves-light col-sm-3 float-right" mdbWavesEffect>Cancel</button>
   <button [disabled]="form8.invalid" mdbBtn type="submit" color="indigo" class="waves-light col-sm-3 float-right" mdbWavesEffect>Save</button>
 </form>
 

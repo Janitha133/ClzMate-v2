@@ -12,6 +12,8 @@ export class AdminUserListComponent implements OnInit {
   users: any[] = [];
   // searchUsers: any[] = [];
   role: String = "Student";
+  selectedUser: any;
+  toggleForm: boolean = false;
 
   constructor(
     private http: Http,
@@ -46,7 +48,7 @@ export class AdminUserListComponent implements OnInit {
   //     });
   // }
 
-  searchByName(name) {
+  searchByName(name:any) {
     console.log(name.value);
     if (!name.value) {
       this.getUserByRole(this.role);
@@ -54,7 +56,7 @@ export class AdminUserListComponent implements OnInit {
       let temp = [];
       for (let j of this.users) {
         for (var i of Object.values(j)) {
-          if(i == null){
+          if (i == null) {
             continue;
           }
           if ((i.toString().replace(/ /g, '').toUpperCase()).includes(name.value.toUpperCase())) {
@@ -67,7 +69,7 @@ export class AdminUserListComponent implements OnInit {
     }
   }
 
-  deleteUser(user) {
+  deleteUser(user:any) {
     console.log(user._id);
     let index = this.users.indexOf(user);
     this.users.splice(index, 1);
@@ -78,8 +80,13 @@ export class AdminUserListComponent implements OnInit {
       })
   }
 
-  userSelect(user) {
+  userSelect(user:any) {
     alert(user.First_Name);
+  }
+
+  updateUser(user:any) {
+    this.selectedUser = user;
+    this.toggleForm = !this.toggleForm;
   }
 
 }
