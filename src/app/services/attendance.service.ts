@@ -17,7 +17,7 @@ export class AttendanceService{
     }
 
     getClzAttendance(year, month, clzId){
-        return this.http.get('https://clzmate.herokuapp.com/attendance/attendanceForClzId/'+ year + month + clzId);
+        return this.http.get('https://clzmate.herokuapp.com/attendance/attendanceForClzId/'+ year + '/' + month + '/' + clzId);
     }
 
 }
