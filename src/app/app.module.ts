@@ -32,6 +32,13 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { UpdateFormComponent } from './admin/admin-user-list/update-form/update-form.component';
 import { PaymentService } from './services/payment.service';
 import { AttendanceService } from './services/attendance.service';
+import { PaperMakerComponent } from './paper-maker/paper-maker.component';
+import { TeacherComponent } from './teacher/teacher.component';
+import { TeacherSidebarComponent } from './teacher/teacher-sidebar/teacher-sidebar.component';
+import { PaperMakerSidebarComponent } from './paper-maker/paper-maker-sidebar/paper-maker-sidebar.component';
+import { PaperMakerMarksComponent } from './paper-maker/paper-maker-marks/paper-maker-marks.component';
+import { PaperMakerClassSchedComponent } from './paper-maker/paper-maker-class-sched/paper-maker-class-sched.component';
+import { PaperMakerViewMrksComponent } from './paper-maker/paper-maker-view-mrks/paper-maker-view-mrks.component';
 
 
 @NgModule({
@@ -56,6 +63,13 @@ import { AttendanceService } from './services/attendance.service';
     PgeNtFoundComponent,
     SpinnerComponent,
     UpdateFormComponent,
+    PaperMakerComponent,
+    TeacherComponent,
+    TeacherSidebarComponent,
+    PaperMakerSidebarComponent,
+    PaperMakerMarksComponent,
+    PaperMakerClassSchedComponent,
+    PaperMakerViewMrksComponent,
   ], 
   imports: [ 
     FormsModule,
