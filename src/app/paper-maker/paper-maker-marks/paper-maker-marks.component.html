@@ -6,10 +6,69 @@
     <p class="p-3 text-white ml-4"></p>
   </div>
 
-  <br>
   <hr>
+  <form [formGroup]="form12" (ngSubmit)="onSubmit(form12)">
+    <div class="form-group row">
+      <div class="col-sm-3">
+        <select formControlName="year" id="inputState" class="form-control">
+          <option value="">{{ defaultYear }}</option>
+          <option>2019</option>
+          <option>2018</option>
+          <option>2017</option>
+        </select>
+        <!-- <div class="alert alert-danger" *ngIf="year.touched && year.invalid">
+        <small>Select district</small>
+      </div> -->
+      </div>
 
-  <div class="row">
+      <div class="col-sm-3">
+        <select formControlName="clzid" id="inputState" class="form-control">
+          <option value="">{{ defaultClzId }}</option>
+          <option>January</option>
+          <option>February</option>
+          <option>March</option>
+          <option>April</option>
+          <option>May</option>
+        </select>
+      </div>
 
+      <div class="col-sm-3">
+        <select formControlName="paperId" id="inputState" class="form-control">
+          <option value="">{{ defaultpaperId }}</option>
+          <option>January</option>
+          <option>February</option>
+          <option>March</option>
+          <option>April</option>
+          <option>May</option>
+        </select>
+      </div>
+
+      <div class="col-sm-3">
+        <button type="submit" class="btn btn-sm btn-indigo waves-effect">Select Paper</button>
+      </div>
+    </div>
+  </form>
+
+  <hr>
+  <!-- clz table -->
+  <div class="tblwd white animated fadeIn hvr">
+    <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th class="th-sm">Student Id</th>
+          <th class="th-sm">Mark</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="cell">
+          <td>12345</td>
+          <td>75</td>
+        </tr>
+        <tr class="cell">
+          <td>12345</td>
+          <td>75</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

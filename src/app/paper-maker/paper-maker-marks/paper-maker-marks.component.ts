@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-paper-maker-marks',
@@ -7,7 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaperMakerMarksComponent implements OnInit {
 
-  constructor() { }
+  defaultYear = "Year";
+  defaultClzId = "Class Id";
+  defaultpaperId = "Paper Id";
+
+  form12;
+
+  constructor(
+    private fb12: FormBuilder,
+  ) {
+    this.form12 = this.fb12.group({
+      year: [''],
+      clzid: [''],
+      paperId: ['']
+    })
+   }
 
   ngOnInit() {
   }
