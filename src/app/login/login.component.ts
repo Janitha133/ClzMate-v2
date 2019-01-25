@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private auth: AuthService
-  ) { 
+  ) {
     this.form = this.fb.group({
       email: ['', [
         Validators.email,
@@ -32,27 +32,33 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(form){
+  onSubmit(form) {
     console.log(form.value)
     this.showSpinner = 'true';
     this.auth.login(form.value).subscribe(result => {
-      let token = result.json().JWT_Token; 
+      let token = result.json().JWT_Token;
       let decodeJWT = this.getDecodedAccessToken(token)
       console.log(decodeJWT);
       console.log(token);
-      if(token){ 
-        if(decodeJWT.user.role == 'Admin'){
+      if (token) {
+        if (decodeJWT.user.role == 'Admin') {
           localStorage.setItem('token', token);
           this.router.navigate(['admin/dashboard']);
           this.showSpinner = 'false';
-        } else{
+        }
+        else if (decodeJWT.user.role == 'Paper Marker') {
+          localStorage.setItem('token', token);
+          this.router.navigate(['papermarker/entermarks']);
+          this.showSpinner = 'false';
+        }
+        else {
           this.invalidLogin = true;
           this.showSpinner = 'false';
           this.form.reset();
           this.router.navigate(['']);
         }
       }
-      else{
+      else {
         this.invalidLogin = true;
         this.showSpinner = 'false';
         this.form.reset();
@@ -62,15 +68,15 @@ export class LoginComponent implements OnInit {
   }
 
   getDecodedAccessToken(token: string): any {
-    try{
-        return jwt_decode(token);
+    try {
+      return jwt_decode(token);
     }
-    catch(Error){
-        return null;
+    catch (Error) {
+      return null;
     }
   }
 
-  get email(){return this.form.get('email');}
-  get password(){return this.form.get('password');}
+  get email() { return this.form.get('email'); }
+  get password() { return this.form.get('password'); }
 
 }

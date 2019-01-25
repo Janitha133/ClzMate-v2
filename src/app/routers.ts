@@ -9,6 +9,10 @@ import { AdminClassFeesComponent } from './admin/admin-class-fees/admin-class-fe
 import { AdminClassSchedComponent } from './admin/admin-class-sched/admin-class-sched.component';
 import { PgeNtFoundComponent } from './pge-nt-found/pge-nt-found.component';
 import { ForgotPswdComponent } from './forgot-pswd/forgot-pswd.component';
+import { PaperMakerComponent } from './paper-maker/paper-maker.component';
+import { PaperMakerMarksComponent } from './paper-maker/paper-maker-marks/paper-maker-marks.component';
+import { PaperMakerViewMrksComponent } from './paper-maker/paper-maker-view-mrks/paper-maker-view-mrks.component';
+import { PaperMakerClassSchedComponent } from './paper-maker/paper-maker-class-sched/paper-maker-class-sched.component';
 
 export const appRoutes: Routes = [
     {
@@ -25,6 +29,15 @@ export const appRoutes: Routes = [
             {path:"attendance", component: AdminAttendComponent},           
             {path:"classfees", component: AdminClassFeesComponent},          
             {path:"classschedule", component: AdminClassSchedComponent}          
+        ]
+    },
+    {
+        path: "papermarker",
+        component:  PaperMakerComponent,
+        children: [
+            {path:"entermarks", component: PaperMakerMarksComponent},           
+            {path:"viewmarks", component: PaperMakerViewMrksComponent},                   
+            {path:"pmclassschedule", component: PaperMakerClassSchedComponent}          
         ]
     },
     {
