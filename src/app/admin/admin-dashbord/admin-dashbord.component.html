@@ -2,9 +2,9 @@
   <div class="bd-col p-3 bck-col">
     <h3 class="pl-3">Dashboard</h3>
   </div>
-
-  <br>
-  <hr>
+  <div class="mdb-color mdb-color darken-3">
+    <p class="p-3 text-white ml-4">Current State</p>
+  </div>
 
   <div class="row">
     <div class="col-md-6">
@@ -22,12 +22,13 @@
         <!--Card content-->
         <div class="card-body">
           <div class="progress">
-            <div class="progress-bar bg-primary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-primary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+              aria-valuemax="100"></div>
           </div>
           <!--Text-->
           <p class="card-text">Better than last week (25%)</p>
         </div>
-        <!--/.Card content-->  
+        <!--/.Card content-->
       </div>
       <!--/.Card-->
     </div>
@@ -47,7 +48,8 @@
         <!--Card content-->
         <div class="card-body">
           <div class="progress">
-            <div class="progress-bar bg-primary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-primary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+              aria-valuemax="100"></div>
           </div>
           <!--Text-->
           <p class="card-text">Better than last week (25%)</p>
@@ -59,18 +61,21 @@
   </div>
 
   <hr>
-  <div class="card p-3 mdb-color darken-3 white-text">
-      <center><h5>Attendance Statistic Overview</h5></center>
+
+  <div class="mdb-color mdb-color darken-3">
+    <p class="p-3 text-white ml-4">Attendance Statistic Overview</p>
   </div>
   <div class="row mt-2">
     <div class="col-md-12">
       <div class="card">
         <!--Card content-->
         <div class="card-body">
-          <center><h5>2018 Advance Level</h5></center>
+          <center>
+            <h5>2018 Advance Level</h5>
+          </center>
           <div style="display: block">
-            <canvas mdbChart [chartType]="chart1Type" [datasets]="chartDatasets" [labels]="chartLabels" [colors]="chartColors" [options]="chartOptions"
-              [legend]="true">
+            <canvas mdbChart [chartType]="chart1Type" [datasets]="chartDatasets" [labels]="chartLabels" [colors]="chartColors"
+              [options]="chartOptions" [legend]="true">
             </canvas>
           </div>
         </div>
@@ -81,40 +86,40 @@
 
   <div class="row mt-2">
     <div class="col-md-4"></div>
-    <div class="col-md-4">    
+    <div class="col-md-4">
       <nav>
         <ul class="pagination pg-dark">
-            <!--Arrow left-->
-            <li class="page-item">
-                <a class="page-link" mdbWavesEffect aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                </a>
-            </li>
-  
-            <!--Numbers-->
-            <li class="page-item active"><a class="page-link" mdbWavesEffect>1</a></li>
-            <li class="page-item"><a class="page-link" mdbWavesEffect>2</a></li>
-            <li class="page-item"><a class="page-link" mdbWavesEffect>3</a></li>
-            <li class="page-item"><a class="page-link" mdbWavesEffect>4</a></li>
-            <li class="page-item"><a class="page-link" mdbWavesEffect>5</a></li>
-  
-            <!--Arrow right-->
-            <li class="page-item">
-                <a class="page-link" mdbWavesEffect aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </li>
+          <!--Arrow left-->
+          <li class="page-item">
+            <a class="page-link" mdbWavesEffect aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+
+          <!--Numbers-->
+          <li class="page-item active"><a class="page-link" mdbWavesEffect>1</a></li>
+          <li class="page-item"><a class="page-link" mdbWavesEffect>2</a></li>
+          <li class="page-item"><a class="page-link" mdbWavesEffect>3</a></li>
+          <li class="page-item"><a class="page-link" mdbWavesEffect>4</a></li>
+          <li class="page-item"><a class="page-link" mdbWavesEffect>5</a></li>
+
+          <!--Arrow right-->
+          <li class="page-item">
+            <a class="page-link" mdbWavesEffect aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
         </ul>
-    </nav>
-  </div>
-  <div class="col-md-4"></div>
+      </nav>
+    </div>
+    <div class="col-md-4"></div>
   </div>
 
   <hr>
-  <div class="card p-3 mdb-color darken-3 white-text">
-      <center><h5>Class Fees Statistic Overview</h5></center>
+  <div class="mdb-color mdb-color darken-3">
+    <p class="p-3 text-white ml-4">Class Fees Statistic Overview</p>
   </div>
 
   <!-- <div class="row mt-2">
@@ -143,10 +148,12 @@
       <div class="card">
         <!--Card content-->
         <div class="card-body">
-          <center><h5>2018 Advance Level</h5></center>
+          <center>
+            <h5>2018 Advance Level</h5>
+          </center>
           <div style="display: block">
-            <canvas mdbChart [chartType]="chart1Type" [datasets]="chartDatasets" [labels]="chartLabels" [colors]="chartColors" [options]="chartOptions"
-              [legend]="true">
+            <canvas mdbChart [chartType]="chart1Type" [datasets]="chartDatasets" [labels]="chartLabels" [colors]="chartColors"
+              [options]="chartOptions" [legend]="true">
             </canvas>
           </div>
         </div>
@@ -157,35 +164,37 @@
 
   <div class="row mt-2">
     <div class="col-md-4"></div>
-    <div class="col-md-4">    
+    <div class="col-md-4">
       <nav>
         <ul class="pagination pg-dark">
-            <!--Arrow left-->
-            <li class="page-item">
-                <a class="page-link" mdbWavesEffect aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                </a>
-            </li>
-  
-            <!--Numbers-->
-            <li class="page-item active"><a class="page-link" mdbWavesEffect>1</a></li>
-            <li class="page-item"><a class="page-link" mdbWavesEffect>2</a></li>
-            <li class="page-item"><a class="page-link" mdbWavesEffect>3</a></li>
-            <li class="page-item"><a class="page-link" mdbWavesEffect>4</a></li>
-            <li class="page-item"><a class="page-link" mdbWavesEffect>5</a></li>
-  
-            <!--Arrow right-->
-            <li class="page-item">
-                <a class="page-link" mdbWavesEffect aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </li>
+          <!--Arrow left-->
+          <li class="page-item">
+            <a class="page-link" mdbWavesEffect aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+
+          <!--Numbers-->
+          <li class="page-item active"><a class="page-link" mdbWavesEffect>1</a></li>
+          <li class="page-item"><a class="page-link" mdbWavesEffect>2</a></li>
+          <li class="page-item"><a class="page-link" mdbWavesEffect>3</a></li>
+          <li class="page-item"><a class="page-link" mdbWavesEffect>4</a></li>
+          <li class="page-item"><a class="page-link" mdbWavesEffect>5</a></li>
+
+          <!--Arrow right-->
+          <li class="page-item">
+            <a class="page-link" mdbWavesEffect aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
         </ul>
       </nav>
     </div>
-  <div class="col-md-4"></div>
-  </div> 
-  
+    <div class="col-md-4"></div>
+  </div>
+
+  <hr>
+
 </div>
