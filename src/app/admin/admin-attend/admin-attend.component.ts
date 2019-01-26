@@ -8,7 +8,6 @@ import { AttendanceService } from '../../services/attendance.service';
 import { ClzService } from 'src/app/services/clz.service';
 
 formatDate(new Date(), 'yyyy/MM/dd', 'en');
-console.log(formatDate);
 
 @Component({
   selector: 'app-admin-attend',
@@ -51,12 +50,12 @@ export class AdminAttendComponent implements OnInit {
       form7.value.month = "All"
     }
     form7.value['clzId'] = this.selectedClz;
-    console.log(form7.value);
+    //console.log(form7.value);
     this.Attendances.getClzAttendance(form7.value.year, form7.value.month, form7.value.clzId)
       .subscribe(responce => {
         this.studentAttendance = responce.json().Attendance;
         this.show = true;
-        console.log(this.studentAttendance[0].student);
+        //console.log(this.studentAttendance[0].student);
       })
   }
 
@@ -64,7 +63,7 @@ export class AdminAttendComponent implements OnInit {
     this.Clzes.getAllClzes()
       .subscribe(response => {
         this.clzes = response.json().Clz;
-        console.log(this.clzes);
+        //console.log(this.clzes);
       })
   }
 
@@ -72,7 +71,7 @@ export class AdminAttendComponent implements OnInit {
     this.Attendances.getAllAttendance()
       .subscribe(response => {
         this.studentAttendance = response.json().Attendance;
-        console.log(this.studentAttendance);
+        //console.log(this.studentAttendance);
         // console.log(Object.values(response.json().Attendance));
       });
   }
@@ -81,7 +80,7 @@ export class AdminAttendComponent implements OnInit {
     this.Attendances.getClzAttendance(year, month, clzId)
       .subscribe(response => {
         this.studentAttendance = response.json().Attendance;
-        console.log(this.studentAttendance);
+        //console.log(this.studentAttendance);
       })
   }
 
@@ -95,7 +94,7 @@ export class AdminAttendComponent implements OnInit {
     for(var i=0; i<noOfClzes; i++){
       if(this.clzes[i].clzNo == this.selectedClz){
         this.selectedClz = this.clzes[i]._id;
-        console.log(this.selectedClz);
+        //console.log(this.selectedClz);
       }
     }
   }
