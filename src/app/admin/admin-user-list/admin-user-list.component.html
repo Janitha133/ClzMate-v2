@@ -397,7 +397,7 @@
                               <hr>
                               <button (click)="fireEvent()" mdbBtn type="button" color="danger" class="waves-light col-sm-3 float-right"
                                 mdbWavesEffect>Cancel</button>
-                              <button [disabled]="form8.invalid" mdbBtn type="submit" color="indigo" class="waves-light col-sm-3 float-right"
+                              <button (click)="fireEvent2()" [disabled]="form8.invalid" mdbBtn type="submit" color="indigo" class="waves-light col-sm-3 float-right"
                                 mdbWavesEffect>Save</button>
                             </form>
 
