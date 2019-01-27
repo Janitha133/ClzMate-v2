@@ -25,7 +25,6 @@ export class AdminUserListComponent implements OnInit {
     private userService: UserService,
     private fb1: FormBuilder,
     private Clzes: ClzService,
-    private Users: UserService
   ) {
     // this.getAllStudents();
     this.getUserByRole(this.role);
@@ -37,17 +36,17 @@ export class AdminUserListComponent implements OnInit {
       district: ['', Validators.required],
       landNumber: [''],
       mobileNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(this.mobnumPattern)]],
-      motherName: ['', Validators.required],
-      momNumber: ['', Validators.required],
-      fatherName: ['', Validators.required],
-      dadNumber: ['', Validators.required],
+      motherName: [''],
+      momNumber: [''],
+      fatherName: [''],
+      dadNumber: [''],
       gardianName: [''],
       gardianNumber: [''],
       nicNo: [''],
       email: ['', [Validators.email, Validators.required]],
       fullName: ['', Validators.required],
       batch: [''],
-      school: ['', Validators.required],
+      school: [''],
       clzes: new FormArray([]),
       stream: [''],
       firstName: ['', Validators.required],
@@ -128,7 +127,7 @@ export class AdminUserListComponent implements OnInit {
       city: user.address.city,
       district: user.address.district,
       landNumber: user.contactDetails.landNumber,
-      mobileNumber: user.contactDetails.mobileNumbe,
+      mobileNumber: user.contactDetails.mobileNumber,
       motherName: user.contactDetails.motherName,
       momNumber: user.contactDetails.momNumber,
       fatherName: user.contactDetails.fatherName,
@@ -151,6 +150,20 @@ export class AdminUserListComponent implements OnInit {
 
   fireEvent() {
     this.toggleForm = !this.toggleForm;
+  }
+
+  fireEvent2() {
+    this.toggleForm = false;
+  }
+
+  onSubmitEdit(form8,user){
+    console.log(form8.value);
+    this.userService.editUser(user._id, form8.value)
+      .subscribe(result => {
+        if (result.json().state) alert("Card marker updated successfully");
+        else alert("Error occured please update Card marker again");
+        console.log(result);
+      })
   }
 
   get email() { return this.form8.get('email'); }

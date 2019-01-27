@@ -80,7 +80,7 @@
                   <!--Header-->
                   <div class="modal-header d-flex justify-content-center mdb-color darken-3">
                     <p class="heading">User Details</p>
-                    <button type="button" class="close zz" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                    <button type="button" class="close zz" data-dismiss="modal" aria-label="Close" (click)="fireEvent2()" (click)="frame.hide()">
                       <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                   </div>
@@ -113,7 +113,6 @@
                               {{user.contactDetails.mobileNumber}}&nbsp;&nbsp;&nbsp;&nbsp; Land -
                               {{user.contactDetails.landNumber}}</p>
                             <p *ngIf="role == 'Student'"><strong>Batch :</strong> {{user.batch}}</p>
-                            <p *ngIf="role == 'Student'"><strong>Subjects :</strong> {{user.subjects}}</p>
                             <p *ngIf="role == 'Student'"><strong>Mother Name :</strong>
                               {{user.contactDetails.motherName}}</p>
                             <p *ngIf="role == 'Student'"><strong>Mother Contact :</strong>
@@ -131,7 +130,7 @@
                           <!-- update form 4 all n long code -->
                           <div *ngIf="toggleForm">
 
-                            <form class="pl-2 pr-2 animated fadeIn" [formGroup]="form8" (ngSubmit)="onSubmit(form8)">
+                            <form class="pl-2 pr-2 animated fadeIn" [formGroup]="form8" (ngSubmit)="onSubmitEdit(form8,user)">
 
                               <div class="form-group row">
                                 <label for="inputFullame" class="col-sm-3 col-form-label">Full Name</label>
@@ -174,6 +173,13 @@
                                 </div>
                               </div>
 
+                              <div class="form-group row" *ngIf="role != 'Student'">
+                                <label for="inputnicNo" class="col-sm-2 col-form-label">NIC No</label>
+                                <div class="col-sm-4">
+                                  <input formControlName="nicNo" type="text" class="form-control" id="" placeholder="NIC No">
+                                </div>
+                              </div>
+
                               <div class="form-group row">
                                 <label for="gender" class="col-sm-3 col-form-label">Gender</label>
                                 <div class="col-sm-5">
@@ -204,7 +210,7 @@
                                 </div>
                               </div>
 
-                              <div class="form-group row">
+                              <div class="form-group row" *ngIf="role == 'Student'">
                                 <label for="inputSchool" class="col-sm-3 col-form-label">School</label>
                                 <div class="col-sm-5">
                                   <input formControlName="school" type="text" class="form-control" id="school"
@@ -271,7 +277,7 @@
                                 </div>
                               </div>
 
-                              <div class="form-group row">
+                              <div class="form-group row" *ngIf="role == 'Student'">
                                 <label for="inputFullame" class="col-sm-3 col-form-label">Batch</label>
                                 <div class="col-sm-5">
                                   <select formControlName="batch" id="inputState" class="form-control">
@@ -293,7 +299,7 @@
                                 </div>
                               </div>
 
-                              <div formGroupName="clzes" class="form-group row">
+                              <div formGroupName="clzes" class="form-group row" *ngIf="role == 'Student'">
                                 <label for="inputFullame" class="col-sm-3 col-form-label">Class(es)</label>
                                 <div class="col-sm-4">
                                   <input #subject id="inputState" class="form-control" placeholder="Type Subject">
@@ -317,7 +323,7 @@
                                 </div>
                               </div>
 
-                              <div class="form-group row">
+                              <div class="form-group row" *ngIf="role == 'Student'">
                                 <div class="col-sm-2"></div>
                                 <ul class="list-group col-sm-4 ml-3">
                                   <li class="list-group-item list-group-item-info" *ngFor="let topic of clzes.value"
@@ -325,12 +331,12 @@
                                 </ul>
                               </div>
 
-                              <hr>
-                              <div class="pb-3">
+                              <hr *ngIf="role == 'Student'">
+                              <div class="pb-3" *ngIf="role == 'Student'">
                                 <h5><strong>Parent Information >></strong></h5>
                               </div>
 
-                              <div class="form-group row">
+                              <div class="form-group row" *ngIf="role == 'Student'">
                                 <label for="inputFullame" class="col-sm-2 col-form-label">Father</label>
                                 <div class="col-sm-10">
                                   <input formControlName="fatherName" type="text" class="form-control" id=""
@@ -341,7 +347,7 @@
                                 </div>
                               </div>
 
-                              <div class="form-group row">
+                              <div class="form-group row" *ngIf="role == 'Student'">
                                 <label for="inputFullame" class="col-sm-2 col-form-label">Contact</label>
                                 <div class="col-sm-5">
                                   <input formControlName="dadNumber" type="text" class="form-control" id="" placeholder="Contact Number">
@@ -351,7 +357,7 @@
                                 </div>
                               </div>
 
-                              <div class="form-group row">
+                              <div class="form-group row" *ngIf="role == 'Student'">
                                 <label for="inputFullame" class="col-sm-2 col-form-label">Mother</label>
                                 <div class="col-sm-10">
                                   <input formControlName="motherName" type="text" class="form-control" id=""
@@ -362,7 +368,7 @@
                                 </div>
                               </div>
 
-                              <div class="form-group row">
+                              <div class="form-group row" *ngIf="role == 'Student'">
                                 <label for="inputFullame" class="col-sm-2 col-form-label">Contact</label>
                                 <div class="col-sm-5">
                                   <input formControlName="momNumber" type="text" class="form-control" id="" placeholder="Contact Number">
@@ -372,7 +378,7 @@
                                 </div>
                               </div>
 
-                              <div class="form-group row">
+                              <div class="form-group row" *ngIf="role == 'Student'">
                                 <label for="inputFullame" class="col-sm-2 col-form-label">Guardian</label>
                                 <div class="col-sm-10">
                                   <input formControlName="gardianName" type="text" class="form-control" id=""
@@ -380,7 +386,7 @@
                                 </div>
                               </div>
 
-                              <div class="form-group row">
+                              <div class="form-group row" *ngIf="role == 'Student'">
                                 <label for="inputFullame" class="col-sm-2 col-form-label">Contact</label>
                                 <div class="col-sm-5">
                                   <input formControlName="gardianNumber" type="text" class="form-control" id=""
