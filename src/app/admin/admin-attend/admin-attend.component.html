@@ -94,7 +94,7 @@
       </div>
 
       <div class="col-sm-3">
-        <button type="submit" class="btn btn-sm btn-indigo waves-effect">Search</button>
+        <button type="submit" class="btn btn-sm btn-indigo waves-effect" (click)="noteShow()">Search</button>
       </div>
     </div>
   </form>
@@ -142,7 +142,13 @@
     </table>
   </div>
 
-  <nav>
+  <div class="mt-5" *ngIf="note">
+    <center>
+      <h5>Use search filter to display Attendance</h5>
+    </center>
+  </div>
+
+  <!-- <nav>
     <ul class="pagination pg-dark justify-content-end">
       <li class="page-item">
         <a class="page-link" aria-label="Previous">
@@ -162,6 +168,6 @@
         </a>
       </li>
     </ul>
-  </nav>
+  </nav> -->
 
 </div>

@@ -25,7 +25,8 @@ export class AdminAttendComponent implements OnInit {
   show: boolean = false;
   studentAttendance: any[] = [];
   clzes: any[] = [];
-  currentYear: Date
+  currentYear: Date;
+  note: boolean = true;
 
   constructor(
     private fb7: FormBuilder,
@@ -104,6 +105,10 @@ export class AdminAttendComponent implements OnInit {
   get month(){ return this.form7.get('month'); }
 
   get clzId(){ return this.form7.get('clzId'); }
+
+  noteShow() {
+    this.note = false;
+  }
   
 }
 
