@@ -16,6 +16,12 @@ import { PaperMakerClassSchedComponent } from './paper-maker/paper-maker-class-s
 import { SuperAdminComponent } from './super-admin/super-admin.component';
 import { SpaRegstComponent } from './super-admin/spa-regst/spa-regst.component';
 import { SpaAdminListComponent } from './super-admin/spa-admin-list/spa-admin-list.component';
+import { TeacherComponent } from './teacher/teacher.component';
+import { MarksComponent } from './teacher/marks/marks.component';
+import { TeaAttendComponent } from './teacher/tea-attend/tea-attend.component';
+import { TeaClzFeesComponent } from './teacher/tea-clz-fees/tea-clz-fees.component';
+import { TeaClzSchedComponent } from './teacher/tea-clz-sched/tea-clz-sched.component';
+import { TeaCrtPaperComponent } from './teacher/tea-crt-paper/tea-crt-paper.component';
 
 export const appRoutes: Routes = [
     {
@@ -36,7 +42,7 @@ export const appRoutes: Routes = [
     },
     {
         path: "papermarker",
-        component:  PaperMakerComponent,
+        component: PaperMakerComponent,
         children: [
             {path:"entermarks", component: PaperMakerMarksComponent},           
             {path:"viewmarks", component: PaperMakerViewMrksComponent},                   
@@ -45,10 +51,21 @@ export const appRoutes: Routes = [
     },
     {
         path: "superadmin",
-        component:  SuperAdminComponent,
+        component: SuperAdminComponent,
         children: [
             {path:"registration", component: SpaRegstComponent},                  
             {path:"adminlist", component: SpaAdminListComponent}                 
+        ]
+    },
+    {
+        path: "teacher",
+        component: TeacherComponent,
+        children: [
+            {path:"viewmarks", component: MarksComponent},                  
+            {path:"attendance", component: TeaAttendComponent},                 
+            {path:"classfees", component: TeaClzFeesComponent},                 
+            {path:"schedule", component: TeaClzSchedComponent},                 
+            {path:"crwatepaper", component: TeaCrtPaperComponent}                 
         ]
     },
     {

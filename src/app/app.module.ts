@@ -42,6 +42,11 @@ import { SuperAdminComponent } from './super-admin/super-admin.component';
 import { SpSidebarComponent } from './super-admin/sp-sidebar/sp-sidebar.component';
 import { SpaRegstComponent } from './super-admin/spa-regst/spa-regst.component';
 import { SpaAdminListComponent } from './super-admin/spa-admin-list/spa-admin-list.component';
+import { TeaAttendComponent } from './teacher/tea-attend/tea-attend.component';
+import { TeaClzFeesComponent } from './teacher/tea-clz-fees/tea-clz-fees.component';
+import { MarksComponent } from './teacher/marks/marks.component';
+import { TeaCrtPaperComponent } from './teacher/tea-crt-paper/tea-crt-paper.component';
+import { TeaClzSchedComponent } from './teacher/tea-clz-sched/tea-clz-sched.component';
 
 
 @NgModule({
@@ -76,6 +81,11 @@ import { SpaAdminListComponent } from './super-admin/spa-admin-list/spa-admin-li
     SpSidebarComponent,
     SpaRegstComponent,
     SpaAdminListComponent,
+    TeaAttendComponent,
+    TeaClzFeesComponent,
+    MarksComponent,
+    TeaCrtPaperComponent,
+    TeaClzSchedComponent,
   ], 
   imports: [ 
     FormsModule,
