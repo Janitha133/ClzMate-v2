@@ -27,6 +27,8 @@ export class AdminClassSchedComponent implements OnInit {
       subjectName: ['', Validators.required],
       hallNo: ['', Validators.required],
       grade: ['', Validators.required],
+      teacher: [''],
+      papermarker: [''],
       batch: ['', Validators.required],
       stream: ['', Validators.required],
       time: ['', Validators.required]

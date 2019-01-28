@@ -46,6 +46,11 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['admin/dashboard']);
           this.showSpinner = 'false';
         }
+        else if (decodeJWT.user.role == 'Super Admin') {
+          localStorage.setItem('token', token);
+          this.router.navigate(['superadmin/registration']);
+          this.showSpinner = 'false';
+        }
         else if (decodeJWT.user.role == 'Paper Marker') {
           localStorage.setItem('token', token);
           this.router.navigate(['papermarker/entermarks']);

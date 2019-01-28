@@ -38,8 +38,8 @@ figure.snip1390 .profile {
   height: 150px;
   border-radius: 50%;
   display: inline-block;
-  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.4);
-  border: solid 2px #A6A57A;
+  // box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.4);
+  border: solid 3px #A6A57A;
 }
 
 .vertical-menu {
@@ -70,4 +70,84 @@ figure.snip1390 .profile {
 
 .myboder-b {
   border-bottom: 1px solid rgb(156, 156, 156);
+}
+
+.aaaa {
+  position: relative;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.aaaa:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  cursor: pointer;
+  background-color:  rgba(28, 35, 49, 0.562);
+  color: white;
+  // font-size: 16px;
+  padding: 50px 50px;
+  border-radius: 50%;
+}
+
+.bck-col {
+  color: white;
+  background-color: #1C2331;
+  // background-image: linear-gradient(90deg, rgba(2, 2, 2, 0.226) 0%, rgba(172, 172, 172, 0.308) 100%); 
+}
+
+.bd-col {
+  border-style: solid;
+  border-color: #1C2331;
+  border-radius: 5px 5px 0 0;
+}
+
+.bd-cl {
+  border: 1px solid rgb(199, 199, 199);
+}
+
+.ckbx-clr {
+background-color: rgb(240, 240, 240);
+}
+
+.profile2 {
+width: 100px;
+height: 100px;
+border-radius: 50%;
+display: inline-block;
+box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+border: solid 2px #A6A57A;
+}
+
+.UDcenter {
+  display: table-cell; 
+  vertical-align:middle;
+}
+
+.fntStyl {
+  font-family: 'Domine', serif;
+}
+
+.bck-ovrly {
+  background:rgba(255, 255, 255, 0.5);
+  position: fixed; 
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+}
+
+.zz {
+  color: rgb(243, 243, 235);
 }
