@@ -15,6 +15,7 @@ export class AdminSidebarComponent implements OnInit {
   token = localStorage.getItem('token');
   decodeJWT;
   UserName = '';
+  UserRole = '';
   UserEmail = '';
   imageURL = '../../../assets/nobody_m.original.jpg';
   
@@ -28,6 +29,7 @@ export class AdminSidebarComponent implements OnInit {
           this.decodeJWT = lc.getDecodedAccessToken(this.token);
           this.UserName = this.decodeJWT.user.firstName;
           this.UserEmail = this.decodeJWT.user.email;
+          this.UserRole = this.decodeJWT.user.role;
           this.imageURL = this.decodeJWT.user.imageURL;
       }
   }
