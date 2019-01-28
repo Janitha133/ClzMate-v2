@@ -65,7 +65,7 @@ export const appRoutes: Routes = [
             {path:"attendance", component: TeaAttendComponent},                 
             {path:"classfees", component: TeaClzFeesComponent},                 
             {path:"schedule", component: TeaClzSchedComponent},                 
-            {path:"crwatepaper", component: TeaCrtPaperComponent}                 
+            {path:"createpaper", component: TeaCrtPaperComponent}                 
         ]
     },
     {
