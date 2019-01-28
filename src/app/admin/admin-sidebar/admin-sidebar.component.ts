@@ -54,7 +54,8 @@ export class AdminSidebarComponent implements OnInit {
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
         birthday: ['', Validators.required],
-        gender: ['', Validators.required]
+        gender: ['', Validators.required],
+        image: []
       })
   }
  
