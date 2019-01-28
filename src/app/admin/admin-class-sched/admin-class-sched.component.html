@@ -82,19 +82,17 @@
       <div class="form-group row">
           <label for="techr" class="col-sm-2 col-form-label">Teacher</label>
           <div class="col-sm-4">
-              <select formControlName="teacher" id="inputState" class="form-control">
+              <select id="inputState" class="form-control">
                 <option value="">Choose Teacher</option>
-                <option>aaaaaaa</option>
-                <option>bbbbbbb</option>
+                <option *ngFor="let teacher of teachersArray">{{ teacher.indexNo }}</option>
               </select>
             </div>
       
           <label for="paprmkr" class="col-sm-2 col-form-label">Paper Marker</label>
           <div class="col-sm-4">
-            <select formControlName="papermarker" id="inputState" class="form-control">
+            <select id="inputState" class="form-control">
               <option value="">Choose Paper Marker</option>
-              <option>ccccc</option>
-              <option>ddddd</option>
+              <option *ngFor="let cardMarker of cardMarkersArray">{{ cardMarker.indexNo }}</option>
             </select>
           </div>
         </div>
