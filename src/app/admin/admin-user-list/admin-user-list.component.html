@@ -63,11 +63,11 @@
       </thead>
       <tbody>
         <tr *ngFor="let user of users" class="cell">
-          <td (click)="frame.show(user)">{{user.indexNo}}</td>
-          <td (click)="frame.show(user)">{{user.firstName}}</td>
-          <td (click)="frame.show(user)">{{user.lastName}}</td>
-          <td (click)="frame.show(user)">{{user.email}}</td>
-          <td (click)="frame.show(user)">{{user.contactDetails.mobileNumber}}</td>
+          <td (click)="frame.show(user)" mdbTooltip="Click here to View More Details or Update or Delete" placement="top">{{user.indexNo}}</td>
+          <td (click)="frame.show(user)" mdbTooltip="Click here to View More Details or Update or Delete" placement="top">{{user.firstName}}</td>
+          <td (click)="frame.show(user)" mdbTooltip="Click here to View More Details or Update or Delete" placement="top">{{user.lastName}}</td>
+          <td (click)="frame.show(user)" mdbTooltip="Click here to View More Details or Update or Delete" placement="top">{{user.email}}</td>
+          <td (click)="frame.show(user)" mdbTooltip="Click here to View More Details or Update or Delete" placement="top">{{user.contactDetails.mobileNumber}}</td>
 
           <!-- user modal -->
           <div mdbModal style="overflow-y: auto" class="">
