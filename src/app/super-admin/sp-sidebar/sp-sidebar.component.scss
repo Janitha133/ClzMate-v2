@@ -1,0 +1,73 @@
+.mycol {
+    height: 100%;
+    display: table;
+    width: 100%;
+    background-color:rgb(228, 228, 228);
+}
+
+figure.snip1390 {
+  font-family: 'Roboto', Arial, sans-serif;
+  overflow: hidden;
+  width: 100%;
+  color: #3a3a3a;
+  text-align: center;
+  padding: 30px;
+  background-color: rgb(255, 255, 255);
+  background-image: linear-gradient(-25deg, rgba(0, 0, 0, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+}
+
+figure.snip1390 figcaption {
+  width: 100%;
+}
+figure.snip1390 h2,
+figure.snip1390 h4,
+figure.snip1390 blockquote {
+  margin: 0;
+}
+figure.snip1390 h2,
+figure.snip1390 h4 {
+  font-weight: 300;
+}
+
+figure.snip1390 h4 {
+  color: #000000;
+}
+
+figure.snip1390 .profile {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.4);
+  border: solid 2px #A6A57A;
+}
+
+.vertical-menu {
+  width: auto;
+}
+
+.vertical-menu a {
+  background-color: #eee;
+  color: rgb(51, 51, 51);
+  display: block;
+  padding: 15px 25px;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc;
+}
+
+.vertical-menu a.active {
+  background-color: #1C2331;
+  // background-image: linear-gradient(-90deg, rgb(0, 153, 255), rgb(0, 68, 255)); 
+  color: white;
+}
+
+.myboder {
+  border-top: 1px solid rgb(156, 156, 156);
+}
+
+.myboder-b {
+  border-bottom: 1px solid rgb(156, 156, 156);
+}
