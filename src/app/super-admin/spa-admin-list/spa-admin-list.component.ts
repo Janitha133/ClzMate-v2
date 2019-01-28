@@ -12,7 +12,7 @@ export class SpaAdminListComponent implements OnInit {
 
   users: any[] = [];
   // searchUsers: any[] = [];
-  role: String = "Super Admin";
+  role: String = "Admin";
   selectedUser: any;
   toggleForm: boolean = false;
   form8;

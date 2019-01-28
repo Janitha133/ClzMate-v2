@@ -10,7 +10,7 @@ import { LoginComponent } from 'src/app/login/login.component';
 })
 export class SpSidebarComponent implements OnInit {
 
-  token2 = localStorage.getItem('token');
+  token = localStorage.getItem('token');
   decodeJWT;
   UserName = '';
   UserRole = '';
@@ -21,10 +21,10 @@ export class SpSidebarComponent implements OnInit {
     private lc: LoginComponent,
     private router: Router
   ) {
-    if (!this.token2) {
+    if (!this.token) {
       this.router.navigate(['']);
     } else {
-      this.decodeJWT = lc.getDecodedAccessToken(this.token2);
+      this.decodeJWT = lc.getDecodedAccessToken(this.token);
       this.UserName = this.decodeJWT.user.firstName;
       this.UserRole = this.decodeJWT.user.role;
       this.UserEmail = this.decodeJWT.user.email;

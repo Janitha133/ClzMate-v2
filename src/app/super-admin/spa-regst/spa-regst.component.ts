@@ -47,14 +47,14 @@ export class SpaRegstComponent implements OnInit {
   }
 
   onSubmit(form3){
-    form3.value['role'] = "Super Admin";
+    form3.value['role'] = "Admin";
     form3.value['password'] = "password";
     console.log(form3.value);
     this.Users.register(form3.value)
       .subscribe(result => {
-        if(result.json().state) alert("Super Admin registered successfully");
-        else if(result.json().exist) alert("Super Admin already exist");
-        else alert("Error occured please register Super Admin again");
+        if(result.json().state) alert("Admin registered successfully");
+        else if(result.json().exist) alert("Admin already exist");
+        else alert("Error occured please register Admin again");
         console.log(result);
       })
     this.form3.reset();
