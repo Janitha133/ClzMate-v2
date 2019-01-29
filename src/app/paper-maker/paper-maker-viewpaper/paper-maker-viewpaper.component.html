@@ -1,18 +1,49 @@
 <div class="mycol rounded z-depth-3">
-    <div class="bd-col p-3 bck-col">
-      <h3 class="pl-3">View Marks</h3>
-    </div>
-    <div class="mdb-color mdb-color darken-3">
-      <p class="p-3 text-white ml-4"></p>
-    </div>
-  
-    <hr>
-  
-    <div class="row">
-  
-  
-      <!-- code hre -->
-  
-    </div>
+  <div class="bd-col p-3 bck-col">
+    <h3 class="pl-3">View Marks</h3>
   </div>
-  
+  <div class="mdb-color mdb-color darken-3">
+    <p class="p-3 text-white ml-4"></p>
+  </div>
+
+  <hr>
+
+  <form [formGroup]="form12" (ngSubmit)="onSubmit(form12)" class="pl-1">
+    <div class="form-group row">
+
+      <div class="col-sm-3">
+        <select (change)="selectChange($event)" formControlName="clzid" id="inputState" class="form-control">
+          <option value="">Class Id</option>
+          <option *ngFor="let clz of clzes" class="" value="clz.clzNo">{{ clz.clzNo }}</option>
+        </select>
+      </div>
+
+      <div class="col-sm-3">
+        <button type="submit" class="btn btn-sm btn-indigo waves-effect">Select</button>
+      </div>
+    </div>
+  </form>
+
+  <hr>
+
+  <div class="white animated fadeIn hvr">
+    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th class="th-sm">Paper Id</th>
+          <th class="th-sm">Date</th>
+          <th class="th-sm">Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let paper of papers" class="cell">
+          <td>{{paper.paperNo}}</td>
+          <td>{{paper.date}}</td>
+          <td>{{paper.clz.time}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
