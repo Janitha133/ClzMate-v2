@@ -14,9 +14,13 @@ export class PaperMakerViewpaperComponent implements OnInit {
   defaultClzId = "Class Id";
   clzes: any[] = [];
   papers: any[] = [];
+  faketime: string = "08.00AM - 01.30PM";
 
   selectedClz: [''];
   selectedClzNo: any;
+  a: any;
+  b: any[] = [];
+  count: number = 0;
 
   form12;
 
@@ -35,6 +39,21 @@ export class PaperMakerViewpaperComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  onSubmit(form12){
+    this.a = form12.value;
+    console.log(form12.value);
+    // for (let paper of this.papers) {
+    //   console.log(paper);
+    //   if(this.a == paper.clz.clzNo){
+    //     this.b[this.count] = paper;
+    //     this.count++;
+    //     console.log(this.count);
+    //   }
+    // }
+    // this.papers = this.b;
+    // console.log(this.b);
   }
 
   getAllClzes() {

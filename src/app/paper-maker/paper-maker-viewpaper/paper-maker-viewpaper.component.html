@@ -1,6 +1,6 @@
 <div class="mycol rounded z-depth-3">
   <div class="bd-col p-3 bck-col">
-    <h3 class="pl-3">View Marks</h3>
+    <h3 class="pl-3">View Papers</h3>
   </div>
   <div class="mdb-color mdb-color darken-3">
     <p class="p-3 text-white ml-4"></p>
@@ -8,21 +8,23 @@
 
   <hr>
 
-  <form [formGroup]="form12" (ngSubmit)="onSubmit(form12)" class="pl-1">
+  <form [formGroup]="form12" (ngSubmit)="onSubmit(form12)">
     <div class="form-group row">
 
       <div class="col-sm-3">
-        <select (change)="selectChange($event)" formControlName="clzid" id="inputState" class="form-control">
+        <select formControlName="clzid" id="inputState" class="form-control">
           <option value="">Class Id</option>
-          <option *ngFor="let clz of clzes" class="" value="clz.clzNo">{{ clz.clzNo }}</option>
+          <option *ngFor="let clz of clzes" class="">{{ clz.clzNo }}</option>
         </select>
       </div>
 
       <div class="col-sm-3">
-        <button type="submit" class="btn btn-sm btn-indigo waves-effect">Select</button>
+        <button type="submit" class="btn btn-sm btn-indigo waves-effect">Select Class</button>
       </div>
     </div>
   </form>
+
+
 
   <hr>
 
@@ -38,12 +40,11 @@
       <tbody>
         <tr *ngFor="let paper of papers" class="cell">
           <td>{{paper.paperNo}}</td>
-          <td>{{paper.date | datePipe}}</td>
-          <td>{{paper.clz.time}}</td>
+          <td>{{paper.date}}</td>
+          <td>{{this.faketime}}</td>
         </tr>
       </tbody>
     </table>
   </div>
-
 
 </div>
