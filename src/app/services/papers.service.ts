@@ -16,5 +16,9 @@ export class PapersService {
     return this.http.get('https://clzmate.herokuapp.com/paper/');
   }
 
+  createPaper(d){
+    return this.http.post('https://clzmate.herokuapp.com/paper/',d);
+  }
+
 }
 
