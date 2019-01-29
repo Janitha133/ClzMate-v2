@@ -33,6 +33,7 @@ export class AdminClassSchedComponent implements OnInit {
       grade: ['', Validators.required],
       teacher: [''],
       papermarker: [''],
+      date: [''],
       batch: ['', Validators.required],
       stream: ['', Validators.required],
       time: ['', Validators.required]
@@ -166,6 +167,8 @@ export class AdminClassSchedComponent implements OnInit {
   get grade(){ return this.form5.get('grade'); }
 
   get batch(){ return this.form5.get('batch'); }
+
+  get date(){ return this.form5.get('date'); }
 
   get stream(){ return this.form5.get('stream'); }
 
