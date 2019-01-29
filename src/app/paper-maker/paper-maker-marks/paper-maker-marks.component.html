@@ -50,6 +50,15 @@
           <td>12345</td>
           <td>75</td>
         </tr>
+        
+        <tr *ngFor="let item of students">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>
+            <input type="text" placeholder="Marks" (input)="submitMarks($event.target.value, item)">
+          </td>
+        </tr>
+
       </tbody>
     </table>
   </div>

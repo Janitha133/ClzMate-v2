@@ -1,3 +1,4 @@
+import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,16 @@ import { Injectable } from '@angular/core';
 })
 export class MarksService {
 
-  constructor() { }
+  constructor(
+    private http: Http
+  ) { }
+
+  addMarks(marks, student, paper, paperMarker){
+    return this.http.post('https://clzmate.herokuapp.com/marks/addmarks', {
+      'marks': marks,
+      'student': student,
+      'paper':paper,
+      'paperMarker':paperMarker
+    });
+  }
 }
