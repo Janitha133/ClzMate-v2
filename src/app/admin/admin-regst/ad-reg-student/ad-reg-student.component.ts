@@ -80,6 +80,7 @@ export class AdRegStudentComponent implements OnInit {
         console.log(result);
       })
     this.form1.reset();
+    this.printArray.length = 0
   }
 
   get email(){return this.form1.get('email');}
