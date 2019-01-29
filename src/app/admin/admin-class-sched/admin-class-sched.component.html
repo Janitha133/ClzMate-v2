@@ -39,7 +39,7 @@
               <th class="th-sm">Grade</th>
               <th class="th-sm">Batch</th>
               <th class="th-sm">Time</th>
-              <th class="th-sm">Day</th>
+              <th class="th-sm">Stream</th>
             </tr>
           </thead>
           <tbody>
@@ -51,7 +51,7 @@
               <td>{{clz.grade}}</td>
               <td>{{clz.batch}}</td>
               <td>{{clz.time}}</td>
-              <td>{{clz.day}}</td>
+              <td>{{clz.stream}}</td>
             </tr>
           </tbody>
         </table>
@@ -90,20 +90,11 @@
               </select>
             </div>
       
-<<<<<<< HEAD
-          <label for="cardmkr" class="col-sm-2 col-form-label">Card Marker</label>
-          <div class="col-sm-4">
-            <select formControlName="cardmarker" id="inputState" class="form-control">
-              <option value="">Choose Card Marker</option>
-              <option>ccccc</option>
-              <option>ddddd</option>
-=======
           <label for="paprmkr" class="col-sm-2 col-form-label">Card Marker</label>
           <div class="col-sm-4">
             <select id="inputState" class="form-control">
               <option value="">Choose Card Marker</option>
               <option *ngFor="let cardMarker of cardMarkersArray">{{ cardMarker.indexNo }}</option>
->>>>>>> f90b613e1684e32ed04d8a5d87383c25cae901f2
             </select>
           </div>
         </div>

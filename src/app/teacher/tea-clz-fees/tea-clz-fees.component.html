@@ -1,14 +1,38 @@
 <div class="mycol rounded z-depth-3">
-    <div class="bd-col p-3 bck-col">
-      <h3 class="pl-3">Class Fees</h3>
-    </div>
-    <div class="mdb-color mdb-color darken-3">
-      <p class="p-3 text-white ml-4"></p>
-    </div>
-  
-    <hr>
-  
-    <div class="row">
-  
-    </div>
+  <div class="bd-col p-3 bck-col">
+    <h3 class="pl-3">Class Fees</h3>
   </div>
+  <div class="mdb-color mdb-color darken-3">
+    <p class="p-3 text-white ml-4"></p>
+  </div>
+  <div class="pl-2 pr-2">
+    <h5><strong>All Payments >></strong></h5>
+  </div>
+  <hr>
+  <div>
+    <!-- clz table -->
+    <div class="white animated fadeIn hvr">
+      <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+          <tr (click)=getAllClzes()>
+            <th class="th-sm">Class</th>
+            <th class="th-sm">Student</th>
+            <th class="th-sm">Date & Time</th>
+            <th class="th-sm">Status</th>
+            <th class="th-sm">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let payment of payments" class="cell">
+            <td>{{payment.custom_2.clzNo}}</td>
+            <td>{{payment.custom_1.indexNo}}</td>
+            <td>{{payment.createdAt | date: 'medium'}}</td>
+            <td>{{payment.status}}</td>
+            <td>{{payment.payhere_amount}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div> <!-- clz table -->
+
+</div>

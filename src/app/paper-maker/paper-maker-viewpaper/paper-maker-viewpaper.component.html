@@ -8,17 +8,21 @@
 
   <hr>
 
-  <div class="dropdown" mdbDropdown>
+  <form [formGroup]="form12" (ngSubmit)="onSubmit(form12)">
+    <div class="form-group row">
 
-    <button mdbDropdownToggle mdbBtn color="primary" class="dropdown-toggle waves-light" type="button" mdbWavesEffect>Select
-      Class Id
-    </button>
+      <div class="col-sm-3">
+        <select formControlName="clzid" id="inputState" class="form-control">
+          <option value="">Class Id</option>
+          <option *ngFor="let clz of clzes" class="">{{ clz.clzNo }}</option>
+        </select>
+      </div>
 
-
-    <div class="dropdown-menu dropdown-primary">
-      <a *ngFor="let clz of clzes" class="" value="">{{ clz.clzNo }}</a>
+      <div class="col-sm-3">
+        <button type="submit" class="btn btn-sm btn-indigo waves-effect">Select Class</button>
+      </div>
     </div>
-  </div>
+  </form>
 
 
 
@@ -36,8 +40,8 @@
       <tbody>
         <tr *ngFor="let paper of papers" class="cell">
           <td>{{paper.paperNo}}</td>
-          <td>{{paper.date | datePipe}}</td>
-          <td>{{paper.clz.time}}</td>
+          <td>{{paper.date}}</td>
+          <td>{{this.faketime}}</td>
         </tr>
       </tbody>
     </table>
