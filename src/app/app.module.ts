@@ -1,3 +1,4 @@
+import { ReverseStr } from './pipes/date.pipe';
 import { appRoutes } from './routers';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
@@ -88,6 +89,7 @@ import { PaperMakerViewpaperComponent } from './paper-maker/paper-maker-viewpape
     TeaCrtPaperComponent,
     TeaClzSchedComponent,
     PaperMakerViewpaperComponent,
+    ReverseStr
   ], 
   imports: [ 
     FormsModule,

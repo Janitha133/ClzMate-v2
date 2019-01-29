@@ -38,7 +38,7 @@
       <tbody>
         <tr *ngFor="let paper of papers" class="cell">
           <td>{{paper.paperNo}}</td>
-          <td>{{paper.date}}</td>
+          <td>{{paper.date | datePipe}}</td>
           <td>{{paper.clz.time}}</td>
         </tr>
       </tbody>
