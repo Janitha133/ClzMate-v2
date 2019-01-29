@@ -28,7 +28,7 @@ export class AdminClassSchedComponent implements OnInit {
       hallNo: ['', Validators.required],
       grade: ['', Validators.required],
       teacher: [''],
-      papermarker: [''],
+      cardmarker: [''],
       batch: ['', Validators.required],
       stream: ['', Validators.required],
       time: ['', Validators.required]
@@ -101,7 +101,7 @@ export class AdminClassSchedComponent implements OnInit {
       })
   }
 
-  searchByValueInClasses(searchValue){
+  searchByValueInClasses(searchValue:any){
     console.log(searchValue.value);
     if(!searchValue.value){
       this.getAllClzes();
@@ -109,6 +109,9 @@ export class AdminClassSchedComponent implements OnInit {
       let temp = [];
       for(let j of this.classes){
         for(var i of Object.values(j)){
+          if (i == null) {
+            continue;
+          }
           if((i.toString().replace(/ /g,'').toUpperCase()).includes(searchValue.value.toUpperCase())){
             temp.push(j);
             break;

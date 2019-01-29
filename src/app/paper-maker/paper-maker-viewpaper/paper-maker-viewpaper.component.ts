@@ -18,7 +18,7 @@ export class PaperMakerViewpaperComponent implements OnInit {
   selectedClz: [''];
   selectedClzNo: any;
 
-  form12;
+  // form12;
 
   constructor(
     private http: Http,
@@ -29,9 +29,9 @@ export class PaperMakerViewpaperComponent implements OnInit {
     this.getAllClzes();
     this.getAllPapers();
 
-    this.form12 = this.fb12.group({
-      clzid: [''],
-    })
+    // this.form12 = this.fb12.group({
+    //   clzid: [''],
+    // })
   }
 
   ngOnInit() {

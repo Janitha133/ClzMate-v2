@@ -37,7 +37,6 @@ import { TeacherComponent } from './teacher/teacher.component';
 import { TeacherSidebarComponent } from './teacher/teacher-sidebar/teacher-sidebar.component';
 import { PaperMakerSidebarComponent } from './paper-maker/paper-maker-sidebar/paper-maker-sidebar.component';
 import { PaperMakerMarksComponent } from './paper-maker/paper-maker-marks/paper-maker-marks.component';
-import { PaperMakerClassSchedComponent } from './paper-maker/paper-maker-class-sched/paper-maker-class-sched.component';
 import { PaperMakerViewMrksComponent } from './paper-maker/paper-maker-view-mrks/paper-maker-view-mrks.component';
 import { SuperAdminComponent } from './super-admin/super-admin.component';
 import { SpSidebarComponent } from './super-admin/sp-sidebar/sp-sidebar.component';
@@ -77,7 +76,6 @@ import { PaperMakerViewpaperComponent } from './paper-maker/paper-maker-viewpape
     TeacherSidebarComponent,
     PaperMakerSidebarComponent,
     PaperMakerMarksComponent,
-    PaperMakerClassSchedComponent,
     PaperMakerViewMrksComponent,
     SuperAdminComponent,
     SpSidebarComponent,

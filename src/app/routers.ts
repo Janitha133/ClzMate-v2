@@ -12,7 +12,6 @@ import { ForgotPswdComponent } from './forgot-pswd/forgot-pswd.component';
 import { PaperMakerComponent } from './paper-maker/paper-maker.component';
 import { PaperMakerMarksComponent } from './paper-maker/paper-maker-marks/paper-maker-marks.component';
 import { PaperMakerViewMrksComponent } from './paper-maker/paper-maker-view-mrks/paper-maker-view-mrks.component';
-import { PaperMakerClassSchedComponent } from './paper-maker/paper-maker-class-sched/paper-maker-class-sched.component';
 import { SuperAdminComponent } from './super-admin/super-admin.component';
 import { SpaRegstComponent } from './super-admin/spa-regst/spa-regst.component';
 import { SpaAdminListComponent } from './super-admin/spa-admin-list/spa-admin-list.component';
@@ -47,8 +46,7 @@ export const appRoutes: Routes = [
         children: [
             {path:"entermarks", component: PaperMakerMarksComponent},           
             {path:"viewmarks", component: PaperMakerViewMrksComponent},                   
-            {path:"viewpapers", component: PaperMakerViewpaperComponent},                   
-            {path:"pmclassschedule", component: PaperMakerClassSchedComponent}          
+            {path:"viewpapers", component: PaperMakerViewpaperComponent},                            
         ]
     },
     {
