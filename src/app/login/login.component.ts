@@ -56,6 +56,11 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['papermarker/entermarks']);
           this.showSpinner = 'false';
         }
+        else if (decodeJWT.user.role == 'Teacher') {
+          localStorage.setItem('token', token);
+          this.router.navigate(['teacher/viewmarks']);
+          this.showSpinner = 'false';
+        }
         else {
           this.invalidLogin = true;
           this.showSpinner = 'false';
