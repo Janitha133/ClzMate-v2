@@ -28,4 +28,8 @@ export class ClzService{
         return this.http.post('https://clzmate.herokuapp.com/subject/', subject );
     }
 
+    getAllStudentsOfClass(classId){
+        return this.http.post('', classId);
+    }
+
 }
