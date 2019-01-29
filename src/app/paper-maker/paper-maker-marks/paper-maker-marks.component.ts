@@ -1,9 +1,12 @@
+import { UserService } from './../../services/users.service';
 import { MarksService } from './../../services/marks.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ClzService } from 'src/app/services/clz.service';
 import { Http } from '@angular/http';
 import { PapersService } from './../../services/papers.service';
+import jwt_decode from 'jwt-decode';
+
 
 @Component({
   selector: 'app-paper-maker-marks',
@@ -18,11 +21,12 @@ export class PaperMakerMarksComponent implements OnInit {
   clzes: any[] = [];
   papers: any[] = [];
 
-  students = [{'id':'123', 'name':'buddhika'}];
+  students = [];
+  students2 = []
 
   testClz = []
   testPaper = [];
-  
+
   selectedClz: [''];
   selectedClzNo: any;
 
@@ -33,7 +37,8 @@ export class PaperMakerMarksComponent implements OnInit {
     private fb12: FormBuilder,
     private Clzes: ClzService,
     private Papers: PapersService,
-    private markrsService: MarksService
+    private markrsService: MarksService,
+    private userService: UserService
   ) {
     this.getAllClzes();
     this.getAllPapers();
@@ -46,15 +51,48 @@ export class PaperMakerMarksComponent implements OnInit {
 
   ngOnInit() {
     this.Clzes.getAllClzes()
-      .subscribe(res=>{
-        console.log(res.json());
+      .subscribe(res => {
         //assign students array to students
-      })
+      });
+
+    this.userService.getAllStudents()
+      .subscribe(res => {
+        this.students = res.json().User;
+        this.students2 = this.students;
+      });
+
   }
 
-  submitMarks(marks, item){
-    console.log(marks);
-    console.log(item);
+  selectedPaper;
+
+  getPaperId(p) {
+    for (let i of this.papers) {
+      if (i.paperNo === p) {
+        this.selectedPaper = i._id;
+        break;
+      }
+    }
+    console.log(this.selectedPaper);
+  }
+
+  submitMarks(marks, item) {
+
+    if (marks > 100 || marks < 0) {
+      alert("Invalid Marks");
+    } else {
+      console.log(marks);
+      console.log(item._id);
+      let token = localStorage.getItem('token');
+      let pmId = this.getDecodedAccessToken(token).user._id;
+
+      this.markrsService.addMarks(marks, item._id, this.selectedPaper, pmId)
+        .subscribe(res => {
+          console.log(res.json());
+        })
+
+    }
+
+
   }
 
   getAllClzes() {
@@ -73,14 +111,43 @@ export class PaperMakerMarksComponent implements OnInit {
       })
   }
 
-  selectClzNo(selctdclzNo:any){
+  selectClzNo(selctdclzNo: any) {
     this.selectedClzNo = selctdclzNo.clzNo;
     console.log(this.selectedClzNo);
   }
 
-  selectChange(event:any) {
-    this.selectedClzNo = event.target.value;
-    console.log(this.selectedClzNo);
+  selectChange(a) {
+    this.students2 = [];
+    console.log(a);
+    let classId;
+    for (let i of this.clzes) {
+      if (i.clzNo === a) {
+        classId = i._id;
+      }
+    }
+
+    console.log(classId);
+
+    for (let i of this.students) {
+      for (let j of i.clzes) {
+        if (j === classId) {
+          this.students2.push(i);
+        }
+      }
+    }
+
+    console.log(this.students2);
+  }
+
+
+
+  getDecodedAccessToken(token: string): any {
+    try {
+      return jwt_decode(token);
+    }
+    catch (Error) {
+      return null;
+    }
   }
 
 }

@@ -49,4 +49,8 @@ export class UserService{
         // return this.http.get('http://localhost:3000/user/newPassword/'+email);
     }
 
+    getAllStudents(){
+        return this.http.get('https://clzmate.herokuapp.com/user/findByRole/Student');
+    }
+
 }

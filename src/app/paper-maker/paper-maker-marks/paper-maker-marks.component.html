@@ -11,18 +11,18 @@
     <div class="form-group row">
 
       <div class="col-sm-3">
-        <select (change)="selectChange($event)" formControlName="clzid" id="inputState" class="form-control">
+        <select (change)="selectChange($event.target.value)" formControlName="clzid" id="inputState" class="form-control">
           <option value="">Class Id</option>
-          <option *ngFor="let clz of clzes" class="" value="clz.clzNo">{{ clz.clzNo }}</option>
+          <option *ngFor="let clz of clzes">{{ clz.clzNo }}</option>
         </select>
       </div>
 
       <div class="col-sm-3">
-          <select formControlName="paperid" id="inputState" class="form-control">
-            <option value="">Paper Id</option>
-            <option *ngFor="let paper of papers" class="">{{ paper.paperNo }}</option>
-          </select>
-        </div>
+        <select (change)="getPaperId($event.target.value)" formControlName="paperid" id="inputState" class="form-control">
+          <option value="">Paper Id</option>
+          <option *ngFor="let paper of papers">{{ paper.paperNo }}</option>
+        </select>
+      </div>
 
       <div class="col-sm-3">
         <button type="submit" class="btn btn-sm btn-indigo waves-effect">Select Paper</button>
@@ -42,18 +42,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="cell">
-          <td>12345</td>
-          <td>75</td>
-        </tr>
-        <tr class="cell">
-          <td>12345</td>
-          <td>75</td>
-        </tr>
-        
-        <tr *ngFor="let item of students">
-          <td>{{item.id}}</td>
-          <td>{{item.name}}</td>
+        <tr *ngFor="let item of students2">
+          <td>{{item.indexNo}}</td>
+          <td>{{item.fullName}}</td>
           <td>
             <input type="text" placeholder="Marks" (input)="submitMarks($event.target.value, item)">
           </td>
