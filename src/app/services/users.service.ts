@@ -14,6 +14,7 @@ export class UserService{
     register(user){
         const header = new Headers();
         header.append('Authorization','Bearer '+localStorage.getItem('token'));
+        console.log(localStorage.getItem('token'));
         return this.http.post('https://clzmate.herokuapp.com/user/register', user, {headers: header});
     }
 
@@ -28,6 +29,7 @@ export class UserService{
     }
 
     getUserByRole(userRole){
+        console.log(userRole)
         return this.http.get('https://clzmate.herokuapp.com/user/findByRole/'+userRole);
     }
 

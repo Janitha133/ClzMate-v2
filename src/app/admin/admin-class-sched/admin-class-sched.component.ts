@@ -3,12 +3,13 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ClzService} from '../../services/clz.service';
 import { SubjectService } from '../../services/subject.service';
 import { validateConfig } from '@angular/router/src/config';
+import { UserService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-admin-class-sched',
   templateUrl: './admin-class-sched.component.html',
   styleUrls: ['./admin-class-sched.component.scss'],
-  providers: [ClzService, SubjectService]
+  providers: [ClzService, SubjectService, UserService]
 })
 export class AdminClassSchedComponent implements OnInit {
 
@@ -16,12 +17,15 @@ export class AdminClassSchedComponent implements OnInit {
   form6;
   classes: any[] = [];
   subjects: any[] = [];
+  cardMarkersArray: any[] = [];
+  teachersArray: any[] = [];
 
   constructor(
     private fb5: FormBuilder,
     private fb6: FormBuilder,
     private Clzes: ClzService,
-    private Subjects: SubjectService
+    private Subjects: SubjectService,
+    private Users: UserService
   ) { 
     this.form5 = this.fb5.group({
       subjectName: ['', Validators.required],
@@ -29,6 +33,7 @@ export class AdminClassSchedComponent implements OnInit {
       grade: ['', Validators.required],
       teacher: [''],
       papermarker: [''],
+      date: [''],
       batch: ['', Validators.required],
       stream: ['', Validators.required],
       time: ['', Validators.required]
@@ -43,7 +48,9 @@ export class AdminClassSchedComponent implements OnInit {
 
   ngOnInit() {
     this.getAllClzes(),
-    this.getAllSubjects()
+    this.getAllSubjects(),
+    this.getCardMarkers(),
+    this.getTeachers()
   }
 
   getAllClzes(){
@@ -51,6 +58,22 @@ export class AdminClassSchedComponent implements OnInit {
       .subscribe(result => {
         this.classes = result.json().Clz;
         if(result.json()) console.log(result.json());
+      })
+  }
+
+  getCardMarkers(){
+    this.Users.getUserByRole('Card Marker')
+      .subscribe(cardMarkers => {
+        this.cardMarkersArray = cardMarkers.json().User;
+        console.log(this.cardMarkersArray);
+      })
+  }
+
+  getTeachers(){
+    this.Users.getUserByRole('Teacher')
+      .subscribe(teachers => {
+        this.teachersArray = teachers.json().User;
+        console.log(this.teachersArray)
       })
   }
 
@@ -144,6 +167,8 @@ export class AdminClassSchedComponent implements OnInit {
   get grade(){ return this.form5.get('grade'); }
 
   get batch(){ return this.form5.get('batch'); }
+
+  get date(){ return this.form5.get('date'); }
 
   get stream(){ return this.form5.get('stream'); }
 

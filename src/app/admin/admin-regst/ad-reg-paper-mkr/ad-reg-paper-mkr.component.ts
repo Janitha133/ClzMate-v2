@@ -55,7 +55,7 @@ export class AdRegPaperMkrComponent implements OnInit {
     console.log(form3.value);
     this.Users.register(form3.value)
       .subscribe(result => {
-        if(result.json().state) alert("Paper marker registered successfully");
+        if(result.json().state) alert("Paper Marker Registered Successfully\n"+"User No: "+result.json().indexNo);
         else if(result.json().exist) alert("Paper marker already exist");
         else alert("Error occured please register Paper marker again");
         console.log(result);
