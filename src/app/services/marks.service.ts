@@ -11,8 +11,8 @@ export class MarksService {
   ) { }
 
   addMarks(marks, student, paper, paperMarker){
-    return this.http.post('https://clzmate.herokuapp.com/marks/addmarks', {
-      'marks': marks,
+    return this.http.post('https://clzmate.herokuapp.com/mark/addMark', {
+      'mark': marks,
       'student': student,
       'paper':paper,
       'paperMarker':paperMarker
