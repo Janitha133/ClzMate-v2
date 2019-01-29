@@ -22,6 +22,7 @@ import { TeaAttendComponent } from './teacher/tea-attend/tea-attend.component';
 import { TeaClzFeesComponent } from './teacher/tea-clz-fees/tea-clz-fees.component';
 import { TeaClzSchedComponent } from './teacher/tea-clz-sched/tea-clz-sched.component';
 import { TeaCrtPaperComponent } from './teacher/tea-crt-paper/tea-crt-paper.component';
+import { PaperMakerViewpaperComponent } from './paper-maker/paper-maker-viewpaper/paper-maker-viewpaper.component';
 
 export const appRoutes: Routes = [
     {
@@ -46,6 +47,7 @@ export const appRoutes: Routes = [
         children: [
             {path:"entermarks", component: PaperMakerMarksComponent},           
             {path:"viewmarks", component: PaperMakerViewMrksComponent},                   
+            {path:"viewpapers", component: PaperMakerViewpaperComponent},                   
             {path:"pmclassschedule", component: PaperMakerClassSchedComponent}          
         ]
     },

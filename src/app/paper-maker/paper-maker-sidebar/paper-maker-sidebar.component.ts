@@ -46,13 +46,13 @@ export class PaperMakerSidebarComponent implements OnInit {
       district: ['', Validators.required],
       landNumber: [''],
       mobileNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(this.mobnumPattern)]],
-      nicNo: [''],
-      email: ['', [Validators.email, Validators.required]],
-      fullName: ['', Validators.required],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      birthday: ['', Validators.required],
-      gender: ['', Validators.required],
+      // nicNo: [''],
+      // email: ['', [Validators.email, Validators.required]],
+      // fullName: ['', Validators.required],
+      // firstName: ['', Validators.required],
+      // lastName: ['', Validators.required],
+      // birthday: ['', Validators.required],
+      // gender: ['', Validators.required],
       image: []
     })
   }
@@ -74,13 +74,13 @@ export class PaperMakerSidebarComponent implements OnInit {
       district: decodeJWT.user.address.district,
       landNumber: decodeJWT.user.contactDetails.landNumber,
       mobileNumber: decodeJWT.user.contactDetails.mobileNumber,
-      nicNo: decodeJWT.user.nicNo,
-      email: decodeJWT.user.email,
-      fullName: decodeJWT.user.fullName,
-      firstName: decodeJWT.user.firstName,
-      lastName: decodeJWT.user.lastName,
-      birthday: decodeJWT.user.birthday,
-      gender: decodeJWT.user.gender
+      // nicNo: decodeJWT.user.nicNo,
+      // email: decodeJWT.user.email,
+      // fullName: decodeJWT.user.fullName,
+      // firstName: decodeJWT.user.firstName,
+      // lastName: decodeJWT.user.lastName,
+      // birthday: decodeJWT.user.birthday,
+      // gender: decodeJWT.user.gender
     })
   }
 
@@ -103,17 +103,17 @@ export class PaperMakerSidebarComponent implements OnInit {
   }
 
   
-  get email() { return this.form8.get('email'); }
+  // get email() { return this.form8.get('email'); }
 
-  get fullName() { return this.form8.get('fullName'); }
+  // get fullName() { return this.form8.get('fullName'); }
 
-  get firstName() { return this.form8.get('firstName'); }
+  // get firstName() { return this.form8.get('firstName'); }
 
-  get lastName() { return this.form8.get('lastName'); }
+  // get lastName() { return this.form8.get('lastName'); }
 
-  get birthday() { return this.form8.get('birthday'); }
+  // get birthday() { return this.form8.get('birthday'); }
 
-  get gender() { return this.form8.get('gender'); }
+  // get gender() { return this.form8.get('gender'); }
 
   get mobileNumber() { return this.form8.get('mobileNumber'); }
 

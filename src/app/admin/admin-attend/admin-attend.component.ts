@@ -20,7 +20,7 @@ export class AdminAttendComponent implements OnInit {
   defaultYear = "Year";
   defaultMonth = "Month";
   // defaultClzId = "Class Id";
-  selectedClz: ['']
+  selectedClz: [''];
   form7;
   show: boolean = false;
   studentAttendance: any[] = [];

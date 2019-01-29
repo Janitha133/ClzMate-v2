@@ -47,6 +47,7 @@ import { TeaClzFeesComponent } from './teacher/tea-clz-fees/tea-clz-fees.compone
 import { MarksComponent } from './teacher/marks/marks.component';
 import { TeaCrtPaperComponent } from './teacher/tea-crt-paper/tea-crt-paper.component';
 import { TeaClzSchedComponent } from './teacher/tea-clz-sched/tea-clz-sched.component';
+import { PaperMakerViewpaperComponent } from './paper-maker/paper-maker-viewpaper/paper-maker-viewpaper.component';
 
 
 @NgModule({
@@ -86,6 +87,7 @@ import { TeaClzSchedComponent } from './teacher/tea-clz-sched/tea-clz-sched.comp
     MarksComponent,
     TeaCrtPaperComponent,
     TeaClzSchedComponent,
+    PaperMakerViewpaperComponent,
   ], 
   imports: [ 
     FormsModule,

@@ -9,39 +9,20 @@
   <hr>
   <form [formGroup]="form12" (ngSubmit)="onSubmit(form12)">
     <div class="form-group row">
-      <div class="col-sm-3">
-        <select formControlName="year" id="inputState" class="form-control">
-          <option value="">{{ defaultYear }}</option>
-          <option>2019</option>
-          <option>2018</option>
-          <option>2017</option>
-        </select>
-        <!-- <div class="alert alert-danger" *ngIf="year.touched && year.invalid">
-        <small>Select district</small>
-      </div> -->
-      </div>
 
       <div class="col-sm-3">
-        <select formControlName="clzid" id="inputState" class="form-control">
-          <option value="">{{ defaultClzId }}</option>
-          <option>January</option>
-          <option>February</option>
-          <option>March</option>
-          <option>April</option>
-          <option>May</option>
+        <select (change)="selectChange($event)" formControlName="clzid" id="inputState" class="form-control">
+          <option value="">Class Id</option>
+          <option *ngFor="let clz of clzes" class="" value="clz.clzNo">{{ clz.clzNo }}</option>
         </select>
       </div>
 
       <div class="col-sm-3">
-        <select formControlName="paperId" id="inputState" class="form-control">
-          <option value="">{{ defaultpaperId }}</option>
-          <option>January</option>
-          <option>February</option>
-          <option>March</option>
-          <option>April</option>
-          <option>May</option>
-        </select>
-      </div>
+          <select formControlName="paperid" id="inputState" class="form-control">
+            <option value="">Paper Id</option>
+            <option *ngFor="let paper of papers" class="">{{ paper.paperNo }}</option>
+          </select>
+        </div>
 
       <div class="col-sm-3">
         <button type="submit" class="btn btn-sm btn-indigo waves-effect">Select Paper</button>
@@ -51,11 +32,12 @@
 
   <hr>
   <!-- clz table -->
-  <div class="tblwd white animated fadeIn hvr">
+  <div class="white animated fadeIn hvr">
     <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
       <thead>
         <tr>
           <th class="th-sm">Student Id</th>
+          <th class="th-sm">Student Name</th>
           <th class="th-sm">Mark</th>
         </tr>
       </thead>
@@ -71,4 +53,5 @@
       </tbody>
     </table>
   </div>
+
 </div>
