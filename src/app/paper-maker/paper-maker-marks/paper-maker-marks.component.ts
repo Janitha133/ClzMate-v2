@@ -24,9 +24,6 @@ export class PaperMakerMarksComponent implements OnInit {
   students = [];
   students2 = []
 
-  testClz = []
-  testPaper = [];
-
   selectedClz: [''];
   selectedClzNo: any;
 
@@ -50,11 +47,6 @@ export class PaperMakerMarksComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.Clzes.getAllClzes()
-      .subscribe(res => {
-        //assign students array to students
-      });
-
     this.userService.getAllStudents()
       .subscribe(res => {
         this.students = res.json().User;

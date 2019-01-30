@@ -6,16 +6,52 @@
     <p class="p-3 text-white ml-4"></p>
   </div>
 
+
   <hr>
+  <form [formGroup]="form12" (ngSubmit)="onSubmit(form12)">
+    <div class="form-group row">
+
+      <div class="col-sm-3">
+        <select (change)="selectChange($event.target.value)" formControlName="clzid" id="inputState" class="form-control">
+          <option value="">Class Id</option>
+          <option *ngFor="let clz of clzes">{{ clz.clzNo }}</option>
+        </select>
+      </div>
+
+      <div class="col-sm-3">
+        <select (change)="getPaperId($event.target.value)" formControlName="paperid" id="inputState" class="form-control">
+          <option value="">Paper Id</option>
+          <option *ngFor="let paper of papers">{{ paper.paperNo }}</option>
+        </select>
+      </div>
+
+      <div class="col-sm-3">
+        <button type="submit" class="btn btn-sm btn-indigo waves-effect">Select Paper</button>
+      </div>
+    </div>
+  </form>
 
   <div class="pb-3">
-      <h5><strong>Markis Of A Class >></strong></h5>
-    </div>
+    <h5><strong>Markis Of A Class >></strong></h5>
+  </div>
 
-  <div class="row">
+  <div class="white animated fadeIn hvr">
+    <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th class="th-sm">Student Id</th>
+          <th class="th-sm">Student Name</th>
+          <th class="th-sm">Mark</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of marks_filtered">
+          <td>{{item.student.indexNo}}</td>
+          <td>{{item.student.fullName}}</td>
+          <td>{{item.mark}}</td>
+        </tr>
 
-
-    <!-- code hre -->
-
+      </tbody>
+    </table>
   </div>
 </div>
