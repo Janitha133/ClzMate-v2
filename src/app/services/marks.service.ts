@@ -18,4 +18,8 @@ export class MarksService {
       'paperMarker':paperMarker
     });
   }
+
+  getAllMarks(){
+    return this.http.get('https://clzmate.herokuapp.com/mark');
+  }
 }
