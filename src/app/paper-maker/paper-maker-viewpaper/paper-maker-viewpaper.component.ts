@@ -13,7 +13,8 @@ export class PaperMakerViewpaperComponent implements OnInit {
 
   defaultClzId = "Class Id";
   clzes: any[] = [];
-  papers: any[] = [];
+  papers  = [];
+  papers2 = [];
   faketime: string = "08.00AM - 01.30PM";
 
   selectedClz: [''];
@@ -41,19 +42,33 @@ export class PaperMakerViewpaperComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(form12){
+  /* onSubmit(form12){
     this.a = form12.value;
     console.log(form12.value);
-    // for (let paper of this.papers) {
-    //   console.log(paper);
-    //   if(this.a == paper.clz.clzNo){
-    //     this.b[this.count] = paper;
-    //     this.count++;
-    //     console.log(this.count);
-    //   }
-    // }
-    // this.papers = this.b;
-    // console.log(this.b);
+    for (let paper of this.papers) {
+      console.log(paper);
+      if(this.a == paper.clz.clzNo){
+        this.b[this.count] = paper;
+        this.count++;
+        console.log(this.count);
+      }
+    }
+    this.papers = this.b;
+    console.log(this.b);
+  } */
+
+  selectPaper(clz){
+    this.papers2 = [];
+    console.log(clz);
+    console.log(this.papers);
+    for(let p of this.papers){
+      if(p.clz !== undefined && p.clz !== null){
+        if(p.clz.clzNo === clz){
+          this.papers2.push(p)
+        }
+      }
+      
+    }
   }
 
   getAllClzes() {
@@ -69,7 +84,9 @@ export class PaperMakerViewpaperComponent implements OnInit {
       .subscribe(response => {
         this.papers = response.json().Papers;
         console.log(this.papers);
-      })
+        this.papers2 = this.papers;
+      });
+
   }
 
 }
