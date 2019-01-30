@@ -110,24 +110,29 @@ export class PaperMakerViewMrksComponent implements OnInit {
   paper="all";
 
   filterMarks(c, p){
+    console.log(this.class);
+    console.log(this.paper);
     this.marks_filtered = [];
     if(c == "all" && p == "all"){
       this.marks_filtered = this.marks;
     }else if(c === 'all' && p !== 'all'){
       for(let i of this.marks){
-        if(i.paper._id === p && this.marks_filtered.indexOf(i)!>-1){
+        if(i.paper._id === p && this.marks_filtered.indexOf(i) <- 1){
           this.marks_filtered.push(i)
-          
         }
       }
     }else if(c !== 'all' && p === 'all'){
       for(let i of this.marks){
-        if(i.paper.clz === c && this.marks_filtered.indexOf(i)!>-1){
+        if(i.paper.clz === c && this.marks_filtered.indexOf(i)<-1){
           this.marks_filtered.push(i)
         }
       }
     }else{
-      this.marks_filtered = this.marks;
+      for(let i of this.marks){
+        if(i.paper.clz === c && i.paper._id === p){
+          this.marks_filtered.push(i)
+        }
+      }
     }
     
   }
