@@ -1,3 +1,4 @@
+import { ReverseStr } from './pipes/date.pipe';
 import { appRoutes } from './routers';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
@@ -36,7 +37,6 @@ import { TeacherComponent } from './teacher/teacher.component';
 import { TeacherSidebarComponent } from './teacher/teacher-sidebar/teacher-sidebar.component';
 import { PaperMakerSidebarComponent } from './paper-maker/paper-maker-sidebar/paper-maker-sidebar.component';
 import { PaperMakerMarksComponent } from './paper-maker/paper-maker-marks/paper-maker-marks.component';
-import { PaperMakerClassSchedComponent } from './paper-maker/paper-maker-class-sched/paper-maker-class-sched.component';
 import { PaperMakerViewMrksComponent } from './paper-maker/paper-maker-view-mrks/paper-maker-view-mrks.component';
 import { SuperAdminComponent } from './super-admin/super-admin.component';
 import { SpSidebarComponent } from './super-admin/sp-sidebar/sp-sidebar.component';
@@ -47,6 +47,7 @@ import { TeaClzFeesComponent } from './teacher/tea-clz-fees/tea-clz-fees.compone
 import { MarksComponent } from './teacher/marks/marks.component';
 import { TeaCrtPaperComponent } from './teacher/tea-crt-paper/tea-crt-paper.component';
 import { TeaClzSchedComponent } from './teacher/tea-clz-sched/tea-clz-sched.component';
+import { PaperMakerViewpaperComponent } from './paper-maker/paper-maker-viewpaper/paper-maker-viewpaper.component';
 
 
 @NgModule({
@@ -75,7 +76,6 @@ import { TeaClzSchedComponent } from './teacher/tea-clz-sched/tea-clz-sched.comp
     TeacherSidebarComponent,
     PaperMakerSidebarComponent,
     PaperMakerMarksComponent,
-    PaperMakerClassSchedComponent,
     PaperMakerViewMrksComponent,
     SuperAdminComponent,
     SpSidebarComponent,
@@ -86,6 +86,8 @@ import { TeaClzSchedComponent } from './teacher/tea-clz-sched/tea-clz-sched.comp
     MarksComponent,
     TeaCrtPaperComponent,
     TeaClzSchedComponent,
+    PaperMakerViewpaperComponent,
+    ReverseStr
   ], 
   imports: [ 
     FormsModule,

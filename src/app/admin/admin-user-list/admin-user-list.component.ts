@@ -187,9 +187,10 @@ export class AdminUserListComponent implements OnInit {
     this.toggleForm = false;
   }
 
-  onSubmitEdit(form8,user){
-    this.fireEvent2();
+  onSubmitEdit(form8, user){
+    console.log("Function called");
     console.log(form8.value);
+    this.users[this.users.indexOf(user)] = form8.value;
     this.Users.editUser(user._id, form8.value)
       .subscribe(result => {
         if (result.json().state) alert("User updated successfully");
