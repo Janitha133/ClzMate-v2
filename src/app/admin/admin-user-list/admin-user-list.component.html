@@ -299,7 +299,7 @@
                                 </div>
                               </div>
 
-                              <div formGroupName="clzes" class="form-group row" *ngIf="role == 'Student'">
+                              <!-- <div formGroupName="clzes" class="form-group row" *ngIf="role == 'Student'">
                                 <label for="inputFullame" class="col-sm-3 col-form-label">Class(es)</label>
                                 <div class="col-sm-4">
                                   <input #subject id="inputState" class="form-control" placeholder="Type Subject">
@@ -311,16 +311,30 @@
                                     </div>
                                   </select>
                                 </div>
-                                <!-- <div>
-                                  <select (ngModelChange)="setNewClz($event)" (ngModel)="classes">
-                                    <option *ngFor="let clz of classes" [ngValue]="clz">
-                                        {{clz.subjectName}}
-                                    </option>
-                                </select>
-                                </div> -->
+                                
                                 <div class="col-sm-3">
                                   <div class="btn btn-danger btn-sm" (click)="addClz(clz)">Add</div>
                                 </div>
+                              </div> -->
+
+                              <div class="form-group row">
+                                <label for="inputFullame" class="col-sm-2 col-form-label">Class(es)</label>
+                                <div class="col-sm-4">
+                                  <!-- <input #subject id="inputState" class="form-control" placeholder="Type Subject"> -->
+                                  <select #clz id="inputState" class="form-control">
+                                    <option *ngFor="let clz of classes" class="cell">{{ clz.clzNo }}</option>
+                                  </select>
+                                </div>
+                                <div class="col-sm-3">
+                                  <div class="btn btn-danger btn-sm" (click)="addclz(clz)">Add</div>
+                                </div>
+                              </div>
+
+                              <div class="form-group row">
+                                <div class="col-sm-2"></div>
+                                <ul class="list-group col-sm-4 ml-3">
+                                  <li class="list-group-item list-group-item-info" *ngFor="let topic of printArray" (click)="removeClz(topic)">{{topic}}</li>
+                                </ul>
                               </div>
 
                               <div class="form-group row" *ngIf="role == 'Student'">
@@ -397,8 +411,10 @@
                               <hr>
                               <button (click)="fireEvent()" mdbBtn type="button" color="danger" class="waves-light col-sm-3 float-right"
                                 mdbWavesEffect>Cancel</button>
-                              <button (click)="fireEvent2()" [disabled]="form8.invalid" mdbBtn type="submit" color="indigo" class="waves-light col-sm-3 float-right"
+                              <button [disabled]="form8.invalid" mdbBtn type="submit" color="indigo" class="waves-light col-sm-3 float-right"
                                 mdbWavesEffect>Save</button>
+                              <!-- <button (click)="fireEvent2()" [disabled]="form8.invalid" mdbBtn type="submit" color="indigo" class="waves-light col-sm-3 float-right"
+                                mdbWavesEffect>Save</button> -->
                             </form>
 
                           </div>

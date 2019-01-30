@@ -1,28 +1,31 @@
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/users.service';
-import { FormBuilder, Validators, FormArray } from '@angular/forms';
+import { FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 import { ClzService } from 'src/app/services/clz.service';
 
 @Component({
   selector: 'app-admin-user-list',
   templateUrl: './admin-user-list.component.html',
-  styleUrls: ['./admin-user-list.component.scss']
+  styleUrls: ['./admin-user-list.component.scss'],
+  providers: [ClzService, UserService]
 })
 export class AdminUserListComponent implements OnInit {
 
   users: any[] = [];
-  // searchUsers: any[] = [];
+  newClass: String
   role: String = "Student";
   selectedUser: any;
+  classArray : String[] = [];
+  printArray : String[] = [];
+  classes: any[] = [];
   toggleForm: boolean = false;
   form8;
-  classes: any[] = [];
   mobnumPattern = "^((\\+91-?)|0)?[0-9]{10}$";
 
   constructor(
     private http: Http,
-    private userService: UserService,
+    private Users: UserService,
     private fb1: FormBuilder,
     private Clzes: ClzService,
   ) {
@@ -57,6 +60,7 @@ export class AdminUserListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getAllClzes()
   }
 
   selectRole(_role) {
@@ -64,8 +68,35 @@ export class AdminUserListComponent implements OnInit {
     this.getUserByRole(this.role);
   }
 
+  getAllClzes(){
+    this.Clzes.getAllClzes()
+      .subscribe(result => {
+        this.classes = result.json().Clz;
+        if(result.json()) console.log(result.json());
+      })
+  }
+
+  addclz(clz: HTMLInputElement){
+    this.newClass = clz.value;
+    const noOfClasses = this.classes.length;
+    clz.value = ''; 
+    for(var i=0; i<noOfClasses; i++){
+      if(this.classes[i].clzNo == this.newClass){
+        var classId = this.classes[i]._id;
+        this.classArray.push(classId); 
+        this.printArray.push(this.newClass);
+      }
+    }
+  } 
+
+  removeClz(topic:FormControl){
+    this.clzes.removeAt(this.clzes.controls.indexOf(topic));
+    console.log(topic);
+    console.log(this.clzes.value);
+  }
+
   getUserByRole(userRole) {
-    this.userService.getUserByRole(userRole)
+    this.Users.getUserByRole(userRole)
       .subscribe(res => {
         this.users = res.json().User;
         console.log(Object.values(res.json().User));
@@ -106,7 +137,7 @@ export class AdminUserListComponent implements OnInit {
     console.log(user._id);
     let index = this.users.indexOf(user);
     this.users.splice(index, 1);
-    this.userService.deleteUser(user._id)
+    this.Users.deleteUser(user._id)
       .subscribe(response => {
         if (response.json().state) alert("user deleted");
         else alert("error occured");
@@ -157,11 +188,12 @@ export class AdminUserListComponent implements OnInit {
   }
 
   onSubmitEdit(form8,user){
+    this.fireEvent2();
     console.log(form8.value);
-    this.userService.editUser(user._id, form8.value)
+    this.Users.editUser(user._id, form8.value)
       .subscribe(result => {
-        if (result.json().state) alert("Card marker updated successfully");
-        else alert("Error occured please update Card marker again");
+        if (result.json().state) alert("User updated successfully");
+        else alert("Error occured please update user again"); 
         console.log(result);
       })
   }

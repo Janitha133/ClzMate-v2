@@ -83,19 +83,27 @@
       
       <div class="form-group row">
           <label for="techr" class="col-sm-2 col-form-label">Teacher</label>
-          <div class="col-sm-4">
-              <select id="inputState" class="form-control">
-                <option value="">Choose Teacher</option>
-                <option *ngFor="let teacher of teachersArray">{{ teacher.indexNo }}</option>
-              </select>
+          <div class="btn-group" mdbDropdown>
+            <button mdbDropdownToggle type="button" mdbBtn color="info" class="dropdown-toggle waves-light btn-sm ml-2"
+              mdbWavesEffect>
+              {{teacherSelect}}
+            </button>
+          
+            <div class="dropdown-menu dropdown-primary">
+              <a class="dropdown-item" *ngFor="let teacher of teachersArray" (click)="addTeacher(teacher)">{{ teacher.fullName }}</a>
             </div>
+          </div>
       
           <label for="paprmkr" class="col-sm-2 col-form-label">Card Marker</label>
-          <div class="col-sm-4">
-            <select id="inputState" class="form-control">
-              <option value="">Choose Card Marker</option>
-              <option *ngFor="let cardMarker of cardMarkersArray">{{ cardMarker.indexNo }}</option>
-            </select>
+          <div class="btn-group" mdbDropdown>
+            <button mdbDropdownToggle type="button" mdbBtn color="info" class="dropdown-toggle waves-light btn-sm ml-2"
+              mdbWavesEffect>
+              {{cardMarkerselect}}
+            </button>
+          
+            <div class="dropdown-menu dropdown-primary">
+              <a class="dropdown-item" *ngFor="let cardMarker of cardMarkersArray" (click)="addCardMarker(cardMarker)">{{ cardMarker.fullName }}</a>
+            </div>
           </div>
         </div>
 
@@ -198,7 +206,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let subject of subjects" class="cell">
-            <td>{{subject._id}}</td>
+            <td>{{subject.name}}</td>
             <td>{{subject.level}}</td>
             <td>{{subject.subjectStream}}</td>
           </tr>

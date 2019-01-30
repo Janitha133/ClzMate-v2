@@ -5,6 +5,7 @@ import { AuthService } from './../../../services/auth.service';
 import { Subject } from 'rxjs';
 import { ClzService } from '../../../services/clz.service';
 import { UserService } from '../../../services/users.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({ 
   selector: 'app-ad-reg-student',
@@ -81,6 +82,7 @@ export class AdRegStudentComponent implements OnInit {
       })
     this.form1.reset();
     this.printArray.length = 0
+    this.classArray.length = 0
   }
 
   get email(){return this.form1.get('email');}

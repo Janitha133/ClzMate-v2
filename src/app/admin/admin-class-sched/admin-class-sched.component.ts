@@ -13,6 +13,10 @@ import { UserService } from 'src/app/services/users.service';
 })
 export class AdminClassSchedComponent implements OnInit {
 
+  teacherSelect="Select Teacher"
+  teacher;
+  cardMarkerselect="Select Card Marker"
+  cardmarker;
   form5;
   form6;
   classes: any[] = [];
@@ -33,7 +37,7 @@ export class AdminClassSchedComponent implements OnInit {
       grade: ['', Validators.required],
       teacher: [''],
       papermarker: [''],
-      date: [''],
+      day: [''],
       batch: ['', Validators.required],
       stream: ['', Validators.required],
       time: ['', Validators.required]
@@ -51,6 +55,18 @@ export class AdminClassSchedComponent implements OnInit {
     this.getAllSubjects(),
     this.getCardMarkers(),
     this.getTeachers()
+  }
+
+  addTeacher(teacher){
+    this.teacher = teacher._id;
+    this.teacherSelect = teacher.fullName;
+    console.log(this.teacher);
+  }
+
+  addCardMarker(cardmarker){
+    this.cardmarker = cardmarker._id;
+    this.cardMarkerselect = cardmarker.fullName;
+    console.log(this.cardmarker)
   }
 
   getAllClzes(){
@@ -86,6 +102,8 @@ export class AdminClassSchedComponent implements OnInit {
   }
 
   onSubmit(form5){
+    form5.value['teacher']=this.teacher;
+    form5.value['cardMarker']=this.cardmarker;
     console.log(form5.value);
     this.Clzes.createClz(form5.value)
       .subscribe(result => {
