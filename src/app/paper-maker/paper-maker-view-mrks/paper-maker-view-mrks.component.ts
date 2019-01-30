@@ -128,11 +128,12 @@ export class PaperMakerViewMrksComponent implements OnInit {
         }
       }
     }else{
-      for(let i of this.marks){
-        if(i.paper.clz === c && i.paper._id === p){
-          this.marks_filtered.push(i)
-        }
-      }
+      // for(let i of this.marks){
+      //   if(i.paper.clz === c && i.paper._id === p){
+      //     this.marks_filtered.push(i)
+      //   }
+      // }
+      this.marks_filtered = this.marks;
     }
     
   }
